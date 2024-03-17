@@ -1,12 +1,13 @@
-package sit.tu_varna.bg.project;
+package sit.tu_varna.bg.project.shapes.circle;
 
-public class Circle extends Shape implements InvalidEntriesForShapes{
+import sit.tu_varna.bg.project.shapes.Shape;
+
+public class Circle implements Shape {
     private double centerX;
     private double centerY;
     private double radius;
 
-    public Circle(double centerX, double centerY, double radius, String name) {
-        super(name);
+    public Circle(double centerX, double centerY, double radius) {
         this.centerX = centerX;
         this.centerY = centerY;
         this.radius = radius;
@@ -36,8 +37,12 @@ public class Circle extends Shape implements InvalidEntriesForShapes{
         this.radius = radius;
     }
 
+
+
     @Override
-    public boolean isShapeValid() {
-        return !(radius <= 0);
+    public String convertIntoString() {
+        StringBuilder sb= new StringBuilder();
+
+        return null;
     }
 }

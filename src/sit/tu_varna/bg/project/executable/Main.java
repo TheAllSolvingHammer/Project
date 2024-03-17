@@ -1,4 +1,6 @@
-package sit.tu_varna.bg.project;
+package sit.tu_varna.bg.project.executable;
+
+import sit.tu_varna.bg.project.Test;
 
 import javax.sound.midi.Soundbank;
 

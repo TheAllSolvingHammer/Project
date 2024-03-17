@@ -1,4 +1,4 @@
-package sit.tu_varna.bg.project;
+package sit.tu_varna.bg.project.shapes.rectangle;
 
 public class Rectangle {
     private double initialX;

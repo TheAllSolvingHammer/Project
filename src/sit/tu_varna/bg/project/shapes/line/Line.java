@@ -1,4 +1,4 @@
-package sit.tu_varna.bg.project;
+package sit.tu_varna.bg.project.shapes.line;
 
 public class Line {
     private double startX;

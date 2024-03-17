@@ -1,4 +1,4 @@
-package sit.tu_varna.bg.project;
+package sit.tu_varna.bg.project.shapes.line;
 
 public class Polyline {
     // ne sum preglejdal vuzmojnost dali moje kato masiv ot linii ili kato masiv ot krodinati;
