@@ -33,23 +33,5 @@ public class FileManager {
         System.out.println("File " + file.getName() + " closed.");
     }
 
-    public static void main(String[] args) {
-        FileManager fileManager = FileManager.getInstance();
-
-        // Example usage
-        File file1 = new File("example.txt");
-        File file2 = new File("example2.txt");
-
-        fileManager.openFile(file1);
-        fileManager.openFile(file2);
-
-        System.out.println("Is file1 open? " + fileManager.isOpen(file1));
-        System.out.println("Is file2 open? " + fileManager.isOpen(file2));
-
-        fileManager.closeFile(file1);
-
-        System.out.println("Is file1 open? " + fileManager.isOpen(file1));
-        System.out.println("Is file2 open? " + fileManager.isOpen(file2));
-    }
 }
 
