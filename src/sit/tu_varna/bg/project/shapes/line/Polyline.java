@@ -10,4 +10,12 @@ public class Polyline {
     public Polyline(double[] arrayOfCoords) {
         this.arrayOfCoords = arrayOfCoords;
     }
+
+    public double[] getArrayOfCoords() {
+        return arrayOfCoords;
+    }
+
+    public void setArrayOfCoords(double[] arrayOfCoords) {
+        this.arrayOfCoords = arrayOfCoords;
+    }
 }
