@@ -1,17 +1,22 @@
 package sit.tu_varna.bg.project.shapes.circle;
 
+import sit.tu_varna.bg.project.colors.NamedColors;
+import sit.tu_varna.bg.project.shapes.AbstractShape;
 import sit.tu_varna.bg.project.shapes.Shape;
 
-public class Circle implements Shape {
+public class Circle extends AbstractShape {
     private double centerX;
     private double centerY;
     private double radius;
 
-    public Circle(double centerX, double centerY, double radius) {
+    public Circle(String name, NamedColors fill, double strokeWidth, NamedColors stroke,double centerX, double centerY, double radius) {
+        super(name, fill, strokeWidth, stroke);
         this.centerX = centerX;
         this.centerY = centerY;
         this.radius = radius;
     }
+
+
 
     public double getCenterX() {
         return centerX;
@@ -41,8 +46,10 @@ public class Circle implements Shape {
 
     @Override
     public String convertIntoString() {
-        StringBuilder sb= new StringBuilder();
+        StringBuilder sb = new StringBuilder();
+        sb.append("<circle ").append(super.convertIntoString());
+        sb.append (" cx=\""+centerX+"\" cy=\""+centerY+"\" r=\""+radius+"\" />");
 
-        return null;
+        return sb.toString();
     }
 }

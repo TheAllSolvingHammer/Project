@@ -1,6 +1,9 @@
 package sit.tu_varna.bg.project.shapes.elipse;
 
-public class Ellipse {
+import sit.tu_varna.bg.project.colors.NamedColors;
+import sit.tu_varna.bg.project.shapes.AbstractShape;
+
+public class Ellipse extends AbstractShape {
     /**
      * Всяка елипса съдържа в себе си поне 4 задължителни полета:
      * 1.Х-кординат на центъра
@@ -12,14 +15,25 @@ public class Ellipse {
      */
     private double centerX;
     private double centerY;
-    private double majorAxis;
-    private double minorAxis;
+    private double aAxis;
+    private double bAxis;
 
-    public Ellipse(double centerX, double centerY, double majorAxis, double minorAxis) {
+    public Ellipse(String name, NamedColors fill, double strokeWidth, NamedColors stroke,double centerX, double centerY, double majorAxis, double bAxis) {
+        super(name, fill, strokeWidth, stroke);
         this.centerX = centerX;
         this.centerY = centerY;
-        this.majorAxis = majorAxis;
-        this.minorAxis = minorAxis;
+        this.aAxis = majorAxis;
+        this.bAxis = bAxis;
+    }
+
+    @Override
+    public String convertIntoString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<circle ").append(super.convertIntoString());
+        sb.append (" cx=\""+centerX+"\" cy=\""+centerY+"\" rx=\""+aAxis+"\" ry=\""+bAxis+"\" />");
+
+        return sb.toString();
+
     }
 
     public double getCenterX() {
@@ -38,20 +52,20 @@ public class Ellipse {
         this.centerY = centerY;
     }
 
-    public double getMajorAxis() {
-        return majorAxis;
+    public double getaAxis() {
+        return aAxis;
     }
 
-    public void setMajorAxis(double majorAxis) {
-        this.majorAxis = majorAxis;
+    public void setaAxis(double aAxis) {
+        this.aAxis = aAxis;
     }
 
-    public double getMinorAxis() {
-        return minorAxis;
+    public double getbAxis() {
+        return bAxis;
     }
 
-    public void setMinorAxis(double minorAxis) {
-        this.minorAxis = minorAxis;
+    public void setbAxis(double bAxis) {
+        this.bAxis = bAxis;
     }
     // sigurno shte ima i drug konstruktor poradi drug vid elipsa
 }
