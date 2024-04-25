@@ -14,12 +14,6 @@ public abstract class AbstractShape implements Shape{
         this.strokeWidth = strokeWidth;
         this.stroke = stroke;
     }
-    public AbstractShape(NamedColors fill, double strokeWidth, NamedColors stroke) {
-        this.name =null;
-        this.fill = fill;
-        this.strokeWidth = strokeWidth;
-        this.stroke = stroke;
-    }
 
     @Override
     public String convertIntoString() {

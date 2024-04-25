@@ -8,9 +8,8 @@ public class Rectangle extends AbstractShape {
     private double initialY;
     private double width;
     private double height;
-    private boolean rounded;
-    private double roundCornerX=0;
-    private double roundCornerY=0;
+    private int roundCornerX=0;
+    private int roundCornerY=0;
 
     public Rectangle(String name, NamedColors fill, double strokeWidth, NamedColors stroke,double initialX, double initialY, double width, double height) {
         super(name, fill, strokeWidth, stroke);
@@ -18,10 +17,9 @@ public class Rectangle extends AbstractShape {
         this.initialY = initialY;
         this.width = width;
         this.height = height;
-        rounded=false;
     }
 
-    public Rectangle(String name, NamedColors fill, double strokeWidth, NamedColors stroke,double initialX, double initialY, double width, double height,double roundCornerX,double roundCornerY) {
+    public Rectangle(String name, NamedColors fill, double strokeWidth, NamedColors stroke,double initialX, double initialY, double width, double height,int roundCornerX,int roundCornerY) {
         super(name, fill, strokeWidth, stroke);
         this.initialX = initialX;
         this.initialY = initialY;
@@ -29,9 +27,22 @@ public class Rectangle extends AbstractShape {
         this.height = height;
         this.roundCornerX=roundCornerX;
         this.roundCornerY=roundCornerY;
-        rounded=false;
+
     }
 
+    @Override
+    public String convertIntoString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<rect ").append(super.convertIntoString());
+        if(roundCornerY>0 && roundCornerX>0) {
+            sb.append(" x=\"" + initialX + "\" y=\"" + initialY + "\" width=\"" + width + "\" height=\""+height+"\" rx=\""+roundCornerX + "\" ry=\""+roundCornerY+"\" />");
+        }
+        else if(roundCornerY==0 && roundCornerX==0){
+            sb.append(" x=\"" + initialX + "\" y=\"" + initialY + "\" width=\"" + width + "\" height=\""+height+"\" />");
+        }
+
+        return sb.toString();
+    }
 
     public double getInitialX() {
         return initialX;
@@ -69,7 +80,7 @@ public class Rectangle extends AbstractShape {
         return roundCornerX;
     }
 
-    public void setRoundCornerX(double roundCornerX) {
+    public void setRoundCornerX(int roundCornerX) {
         this.roundCornerX = roundCornerX;
     }
 
@@ -77,7 +88,7 @@ public class Rectangle extends AbstractShape {
         return roundCornerY;
     }
 
-    public void setRoundCornerY(double roundCornerY) {
+    public void setRoundCornerY(int roundCornerY) {
         this.roundCornerY = roundCornerY;
     }
 }
