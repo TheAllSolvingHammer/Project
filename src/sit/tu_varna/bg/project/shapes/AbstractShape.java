@@ -14,10 +14,20 @@ public abstract class AbstractShape implements Shape{
         this.strokeWidth = strokeWidth;
         this.stroke = stroke;
     }
+    public AbstractShape(NamedColors fill, double strokeWidth, NamedColors stroke) {
+        this.name =null;
+        this.fill = fill;
+        this.strokeWidth = strokeWidth;
+        this.stroke = stroke;
+    }
 
     @Override
     public String convertIntoString() {
-        return "name=\""+name+"\" fill=\""+fill+"\" stroke=\""+stroke+"\" stroke-width=\""+strokeWidth+"\"";
+        if(name==null || name.isEmpty()){
+            return "fill=\""+fill+"\" stroke=\""+stroke+"\" stroke-width=\""+strokeWidth+"\"";
+        }
+        else
+            return "name=\""+name+"\" fill=\""+fill+"\" stroke=\""+stroke+"\" stroke-width=\""+strokeWidth+"\"";
     }
 
     public String getName() {
@@ -51,4 +61,5 @@ public abstract class AbstractShape implements Shape{
     public void setStroke(NamedColors stroke) {
         this.stroke = stroke;
     }
+
 }

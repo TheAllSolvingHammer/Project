@@ -29,7 +29,7 @@ public class Ellipse extends AbstractShape {
     @Override
     public String convertIntoString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("<circle ").append(super.convertIntoString());
+        sb.append("<ellipse ").append(super.convertIntoString());
         sb.append (" cx=\""+centerX+"\" cy=\""+centerY+"\" rx=\""+aAxis+"\" ry=\""+bAxis+"\" />");
 
         return sb.toString();

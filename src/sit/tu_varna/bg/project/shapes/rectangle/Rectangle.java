@@ -1,22 +1,37 @@
 package sit.tu_varna.bg.project.shapes.rectangle;
 
-public class Rectangle {
+import sit.tu_varna.bg.project.colors.NamedColors;
+import sit.tu_varna.bg.project.shapes.AbstractShape;
+
+public class Rectangle extends AbstractShape {
     private double initialX;
     private double initialY;
     private double width;
     private double height;
-    private double roundCornerX;
-    private double roundCornerY;
+    private boolean rounded;
+    private double roundCornerX=0;
+    private double roundCornerY=0;
 
-    public Rectangle(double initialX, double initialY, double width, double height) {
+    public Rectangle(String name, NamedColors fill, double strokeWidth, NamedColors stroke,double initialX, double initialY, double width, double height) {
+        super(name, fill, strokeWidth, stroke);
         this.initialX = initialX;
         this.initialY = initialY;
         this.width = width;
         this.height = height;
-        roundCornerX=0;
-        roundCornerY=0;
+        rounded=false;
     }
-    //Veroqtno i drug construktor
+
+    public Rectangle(String name, NamedColors fill, double strokeWidth, NamedColors stroke,double initialX, double initialY, double width, double height,double roundCornerX,double roundCornerY) {
+        super(name, fill, strokeWidth, stroke);
+        this.initialX = initialX;
+        this.initialY = initialY;
+        this.width = width;
+        this.height = height;
+        this.roundCornerX=roundCornerX;
+        this.roundCornerY=roundCornerY;
+        rounded=false;
+    }
+
 
     public double getInitialX() {
         return initialX;
