@@ -19,7 +19,7 @@ public class ShapeManager implements ManageShape {
     @Override
     public String convertToText() {
         if(shapes.isEmpty()){
-            System.out.println("You can not parse 0 amout of figures");
+            System.out.println("You can not parse 0 amount of figures");
             return null;
         }
         else{

@@ -1,8 +1,9 @@
 package sit.tu_varna.bg.project.executable;
 
-import sit.tu_varna.bg.project.Test;
 import sit.tu_varna.bg.project.colors.NamedColors;
+import sit.tu_varna.bg.project.complete.ParseIntoText;
 import sit.tu_varna.bg.project.contracts.ManageShape;
+import sit.tu_varna.bg.project.contracts.Parser;
 import sit.tu_varna.bg.project.contracts.Shape;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 import sit.tu_varna.bg.project.shapes.circle.Circle;
@@ -18,15 +19,15 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        Test.printSmth();
-        //dddddddddddddddddddddddddddddddddddddddddd
+
+
         System.out.println("Testing if git works");
         Shape shape1 = new Circle("circle1", NamedColors.Blue,2,NamedColors.Green,30,20,10); //test circle i name
 
 
         Shape shape2 = new Ellipse("", NamedColors.Blue,10,NamedColors.Beige,100,200,300,20); //test ellipse without name
 
-        Shape shape3 = new Rectangle("", NamedColors.Red,10,NamedColors.Pink,100,200,500,400);
+        Shape shape3 = new Rectangle("", NamedColors.Red,10,NamedColors.Pink,450,200,500,400);
         Shape shape4 = new Rectangle("", NamedColors.Red,10,NamedColors.Pink,100,200,500,400,20,30);
 
         List<Integer> a1= new ArrayList<>();
@@ -37,14 +38,15 @@ public class Main {
         a1.add(700);
         a1.add(800);
 
-        Shape shapeline = new Polygon("",NamedColors.Green,4,NamedColors.Bisque,a1);
+        Shape shapolygon = new Polygon("",NamedColors.Green,4,NamedColors.Bisque,a1);
         ManageShape manager = new ShapeManager();
         manager.addShape(shape1);
         manager.addShape(shape2);
         manager.addShape(shape3);
         manager.addShape(shape4);
-        manager.addShape(shapeline);
-
+        manager.addShape(shapolygon);
+        Parser p1= new ParseIntoText(manager);
+        System.out.println(p1.parseText());
 
     }
 }
