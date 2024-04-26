@@ -1,8 +1,9 @@
 package sit.tu_varna.bg.project.shapes;
 
 import sit.tu_varna.bg.project.colors.NamedColors;
+import sit.tu_varna.bg.project.contracts.Shape;
 
-public abstract class AbstractShape implements Shape{
+public abstract class AbstractShape implements Shape {
     private String name;
     private NamedColors fill;
     private double strokeWidth;

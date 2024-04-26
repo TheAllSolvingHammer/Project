@@ -2,7 +2,6 @@ package sit.tu_varna.bg.project.shapes.circle;
 
 import sit.tu_varna.bg.project.colors.NamedColors;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
-import sit.tu_varna.bg.project.shapes.Shape;
 
 public class Circle extends AbstractShape {
     private double centerX;

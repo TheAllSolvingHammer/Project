@@ -1,24 +1,23 @@
 package sit.tu_varna.bg.project.shapes;
 
 
+import sit.tu_varna.bg.project.contracts.ManageShape;
+import sit.tu_varna.bg.project.contracts.Shape;
+
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 
 
-public class ShapeManager implements Shape{
+public class ShapeManager implements ManageShape {
     private Set<Shape> shapes;
 
     public ShapeManager() {
         shapes= new HashSet<>();
     }
-    public void addShapes(Shape shape){
-        shapes.add(shape);
-    }
+
 
     @Override
-    public String convertIntoString() {
+    public String convertToText() {
         if(shapes.isEmpty()){
             System.out.println("You can not parse 0 amout of figures");
             return null;
@@ -33,5 +32,18 @@ public class ShapeManager implements Shape{
             return sb.toString();
         }
 
+    }
+
+    @Override
+    public void addShape(Shape shape) {
+        shapes.add(shape);
+    }
+
+    @Override
+    public void removeShape(Shape shape) {
+        if(shapes.isEmpty()){
+            return;
+        }
+        shapes.remove(shape);
     }
 }
