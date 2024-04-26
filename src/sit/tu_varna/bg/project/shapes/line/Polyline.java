@@ -8,7 +8,7 @@ import java.util.List;
 public class Polyline extends AbstractShape {
 
 
-    // moje da se nareche polygon no bez da svurzvame kraishtata mu, variant e da nasledim ot polyline - polygon
+    // moje da se nareche polygon no bez da svurzvame kraishtata mu
     // zashtoto polygon e zatvoren uchastuk
     //ima opciq za fill no ne svurzva dvata kraq
     private List<Integer> arrayOfCoordinates;

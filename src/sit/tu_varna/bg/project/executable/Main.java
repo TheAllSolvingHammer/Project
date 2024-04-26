@@ -7,6 +7,7 @@ import sit.tu_varna.bg.project.shapes.Shape;
 import sit.tu_varna.bg.project.shapes.circle.Circle;
 import sit.tu_varna.bg.project.shapes.elipse.Ellipse;
 import sit.tu_varna.bg.project.shapes.line.Polyline;
+import sit.tu_varna.bg.project.shapes.polygon.Polygon;
 import sit.tu_varna.bg.project.shapes.rectangle.Rectangle;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class Main {
         a1.add(700);
         a1.add(800);
 
-        Shape shapeline = new Polyline("",NamedColors.Green,4,NamedColors.Bisque,a1);
+        Shape shapeline = new Polygon("",NamedColors.Green,4,NamedColors.Bisque,a1);
         System.out.println(shapeline.convertIntoString());
 
     }
