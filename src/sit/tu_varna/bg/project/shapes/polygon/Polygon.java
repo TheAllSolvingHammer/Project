@@ -1,10 +1,14 @@
 package sit.tu_varna.bg.project.shapes.polygon;
 
-public class Polygon {
-    //shte razgledam sluchaq za nasledqvaneto
-    private double[] coords;
+import sit.tu_varna.bg.project.colors.NamedColors;
+import sit.tu_varna.bg.project.shapes.AbstractShape;
 
-    public Polygon(double[] coords) {
-        this.coords = coords;
+public class Polygon extends AbstractShape {
+    private double[] arrayOfCoordinates;
+
+
+    public Polygon(String name, NamedColors fill, double strokeWidth, NamedColors stroke,double[] arrayOfCoordinates ){
+        super(name, fill, strokeWidth, stroke);
+        this.arrayOfCoordinates=arrayOfCoordinates;
     }
 }

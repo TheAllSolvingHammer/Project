@@ -1,21 +1,44 @@
 package sit.tu_varna.bg.project.shapes.line;
 
-public class Polyline {
-    // ne sum preglejdal vuzmojnost dali moje kato masiv ot linii ili kato masiv ot krodinati;
+import sit.tu_varna.bg.project.colors.NamedColors;
+import sit.tu_varna.bg.project.shapes.AbstractShape;
+
+import java.util.List;
+
+public class Polyline extends AbstractShape {
+
 
     // moje da se nareche polygon no bez da svurzvame kraishtata mu, variant e da nasledim ot polyline - polygon
     // zashtoto polygon e zatvoren uchastuk
-    private double[] arrayOfCoords;
+    //ima opciq za fill no ne svurzva dvata kraq
+    private List<Integer> arrayOfCoordinates;
 
-    public Polyline(double[] arrayOfCoords) {
-        this.arrayOfCoords = arrayOfCoords;
+    public Polyline(String name, NamedColors fill, double strokeWidth, NamedColors stroke,List<Integer> arrayOfCoordinates) {
+        super(name, fill, strokeWidth, stroke);
+        this.arrayOfCoordinates = arrayOfCoordinates;
     }
 
-    public double[] getArrayOfCoords() {
-        return arrayOfCoords;
+
+    @Override
+    public String convertIntoString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<polyline ").append(super.convertIntoString());
+        sb.append (" points=\"");
+        for(int i=0;i<arrayOfCoordinates.size();i+=2){
+            sb.append(arrayOfCoordinates.get(i)).append(",").append(arrayOfCoordinates.get(i+1)).append(" ");
+
+        }
+
+        sb.delete(sb.length()-1,sb.length());
+        sb.append("\" />");
+        return sb.toString();
     }
 
-    public void setArrayOfCoords(double[] arrayOfCoords) {
-        this.arrayOfCoords = arrayOfCoords;
+    public List<Integer> getArrayOfCoordinates() {
+        return arrayOfCoordinates;
+    }
+
+    public void setArrayOfCoordinates(List<Integer> arrayOfCoordinates) {
+        this.arrayOfCoordinates = arrayOfCoordinates;
     }
 }
