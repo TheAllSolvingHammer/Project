@@ -5,6 +5,7 @@ import sit.tu_varna.bg.project.contracts.Creator;
 import sit.tu_varna.bg.project.contracts.Shape;
 import sit.tu_varna.bg.project.shapes.rectangle.Rectangle;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class RectangleCreator implements Creator {
@@ -26,8 +27,8 @@ public class RectangleCreator implements Creator {
         double height;
         int roundCornerX = 0;
         int roundCornerY = 0;
-            fill = NamedColors.valueOf(scanner.next());
-            stroke = NamedColors.valueOf(scanner.next());
+            fill = NamedColors.valueOf(scanner.next().toUpperCase());
+            stroke = NamedColors.valueOf(scanner.next().toUpperCase());
             strokeWidth = scanner.nextDouble();
             initialX = scanner.nextDouble();
             initialY = scanner.nextDouble();
