@@ -13,8 +13,8 @@ public class Polyline extends AbstractShape {
     //ima opciq za fill no ne svurzva dvata kraq
     private List<Integer> arrayOfCoordinates;
 
-    public Polyline(String name, NamedColors fill, double strokeWidth, NamedColors stroke,List<Integer> arrayOfCoordinates) {
-        super(name, fill, strokeWidth, stroke);
+    public Polyline(NamedColors fill, double strokeWidth, NamedColors stroke,List<Integer> arrayOfCoordinates) {
+        super(fill, strokeWidth, stroke);
         this.arrayOfCoordinates = arrayOfCoordinates;
     }
 

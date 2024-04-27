@@ -11,16 +11,16 @@ public class Rectangle extends AbstractShape {
     private int roundCornerX=0;
     private int roundCornerY=0;
 
-    public Rectangle(String name, NamedColors fill, double strokeWidth, NamedColors stroke,double initialX, double initialY, double width, double height) {
-        super(name, fill, strokeWidth, stroke);
+    public Rectangle(NamedColors fill, double strokeWidth, NamedColors stroke,double initialX, double initialY, double width, double height) {
+        super(fill, strokeWidth, stroke);
         this.initialX = initialX;
         this.initialY = initialY;
         this.width = width;
         this.height = height;
     }
 
-    public Rectangle(String name, NamedColors fill, double strokeWidth, NamedColors stroke,double initialX, double initialY, double width, double height,int roundCornerX,int roundCornerY) {
-        super(name, fill, strokeWidth, stroke);
+    public Rectangle(NamedColors fill, double strokeWidth, NamedColors stroke,double initialX, double initialY, double width, double height,int roundCornerX,int roundCornerY) {
+        super(fill, strokeWidth, stroke);
         this.initialX = initialX;
         this.initialY = initialY;
         this.width = width;

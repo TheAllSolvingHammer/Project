@@ -8,8 +8,8 @@ import java.util.List;
 public class Polygon extends AbstractShape {
     private List<Integer> arrayOfCoordinates;
 
-    public Polygon(String name, NamedColors fill, double strokeWidth, NamedColors stroke,List<Integer> arrayOfCoordinates) {
-        super(name, fill, strokeWidth, stroke);
+    public Polygon(NamedColors fill, double strokeWidth, NamedColors stroke,List<Integer> arrayOfCoordinates) {
+        super(fill, strokeWidth, stroke);
         this.arrayOfCoordinates = arrayOfCoordinates;
     }
 

@@ -4,13 +4,13 @@ import sit.tu_varna.bg.project.colors.NamedColors;
 import sit.tu_varna.bg.project.contracts.Shape;
 
 public abstract class AbstractShape implements Shape {
-    private String name;
+
     private NamedColors fill;
     private double strokeWidth;
     private NamedColors stroke;
 
-    public AbstractShape(String name, NamedColors fill, double strokeWidth, NamedColors stroke) {
-        this.name = name;
+    public AbstractShape(NamedColors fill, double strokeWidth, NamedColors stroke) {
+
         this.fill = fill;
         this.strokeWidth = strokeWidth;
         this.stroke = stroke;
@@ -18,20 +18,11 @@ public abstract class AbstractShape implements Shape {
 
     @Override
     public String convertIntoString() {
-        if(name==null || name.isEmpty()){
+
             return "fill=\""+fill+"\" stroke=\""+stroke+"\" stroke-width=\""+strokeWidth+"\"";
-        }
-        else
-            return "name=\""+name+"\" fill=\""+fill+"\" stroke=\""+stroke+"\" stroke-width=\""+strokeWidth+"\"";
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public NamedColors getFill() {
         return fill;

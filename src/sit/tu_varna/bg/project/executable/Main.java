@@ -24,13 +24,13 @@ public class Main {
 
 
         System.out.println("Testing if git works");
-        Shape shape1 = new Circle("circle1", NamedColors.Blue,2,NamedColors.Green,30,20,10); //test circle i name
+        Shape shape1 = new Circle(NamedColors.Blue,2,NamedColors.Green,30,20,10); //test circle i name
 
 
-        Shape shape2 = new Ellipse("", NamedColors.Blue,10,NamedColors.Beige,100,200,300,20); //test ellipse without name
+        Shape shape2 = new Ellipse(NamedColors.Blue,10,NamedColors.Beige,100,200,300,20); //test ellipse without name
 
-        Shape shape3 = new Rectangle("", NamedColors.Red,10,NamedColors.Pink,450,200,500,400);
-        Shape shape4 = new Rectangle("", NamedColors.Red,10,NamedColors.Pink,100,200,500,400,20,30);
+        Shape shape3 = new Rectangle(NamedColors.Red,10,NamedColors.Pink,450,200,500,400);
+        Shape shape4 = new Rectangle(NamedColors.Red,10,NamedColors.Pink,100,200,500,400,20,30);
 
         List<Integer> a1= new ArrayList<>();
         a1.add(300);
@@ -40,7 +40,7 @@ public class Main {
         a1.add(700);
         a1.add(800);
 
-        Shape shapolygon = new Polygon("",NamedColors.Green,4,NamedColors.Bisque,a1);
+        Shape shapolygon = new Polygon(NamedColors.Green,4,NamedColors.Bisque,a1);
         ManageShape manager = new ShapeManager();
         manager.addShape(shape1);
         manager.addShape(shape2);
@@ -49,8 +49,10 @@ public class Main {
         manager.addShape(shapolygon);
         Parser p1= new ParseIntoText(manager);
         System.out.println(p1.parseText());
-        String s1="rectangle rec1 red pink 10 100 200 500 400 20 30";
-
+        String s1="rectangle red pink 10 100 200 500 400 20 30";
+        int index=s1.indexOf(" ");
+        String s2=s1.substring(index+1,s1.length()-1);
+        System.out.println(s2);
 
     }
 }

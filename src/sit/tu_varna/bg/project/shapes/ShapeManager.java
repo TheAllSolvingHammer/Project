@@ -4,20 +4,20 @@ package sit.tu_varna.bg.project.shapes;
 import sit.tu_varna.bg.project.contracts.ManageShape;
 import sit.tu_varna.bg.project.contracts.Shape;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ShapeManager implements ManageShape {
-    private Set<Shape> shapes;
+    private List<Shape> shapes;
 
     public ShapeManager() {
-        shapes= new HashSet<>();
+        shapes= new ArrayList<>();
     }
 
 
     @Override
-    public Set<Shape> getShapes() {
+    public List<Shape> getShapes() {
         return shapes;
     }
 

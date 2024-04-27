@@ -18,8 +18,8 @@ public class Ellipse extends AbstractShape {
     private double aAxis;
     private double bAxis;
 
-    public Ellipse(String name, NamedColors fill, double strokeWidth, NamedColors stroke,double centerX, double centerY, double majorAxis, double bAxis) {
-        super(name, fill, strokeWidth, stroke);
+    public Ellipse(NamedColors fill, double strokeWidth, NamedColors stroke,double centerX, double centerY, double majorAxis, double bAxis) {
+        super(fill, strokeWidth, stroke);
         this.centerX = centerX;
         this.centerY = centerY;
         this.aAxis = majorAxis;

@@ -8,8 +8,8 @@ public class Circle extends AbstractShape {
     private double centerY;
     private double radius;
 
-    public Circle(String name, NamedColors fill, double strokeWidth, NamedColors stroke,double centerX, double centerY, double radius) {
-        super(name, fill, strokeWidth, stroke);
+    public Circle(NamedColors fill, double strokeWidth, NamedColors stroke,double centerX, double centerY, double radius) {
+        super(fill, strokeWidth, stroke);
         this.centerX = centerX;
         this.centerY = centerY;
         this.radius = radius;
