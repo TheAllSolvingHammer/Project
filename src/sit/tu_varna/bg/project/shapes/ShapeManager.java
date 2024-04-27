@@ -17,21 +17,8 @@ public class ShapeManager implements ManageShape {
 
 
     @Override
-    public String convertToText() {
-        if(shapes.isEmpty()){
-            System.out.println("You can not parse 0 amount of figures");
-            return null;
-        }
-        else{
-            StringBuilder sb=new StringBuilder();
-            for(Shape s: shapes){
-                sb.append(s.convertIntoString());
-                sb.append("\n");
-            }
-            sb.delete(sb.length()-1,sb.length());
-            return sb.toString();
-        }
-
+    public Set<Shape> getShapes() {
+        return shapes;
     }
 
     @Override

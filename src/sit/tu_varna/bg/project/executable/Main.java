@@ -1,5 +1,6 @@
 package sit.tu_varna.bg.project.executable;
 
+import sit.tu_varna.bg.project.CommandLine;
 import sit.tu_varna.bg.project.colors.NamedColors;
 import sit.tu_varna.bg.project.complete.ParseIntoText;
 import sit.tu_varna.bg.project.contracts.ManageShape;
@@ -13,6 +14,7 @@ import sit.tu_varna.bg.project.shapes.rectangle.Rectangle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Main {
@@ -47,6 +49,8 @@ public class Main {
         manager.addShape(shapolygon);
         Parser p1= new ParseIntoText(manager);
         System.out.println(p1.parseText());
+        String s1="rectangle rec1 red pink 10 100 200 500 400 20 30";
+
 
     }
 }

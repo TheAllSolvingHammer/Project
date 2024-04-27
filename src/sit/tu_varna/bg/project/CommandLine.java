@@ -40,7 +40,7 @@ public class CommandLine {
         System.out.println("3. Save");
         System.out.println("4. Save as");
         System.out.println("5. Help");
-        System.out.println("5. Exit");
+        System.out.println("6. Exit");
     }
 
     private static void open() {
@@ -49,7 +49,7 @@ public class CommandLine {
     }
 
     private static void close() {
-
+        System.out.println("zatvarqne");
 
     }
 
@@ -62,7 +62,7 @@ public class CommandLine {
 
     }
     private static void help() {
-
+        System.out.println("i need help also");
 
     }
 }
