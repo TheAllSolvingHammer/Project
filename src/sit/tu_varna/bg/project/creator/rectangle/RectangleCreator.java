@@ -18,33 +18,74 @@ public class RectangleCreator implements Creator {
     @Override
     public Shape createShape() {
         Scanner scanner = new Scanner(parameters);
-        NamedColors fill;
-        NamedColors stroke;
-        double strokeWidth;
-        double initialX;
-        double initialY;
-        double width;
-        double height;
+        if (!scanner.hasNext()) {
+            System.out.println("Not enough arguments!");
+            return null;
+        }
+        String fillColor = scanner.next();
+        if (!isValidColor(fillColor)) {
+            System.out.println("Fill color is not valid!");
+            return null;
+        }
+        NamedColors fill = NamedColors.valueOf(fillColor.toUpperCase(Locale.ROOT));
+        if (!scanner.hasNext()) {
+            System.out.println("Not enough arguments!");
+            return null;
+        }
+        String strokeColor = scanner.next();
+        if (!isValidColor(strokeColor)) {
+            System.out.println("Stroke color is not valid!");
+            return null;
+        }
+        NamedColors stroke = NamedColors.valueOf(strokeColor.toUpperCase(Locale.ROOT));
+        if (!scanner.hasNextDouble()) {
+            System.out.println("Passed value for stroke width is not a real number!");
+            return null;
+        }
+        double strokeWidth = scanner.nextDouble();
+        if (!scanner.hasNextDouble()) {
+            System.out.println("Passed value for X coordinate is not a real number!");
+            return null;
+        }
+        double initialX = scanner.nextDouble();
+        if (!scanner.hasNextDouble()) {
+            System.out.println("Passed value for Y coordinate is not a real number!");
+            return null;
+        }
+        double initialY = scanner.nextDouble();
+        if (!scanner.hasNextDouble()) {
+            System.out.println("Passed value for width is not a real number!");
+            return null;
+        }
+        double width = scanner.nextDouble();
+        if (!scanner.hasNextDouble()) {
+            System.out.println("Passed value for height is not a real number!");
+            return null;
+        }
+        double height = scanner.nextDouble();
         int roundCornerX = 0;
         int roundCornerY = 0;
-            fill = NamedColors.valueOf(scanner.next().toUpperCase());
-            stroke = NamedColors.valueOf(scanner.next().toUpperCase());
-            strokeWidth = scanner.nextDouble();
-            initialX = scanner.nextDouble();
-            initialY = scanner.nextDouble();
-            width = scanner.nextDouble();
-            height = scanner.nextDouble();
+        if (scanner.hasNextInt()) {
+            roundCornerX = scanner.nextInt();
+        }
+        if (scanner.hasNextInt()) {
+            roundCornerY = scanner.nextInt();
+        }
+        if (roundCornerY == 0 || roundCornerX == 0) {
+            return new Rectangle(fill, strokeWidth, stroke, initialX, initialY, width, height);
+        } else {
+            return new Rectangle(fill, strokeWidth, stroke, initialX, initialY, width, height, roundCornerX, roundCornerY);
+        }
+    }
 
-            if (scanner.hasNextInt()) {
-                roundCornerX = scanner.nextInt();
-                if (scanner.hasNextInt()) {
-                    roundCornerY = scanner.nextInt();
-                }
+    @Override
+    public boolean isValidColor(String color) {
+        for (NamedColors namedColor : NamedColors.values()) {
+            if (namedColor.name().equalsIgnoreCase(color)) {
+                return true;
             }
-            if(roundCornerY==0 || roundCornerX==0){
-                return new Rectangle(fill, strokeWidth, stroke, initialX, initialY, width, height);
-            }
-            else return new Rectangle(fill, strokeWidth, stroke, initialX, initialY, width, height, roundCornerX, roundCornerY);
+        }
+        return false;
     }
 
 }

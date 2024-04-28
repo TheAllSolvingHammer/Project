@@ -19,8 +19,8 @@ public class Polygon extends AbstractShape {
         StringBuilder sb = new StringBuilder();
         sb.append("<polygon ").append(super.convertIntoString());
         sb.append (" points=\"");
-        for(int i=0;i<arrayOfCoordinates.size();i+=2){
-            sb.append(arrayOfCoordinates.get(i)).append(",").append(arrayOfCoordinates.get(i+1)).append(" ");
+        for(int i=1;i<arrayOfCoordinates.size();i+=2){
+            sb.append(arrayOfCoordinates.get(i-1)).append(",").append(arrayOfCoordinates.get(i)).append(" ");
 
         }
 

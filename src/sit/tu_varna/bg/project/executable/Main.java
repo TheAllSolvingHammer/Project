@@ -26,13 +26,14 @@ public class Main {
 
 
         System.out.println("Testing if git works");
-        String s1="rectangle brown pink 10 200 300 500 400 20 30";
+        String s1="rectangle brown pink 10 200 300 500 400 10 20";
         int index=s1.indexOf(" ");
         String s2=s1.substring(index+1);
 
         String s3=s1.substring(0,index);
         Creator shapef = FactoryCreator.getFactory(s3,s2);
         Shape shape0 = shapef.createShape();
+
         Shape shape1 = new Circle(NamedColors.BLUE,2,NamedColors.GREEN,30,20,10); //test circle i name
 
 
@@ -48,6 +49,8 @@ public class Main {
         a1.add(600);
         a1.add(700);
         a1.add(800);
+        a1.add(900);
+        a1.add(1000);
 
         Shape shapolygon = new Polygon(NamedColors.GREEN,4,NamedColors.BISQUE,a1);
         ManageShape manager = new ShapeManager();

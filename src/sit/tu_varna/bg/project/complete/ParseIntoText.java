@@ -20,8 +20,10 @@ public class ParseIntoText implements Parser {
                 " xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">");
         sb.append("\n");
         for(Shape s: shape.getShapes()){
-            sb.append(s.convertIntoString());
-            sb.append("\n");
+            if(s!=null) {
+                sb.append(s.convertIntoString());
+                sb.append("\n");
+            }
         }
         sb.delete(sb.length()-1,sb.length());
         sb.append("\n</svg>");
