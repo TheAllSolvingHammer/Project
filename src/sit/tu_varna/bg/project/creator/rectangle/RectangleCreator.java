@@ -1,6 +1,7 @@
 package sit.tu_varna.bg.project.creator.rectangle;
 
-import sit.tu_varna.bg.project.colors.NamedColors;
+import sit.tu_varna.bg.project.creator.AbstractCreator;
+import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.contracts.Creator;
 import sit.tu_varna.bg.project.contracts.Shape;
 import sit.tu_varna.bg.project.shapes.rectangle.Rectangle;
@@ -8,11 +9,11 @@ import sit.tu_varna.bg.project.shapes.rectangle.Rectangle;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class RectangleCreator implements Creator {
+public class RectangleCreator extends AbstractCreator {
     private String parameters;
 
     public RectangleCreator(String parameters) {
-        this.parameters = parameters;
+        super(parameters);
     }
 
     @Override
@@ -23,7 +24,7 @@ public class RectangleCreator implements Creator {
             return null;
         }
         String fillColor = scanner.next();
-        if (!isValidColor(fillColor)) {
+        if (!validColor(fillColor)) {
             System.out.println("Fill color is not valid!");
             return null;
         }
@@ -33,7 +34,7 @@ public class RectangleCreator implements Creator {
             return null;
         }
         String strokeColor = scanner.next();
-        if (!isValidColor(strokeColor)) {
+        if (!validColor(strokeColor)) {
             System.out.println("Stroke color is not valid!");
             return null;
         }
@@ -76,16 +77,6 @@ public class RectangleCreator implements Creator {
         } else {
             return new Rectangle(fill, strokeWidth, stroke, initialX, initialY, width, height, roundCornerX, roundCornerY);
         }
-    }
-
-    @Override
-    public boolean isValidColor(String color) {
-        for (NamedColors namedColor : NamedColors.values()) {
-            if (namedColor.name().equalsIgnoreCase(color)) {
-                return true;
-            }
-        }
-        return false;
     }
 
 }

@@ -1,6 +1,6 @@
 package sit.tu_varna.bg.project.shapes.rectangle;
 
-import sit.tu_varna.bg.project.colors.NamedColors;
+import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
 
 public class Rectangle extends AbstractShape {
