@@ -17,7 +17,7 @@ import java.util.Map;
 public class FlyWeightCreator {
 
     private static Map<Figures,Map<String,Shape>> products;
-
+//
     public FlyWeightCreator() {
         new EnumMap<>(Figures.class);
     }
