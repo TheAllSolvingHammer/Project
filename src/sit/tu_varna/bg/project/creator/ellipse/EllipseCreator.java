@@ -1,16 +1,15 @@
-package sit.tu_varna.bg.project.creator.circle;
+package sit.tu_varna.bg.project.creator.ellipse;
 
 import sit.tu_varna.bg.project.contracts.Shape;
 import sit.tu_varna.bg.project.creator.AbstractCreator;
 import sit.tu_varna.bg.project.enums.NamedColors;
-import sit.tu_varna.bg.project.shapes.circle.Circle;
-
+import sit.tu_varna.bg.project.shapes.elipse.Ellipse;
 
 import java.util.Locale;
 import java.util.Scanner;
 
-public class CircleCreator extends AbstractCreator {
-    public CircleCreator(String parameters) {
+public class EllipseCreator extends AbstractCreator {
+    public EllipseCreator(String parameters) {
         super(parameters);
     }
 
@@ -53,11 +52,15 @@ public class CircleCreator extends AbstractCreator {
         }
         double initialY = scanner.nextDouble();
         if (!scanner.hasNextDouble()) {
-            System.out.println("Passed value for width is not a real number!");
+            System.out.println("Passed value for radius is not a real number!");
             return null;
         }
-        double radius = scanner.nextDouble();
-       return new Circle(fill,strokeWidth,stroke,initialX,initialY,radius);
+        double radiusX = scanner.nextDouble();
+        if (!scanner.hasNextDouble()) {
+            System.out.println("Passed value for radius is not a real number!");
+            return null;
+        }
+        double radiusY = scanner.nextDouble();
+        return new Ellipse(fill,strokeWidth,stroke,initialX,initialY,radiusX,radiusY);
     }
-
 }

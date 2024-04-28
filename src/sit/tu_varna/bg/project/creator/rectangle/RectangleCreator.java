@@ -18,7 +18,7 @@ public class RectangleCreator extends AbstractCreator {
 
     @Override
     public Shape createShape() {
-        Scanner scanner = new Scanner(parameters);
+        Scanner scanner = new Scanner(getParameters());
         if (!scanner.hasNext()) {
             System.out.println("Not enough arguments!");
             return null;
