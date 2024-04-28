@@ -4,7 +4,7 @@ import sit.tu_varna.bg.project.contracts.Shape;
 import sit.tu_varna.bg.project.creator.AbstractCreator;
 import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.shapes.line.Line;
-import sit.tu_varna.bg.project.shapes.rectangle.Rectangle;
+
 
 import java.util.Locale;
 import java.util.Scanner;
