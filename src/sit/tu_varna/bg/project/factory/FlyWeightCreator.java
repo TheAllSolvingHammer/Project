@@ -8,8 +8,7 @@ import sit.tu_varna.bg.project.creator.line.LineCreator;
 import sit.tu_varna.bg.project.creator.polygon.PolygonCreator;
 import sit.tu_varna.bg.project.creator.rectangle.RectangleCreator;
 import sit.tu_varna.bg.project.enums.Figures;
-import sit.tu_varna.bg.project.shapes.elipse.Ellipse;
-import sit.tu_varna.bg.project.shapes.rectangle.Rectangle;
+
 
 import java.util.EnumMap;
 import java.util.HashMap;
