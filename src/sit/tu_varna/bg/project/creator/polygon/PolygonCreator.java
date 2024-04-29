@@ -47,9 +47,12 @@ public class PolygonCreator extends AbstractCreator {
         while(scanner.hasNextDouble()){
             array.add(scanner.nextInt());
         }
+        /*
         if(array.size()<2){
             return null;
         }
+
+         */
         return new Polyline(fill,strokeWidth,stroke,array);
     }
 }

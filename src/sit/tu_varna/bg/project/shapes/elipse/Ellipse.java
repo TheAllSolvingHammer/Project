@@ -26,6 +26,10 @@ public class Ellipse extends AbstractShape {
         this.bAxis = bAxis;
     }
 
+    /**
+     * convertira
+     * @return
+     */
     @Override
     public String convertIntoString() {
         StringBuilder sb = new StringBuilder();

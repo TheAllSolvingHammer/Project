@@ -27,10 +27,27 @@ public class ShapeManager implements ManageShape {
     }
 
     @Override
-    public void removeShape(Shape shape) {
+    public void removeShape(int index) {
+        if(index<0 || index>shapes.size()){
+            return;
+        }
         if(shapes.isEmpty()){
             return;
         }
-        shapes.remove(shape);
+        shapes.remove(index);
     }
+
+    @Override
+    public List<Shape> within(double x,double y,double sideOne,double sideTwo) {
+        for(Shape s: shapes){
+
+        }
+        return null;
+    }
+
+    @Override
+    public List<Shape> within(double x, double y, double radius) {
+        return null;
+    }
+
 }

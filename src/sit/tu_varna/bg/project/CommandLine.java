@@ -34,6 +34,7 @@ public class CommandLine {
 }
 
     private static void displayMenu() {
+        // nqma nujda ot tova
         System.out.println("MENU");
         System.out.println("1. Open");
         System.out.println("2. Close");
