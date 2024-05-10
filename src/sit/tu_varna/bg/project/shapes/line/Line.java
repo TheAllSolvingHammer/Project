@@ -2,6 +2,8 @@ package sit.tu_varna.bg.project.shapes.line;
 
 import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.contracts.Shape;
+import sit.tu_varna.bg.project.regions.CircleRegion;
+import sit.tu_varna.bg.project.regions.RectangleRegion;
 
 public class Line implements Shape {
     private int strokeWidth;
@@ -12,7 +14,16 @@ public class Line implements Shape {
     private int endY;
 
 
-
+    /**
+     * Линията се приема като самостоятелна единица без да бъде наследяване от абстрактен клас AbstractShape, защото в някои случаи не се
+     * преглежда като фигура
+     * @param strokeWidth - Дебелина на линията
+     * @param color - Цвят на линията
+     * @param startX - начален Х кординат
+     * @param startY - начален У кординат
+     * @param endX - краен Х кординат
+     * @param endY - краен У кординат
+     */
     public Line(int strokeWidth, NamedColors color,int startX, int startY, int endX, int endY) {
         this.strokeWidth = strokeWidth;
         this.color = color;
@@ -22,23 +33,60 @@ public class Line implements Shape {
         this.endY = endY;
 
     }
-
+    /**
+     * Методът конвертира обекта в стрингова репрезентация като запазва полетата на обеката във вид:
+     * <line [strokeWidth [stroke] [xStart] [yStart] [xEnd] [yEnd] />
+     * Методът не използва параметри
+     * @return Низ представляваш SVG команда за създаването на линия
+     */
     @Override
     public String convertIntoString() {
             return "<line stroke-width=\""+strokeWidth+"\" stroke=\""+color+"\" x1=\""+startX+"\" y1=\""+startY+"\" x2=\""+endX+"\" y2=\""+endY+"\" />";
     }
-
+    /**
+     * Транслира/Измества линията по Х кординат
+     * @param sx - > изместване по Х абцисата
+     */
     @Override
     public void translateX(int sx) {
         setStartX(getStartX()+sx);
         setEndX(getEndX()+sx);
     }
-
+    /**
+     * Транслира/Измества линия по У кординат
+     * @param sy - > изместване по У ординатата
+     */
     @Override
     public void translateY(int sy) {
         setStartY(getStartY()+sy);
         setEndY(getEndY()+sy);
 
+    }
+
+    /**
+     * Проверява дали дадената линия ще е попадне в кръгов регион използвайки формула за кръг:
+     * (x-x0)^2+(y-y0)^2<=R^2
+     * @param region представлява регионът, който методът получава като параметър
+     * @return връща дали линия е попаднала изцяло в областта
+     */
+    @Override
+    public boolean isWithin(CircleRegion region) {
+        double equation1=Math.pow(startX- region.getX(),2)+Math.pow(startY- region.getY(),2);
+        double equation2=Math.pow(endX- region.getX(),2)+Math.pow(endY- region.getY(),2);
+        return(equation1<=Math.pow(region.getRadius(), 2) && equation2<=Math.pow(region.getRadius(), 2));
+    }
+    /**
+     * Проверява дали дадената линия ще е попадне в правоъгълен регион
+     * @param region представлява регионът, който методът получава като параметър
+     * @return връща дали линия е попаднала изцяло в областта
+     */
+    @Override
+    public boolean isWithin(RectangleRegion region) {
+        boolean xCheck= (startX <= region.getX()+ region.getWidth() && startX>= region.getX());
+        boolean yCheck= (startY<=region.getY()+region.getHeight() && startY>= region.getY());
+        boolean xCheck2= (endX <= region.getX()+ region.getWidth() && endX>= region.getX());
+        boolean yCheck2= (endY<=region.getY()+region.getHeight() && endY>= region.getY());
+        return (xCheck && yCheck && xCheck2 && yCheck2);
     }
 
     public int getStrokeWidth() {

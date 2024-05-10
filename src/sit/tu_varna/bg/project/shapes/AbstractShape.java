@@ -3,12 +3,19 @@ package sit.tu_varna.bg.project.shapes;
 import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.contracts.Shape;
 
+
 public abstract class AbstractShape implements Shape {
 
     private NamedColors fill;
     private double strokeWidth;
     private NamedColors stroke;
 
+    /**
+     * Конструктор на абстрактен клас AbstractShape
+     * @param fill - запълване на дадената фигура
+     * @param strokeWidth - дебелина на линията описваща фигурата
+     * @param stroke - цвят на линията
+     */
     public AbstractShape(NamedColors fill, double strokeWidth, NamedColors stroke) {
 
         this.fill = fill;
@@ -16,6 +23,11 @@ public abstract class AbstractShape implements Shape {
         this.stroke = stroke;
     }
 
+    /**
+     * Метод който връща низ, представляващ атрибутите на всички фигури. Този метод ще бъде използван от
+     * класове наследяващи абстрактния
+     * @return низ с астрибути
+     */
     @Override
     public String convertIntoString() {
 
