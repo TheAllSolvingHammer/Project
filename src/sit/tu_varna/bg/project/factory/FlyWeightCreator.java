@@ -15,12 +15,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FlyWeightCreator {
-
+    /**
+     * Класът отговаря за създаването на на обекти от вход на потребителя
+     */
     private static Map<Figures,Map<String,Shape>> products;
-//
+
+    /**
+     * Конструктор създаващ енумМап, със стойност други мапове
+     */
     public FlyWeightCreator() {
         new EnumMap<>(Figures.class);
     }
+
+    /**
+     * Метод getProduct() представлява Factory метод , на модела на FlyWeight патерна. В него чрез параметрите
+     * на метеодът се проверяра дали дадена фигура съществиа в въпросния Мап. Ако вече е била създавана такава фигура,
+     * методът ще върне вече създадената такава, без да трябва да създава нова.
+     * @param figure - от Енума Figures, отговаря на някоя от стойностите в енума
+     * @param parameters - параметри за създаване. При еднакви параметри ще се създаде еднаква фигура
+     * @return Фигура, създадена след обработване на параметъра parameters.
+     */
     public Shape getProduct(String figure,String parameters){
         Figures type= Figures.valueOf(figure); // moje da hvurli null pointer !!!! Ako ne e v figure enuma
         Map<String, Shape> productMap = products.get(type);
@@ -66,9 +80,5 @@ public class FlyWeightCreator {
 
         }
         return products.get(type).get(parameters);
-
-
-
-
     }
 }

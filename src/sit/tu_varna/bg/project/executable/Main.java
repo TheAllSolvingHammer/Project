@@ -59,7 +59,12 @@ public class Main {
         manager.addShape(shape4);
         manager.addShape(shapolygon);
         Parser p1= new ParseIntoText(manager);
+
         System.out.println(p1.parseText());
+        System.out.println();
+        manager.translate(40,50);
+        Parser p2= new ParseIntoText(manager);
+        System.out.println(p2.parseText());
 
 
     }

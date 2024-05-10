@@ -6,6 +6,7 @@ import sit.tu_varna.bg.project.creator.rectangle.RectangleCreator;
 import java.util.Locale;
 
 public class FactoryCreator {
+  // naj veroqtno she bude premahnat
     public static Creator getFactory(String type, String parameters){
         type=type.toLowerCase(Locale.ROOT);
         switch (type){

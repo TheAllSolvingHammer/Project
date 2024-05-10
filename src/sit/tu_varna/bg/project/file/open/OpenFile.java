@@ -1,38 +1,42 @@
 package sit.tu_varna.bg.project.file.open;
 
-import java.io.File;
-import java.io.IOException;
+import sit.tu_varna.bg.project.contracts.FileManage;
 
-public class OpenFile {
-    public void create() throws IOException {
-        String dirr = "svgdraw/";
-        String fileName = "DataFile.txt";
-        File dir = new File(dirr);
+import java.io.*;
 
-        if (!dir.exists()) {
-            boolean created = dir.mkdirs();
-            if (created) {
-                System.out.println("Created");
-            } else {
-                System.out.println("Failed");
-                return;
-            }
-        }
-        File file = new File(dir, fileName);
-        if (file.exists()) {
-            System.out.println("File already exists.");
-            return;
-        }
+
+public class OpenFile implements FileManage {
+    private final String filePath;
+    private String content;
+
+    public OpenFile(String filePath) {
+        this.filePath = filePath;
+        this.content = null;
+    }
+    @Override
+    public void execute()  {
         try {
-            if (file.createNewFile()) {
-                System.out.println("File created.");
-            } else {
-                System.out.println("Err");
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            StringBuilder stringBuilder = new StringBuilder();
+            String line = reader.readLine();
+            while (line != null) {
+                stringBuilder.append(line);
+                stringBuilder.append(System.lineSeparator());
+                line = reader.readLine();
             }
+            reader.close();
+            content = stringBuilder.toString();
+            System.out.println("Successfully opened " + filePath);
         } catch (IOException e) {
-            e.printStackTrace();
+            try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
+                System.out.println("File not found, creating new file: " + filePath);
+                writer.close();
+                content = null;
+            } catch (IOException e1) {
+                System.out.println("Error in creating new file " + e1.getMessage());
+                System.exit(1);
+            }
         }
-
-
     }
 }

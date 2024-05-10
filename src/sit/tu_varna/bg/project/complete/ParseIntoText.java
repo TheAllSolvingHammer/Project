@@ -3,7 +3,7 @@ package sit.tu_varna.bg.project.complete;
 import sit.tu_varna.bg.project.contracts.ManageShape;
 import sit.tu_varna.bg.project.contracts.Parser;
 import sit.tu_varna.bg.project.contracts.Shape;
-import sit.tu_varna.bg.project.shapes.ShapeManager;
+
 
 public class ParseIntoText implements Parser {
     private ManageShape shape;
