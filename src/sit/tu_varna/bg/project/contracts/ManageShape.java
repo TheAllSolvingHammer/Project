@@ -8,5 +8,6 @@ public interface ManageShape {
     void removeShape(int index);
     List<Shape> within(double x,double y,double sideOne,double sideTwo);
     List<Shape> within(double x,double y,double radius);
+    void translate(int x,int y);
 
 }

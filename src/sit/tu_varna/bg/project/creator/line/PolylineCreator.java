@@ -39,13 +39,13 @@ public class PolylineCreator extends AbstractCreator {
             return null;
         }
         NamedColors stroke = NamedColors.valueOf(strokeColor.toUpperCase(Locale.ROOT));
-        if (!scanner.hasNextDouble()) {
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for stroke width is not a real number!");
             return null;
         }
-        double strokeWidth = scanner.nextDouble();
+        int strokeWidth = scanner.nextInt();
         List<Integer> array = new ArrayList<>();
-        while(scanner.hasNextDouble()){
+        while(scanner.hasNextInt()){
             array.add(scanner.nextInt());
         }
         if(array.size()<2){

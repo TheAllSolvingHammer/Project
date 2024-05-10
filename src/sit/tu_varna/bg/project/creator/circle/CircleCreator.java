@@ -37,26 +37,26 @@ public class CircleCreator extends AbstractCreator {
             return null;
         }
         NamedColors stroke = NamedColors.valueOf(strokeColor.toUpperCase(Locale.ROOT));
-        if (!scanner.hasNextDouble()) {
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for stroke width is not a real number!");
             return null;
         }
-        double strokeWidth = scanner.nextDouble();
-        if (!scanner.hasNextDouble()) {
+        int strokeWidth = scanner.nextInt();
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for X coordinate is not a real number!");
             return null;
         }
-        double initialX = scanner.nextDouble();
-        if (!scanner.hasNextDouble()) {
+        int initialX = scanner.nextInt();
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for Y coordinate is not a real number!");
             return null;
         }
-        double initialY = scanner.nextDouble();
-        if (!scanner.hasNextDouble()) {
+        int initialY = scanner.nextInt();
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for width is not a real number!");
             return null;
         }
-        double radius = scanner.nextDouble();
+        int radius = scanner.nextInt();
        return new Circle(fill,strokeWidth,stroke,initialX,initialY,radius);
     }
 

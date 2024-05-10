@@ -13,12 +13,12 @@ public class Ellipse extends AbstractShape {
      *
      * Обща фомула: x^2/a^2+y^2/b^2=1
      */
-    private double centerX;
-    private double centerY;
-    private double aAxis;
-    private double bAxis;
+    private int centerX;
+    private int centerY;
+    private int aAxis;
+    private int bAxis;
 
-    public Ellipse(NamedColors fill, double strokeWidth, NamedColors stroke,double centerX, double centerY, double majorAxis, double bAxis) {
+    public Ellipse(NamedColors fill, int strokeWidth, NamedColors stroke,int centerX, int centerY, int majorAxis, int bAxis) {
         super(fill, strokeWidth, stroke);
         this.centerX = centerX;
         this.centerY = centerY;
@@ -40,35 +40,45 @@ public class Ellipse extends AbstractShape {
 
     }
 
-    public double getCenterX() {
+    @Override
+    public void translateX(int sx) {
+        setCenterX(getCenterX()+sx);
+    }
+
+    @Override
+    public void translateY(int sy) {
+        setCenterY(getCenterY()+sy);
+    }
+
+    public int getCenterX() {
         return centerX;
     }
 
-    public void setCenterX(double centerX) {
+    public void setCenterX(int centerX) {
         this.centerX = centerX;
     }
 
-    public double getCenterY() {
+    public int getCenterY() {
         return centerY;
     }
 
-    public void setCenterY(double centerY) {
+    public void setCenterY(int centerY) {
         this.centerY = centerY;
     }
 
-    public double getaAxis() {
+    public int getaAxis() {
         return aAxis;
     }
 
-    public void setaAxis(double aAxis) {
+    public void setaAxis(int aAxis) {
         this.aAxis = aAxis;
     }
 
-    public double getbAxis() {
+    public int getbAxis() {
         return bAxis;
     }
 
-    public void setbAxis(double bAxis) {
+    public void setbAxis(int bAxis) {
         this.bAxis = bAxis;
     }
     // sigurno shte ima i drug konstruktor poradi drug vid elipsa

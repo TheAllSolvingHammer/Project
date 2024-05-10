@@ -17,11 +17,11 @@ public class LineCreator extends AbstractCreator {
     @Override
     public Shape createShape() {
         Scanner scanner = new Scanner(getParameters());
-        if (!scanner.hasNextDouble()) {
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for stroke width is not a real number!");
             return null;
         }
-        double strokeWidth = scanner.nextDouble();
+        int strokeWidth = scanner.nextInt();
         if (!scanner.hasNext()) {
             System.out.println("Not enough arguments!");
             return null;
@@ -33,26 +33,26 @@ public class LineCreator extends AbstractCreator {
         }
         NamedColors stroke = NamedColors.valueOf(strokeColor.toUpperCase(Locale.ROOT));
 
-        if (!scanner.hasNextDouble()) {
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for X1 coordinate is not a real number!");
             return null;
         }
-        double x1 = scanner.nextDouble();
-        if (!scanner.hasNextDouble()) {
+        int x1 = scanner.nextInt();
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for Y1 coordinate is not a real number!");
             return null;
         }
-        double y1 = scanner.nextDouble();
-        if (!scanner.hasNextDouble()) {
+        int y1 = scanner.nextInt();
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for X2 coordinate is not a real number!");
             return null;
         }
-        double x2 = scanner.nextDouble();
-        if (!scanner.hasNextDouble()) {
+        int x2 = scanner.nextInt();
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for Y2 coordinate is not a real number!");
             return null;
         }
-        double y2 = scanner.nextDouble();
+        int y2 = scanner.nextInt();
         return new Line(strokeWidth,stroke,x1,y1,x2,y2);
     }
 }

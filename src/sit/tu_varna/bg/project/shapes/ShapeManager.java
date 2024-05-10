@@ -50,4 +50,12 @@ public class ShapeManager implements ManageShape {
         return null;
     }
 
+    @Override
+    public void translate(int x, int y) {
+        for(Shape s:shapes){
+            s.translateX(x);
+            s.translateY(y);
+        }
+    }
+
 }

@@ -4,14 +4,14 @@ import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
 
 public class Rectangle extends AbstractShape {
-    private double initialX;
-    private double initialY;
-    private double width;
-    private double height;
+    private int initialX;
+    private int initialY;
+    private int width;
+    private int height;
     private int roundCornerX=0;
     private int roundCornerY=0;
 
-    public Rectangle(NamedColors fill, double strokeWidth, NamedColors stroke,double initialX, double initialY, double width, double height) {
+    public Rectangle(NamedColors fill, int strokeWidth, NamedColors stroke,int initialX, int initialY, int width, int height) {
         super(fill, strokeWidth, stroke);
         this.initialX = initialX;
         this.initialY = initialY;
@@ -19,7 +19,7 @@ public class Rectangle extends AbstractShape {
         this.height = height;
     }
 
-    public Rectangle(NamedColors fill, double strokeWidth, NamedColors stroke,double initialX, double initialY, double width, double height,int roundCornerX,int roundCornerY) {
+    public Rectangle(NamedColors fill, int strokeWidth, NamedColors stroke,int initialX, int initialY, int width, int height,int roundCornerX,int roundCornerY) {
         super(fill, strokeWidth, stroke);
         this.initialX = initialX;
         this.initialY = initialY;
@@ -44,39 +44,50 @@ public class Rectangle extends AbstractShape {
         return sb.toString();
     }
 
-    public double getInitialX() {
+    @Override
+    public void translateX(int sx) {
+        setInitialX(getInitialX()+sx);
+    }
+
+    @Override
+    public void translateY(int sy) {
+        setInitialY(getInitialY()+sy);
+    }
+
+
+    public int getInitialX() {
         return initialX;
     }
 
-    public void setInitialX(double initialX) {
+    public void setInitialX(int initialX) {
         this.initialX = initialX;
     }
 
-    public double getInitialY() {
+    public int getInitialY() {
         return initialY;
     }
 
-    public void setInitialY(double initialY) {
+    public void setInitialY(int initialY) {
         this.initialY = initialY;
     }
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
-    public double getRoundCornerX() {
+    public int getRoundCornerX() {
         return roundCornerX;
     }
 
@@ -84,7 +95,7 @@ public class Rectangle extends AbstractShape {
         this.roundCornerX = roundCornerX;
     }
 
-    public double getRoundCornerY() {
+    public int getRoundCornerY() {
         return roundCornerY;
     }
 

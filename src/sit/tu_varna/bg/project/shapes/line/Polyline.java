@@ -34,6 +34,20 @@ public class Polyline extends AbstractShape {
         return sb.toString();
     }
 
+    @Override
+    public void translateX(int sx) {
+        for(int i=0;i<arrayOfCoordinates.size();i+=2){
+            arrayOfCoordinates.set(i,arrayOfCoordinates.get(i)+sx);
+        }
+    }
+
+    @Override
+    public void translateY(int sy) {
+        for(int i=1;i<arrayOfCoordinates.size();i+=2){
+            arrayOfCoordinates.set(i,arrayOfCoordinates.get(i)+sy);
+        }
+    }
+
     public List<Integer> getArrayOfCoordinates() {
         return arrayOfCoordinates;
     }

@@ -4,11 +4,11 @@ import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
 
 public class Circle extends AbstractShape {
-    private double centerX;
-    private double centerY;
-    private double radius;
+    private int centerX;
+    private int centerY;
+    private int radius;
 
-    public Circle(NamedColors fill, double strokeWidth, NamedColors stroke,double centerX, double centerY, double radius) {
+    public Circle(NamedColors fill, int strokeWidth, NamedColors stroke,int centerX, int centerY, int radius) {
         super(fill, strokeWidth, stroke);
         this.centerX = centerX;
         this.centerY = centerY;
@@ -17,27 +17,27 @@ public class Circle extends AbstractShape {
 
 
 
-    public double getCenterX() {
+    public int getCenterX() {
         return centerX;
     }
 
-    public void setCenterX(double centerX) {
+    public void setCenterX(int centerX) {
         this.centerX = centerX;
     }
 
-    public double getCenterY() {
+    public int getCenterY() {
         return centerY;
     }
 
-    public void setCenterY(double centerY) {
+    public void setCenterY(int centerY) {
         this.centerY = centerY;
     }
 
-    public double getRadius() {
+    public int getRadius() {
         return radius;
     }
 
-    public void setRadius(double radius) {
+    public void setRadius(int radius) {
         this.radius = radius;
     }
 
@@ -51,4 +51,15 @@ public class Circle extends AbstractShape {
 
         return sb.toString();
     }
+
+    @Override
+    public void translateX(int sx) {
+        setCenterX(getCenterX()+sx);
+    }
+
+    @Override
+    public void translateY(int sy) {
+        setCenterY(getCenterY()+sy);
+    }
+
 }

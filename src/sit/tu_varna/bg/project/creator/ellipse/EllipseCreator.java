@@ -36,31 +36,31 @@ public class EllipseCreator extends AbstractCreator {
             return null;
         }
         NamedColors stroke = NamedColors.valueOf(strokeColor.toUpperCase(Locale.ROOT));
-        if (!scanner.hasNextDouble()) {
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for stroke width is not a real number!");
             return null;
         }
-        double strokeWidth = scanner.nextDouble();
-        if (!scanner.hasNextDouble()) {
+        int strokeWidth = scanner.nextInt();
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for X coordinate is not a real number!");
             return null;
         }
-        double initialX = scanner.nextDouble();
-        if (!scanner.hasNextDouble()) {
+        int initialX = scanner.nextInt();
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for Y coordinate is not a real number!");
             return null;
         }
-        double initialY = scanner.nextDouble();
-        if (!scanner.hasNextDouble()) {
+        int initialY = scanner.nextInt();
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for radius is not a real number!");
             return null;
         }
-        double radiusX = scanner.nextDouble();
-        if (!scanner.hasNextDouble()) {
+        int radiusX = scanner.nextInt();
+        if (!scanner.hasNextInt()) {
             System.out.println("Passed value for radius is not a real number!");
             return null;
         }
-        double radiusY = scanner.nextDouble();
+        int radiusY = scanner.nextInt();
         return new Ellipse(fill,strokeWidth,stroke,initialX,initialY,radiusX,radiusY);
     }
 }
