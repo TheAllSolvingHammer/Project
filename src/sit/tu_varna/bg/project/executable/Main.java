@@ -2,11 +2,9 @@ package sit.tu_varna.bg.project.executable;
 
 import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.complete.ParseIntoText;
-import sit.tu_varna.bg.project.contracts.Creator;
 import sit.tu_varna.bg.project.contracts.ManageShape;
 import sit.tu_varna.bg.project.contracts.Parser;
 import sit.tu_varna.bg.project.contracts.Shape;
-import sit.tu_varna.bg.project.factory.FactoryCreator;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 import sit.tu_varna.bg.project.shapes.circle.Circle;
 import sit.tu_varna.bg.project.shapes.elipse.Ellipse;
@@ -29,8 +27,7 @@ public class Main {
         String s2=s1.substring(index+1);
 
         String s3=s1.substring(0,index);
-        Creator shapef = FactoryCreator.getFactory(s3,s2);
-        Shape shape0 = shapef.createShape();
+
 
         Shape shape1 = new Circle(NamedColors.BLUE,2,NamedColors.GREEN,30,20,10); //test circle i name
 
@@ -52,7 +49,7 @@ public class Main {
 
         Shape shapolygon = new Polygon(NamedColors.GREEN,4,NamedColors.BISQUE,a1);
         ManageShape manager = new ShapeManager();
-        manager.addShape(shape0);
+
         manager.addShape(shape1);
         manager.addShape(shape2);
         manager.addShape(shape3);
