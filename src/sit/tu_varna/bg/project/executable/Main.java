@@ -44,7 +44,7 @@ public class Main {
             System.out.println(p1.parseText());
             System.out.println();
 
-        ReaderShape r1 = new RectangleReaderShape("<rect fill=\"BROWN\" stroke=\"PINK\" stroke-width=\"10.0\" x=\"200\" y=\"300\" width=\"500\" height=\"400\" rx=\"10\" ry=\"20\" />");
+        ReaderShape r1 = new RectangleReaderShape("<rect fill=\"BROWN\" stroke=\"PINK\" stroke-width=\"10\" x=\"200\" y=\"300\" width=\"500\" height=\"400\" rx=\"10\" ry=\"20\" />");
         System.out.println(r1.convertShapeToUserReadable().toLowerCase(Locale.ROOT));
 
 
