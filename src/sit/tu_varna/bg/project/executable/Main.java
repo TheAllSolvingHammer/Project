@@ -38,6 +38,7 @@ public class Main {
         Shape t1= f1.getProduct(s3.toUpperCase(Locale.ROOT),s2.toUpperCase(Locale.ROOT));
             ManageShape manager = new ShapeManager();
             manager.addShape(t1);
+            manager.translate(20,30);
             Parser p1 = new ParseIntoText(manager);
 
             System.out.println(p1.parseText());

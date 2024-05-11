@@ -48,7 +48,6 @@ public class FlyWeightCreator {
             System.out.println("Invalid figure name!");
             return null;
         }
-
         Map<String, Shape> productMap = products.get(type);
         Shape c1 = productMap.get(parameters);
         switch (type){

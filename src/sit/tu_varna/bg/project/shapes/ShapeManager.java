@@ -64,7 +64,7 @@ public class ShapeManager implements ManageShape {
     public List<Shape> within(RectangleRegion region) {
         List<Shape> withinShapes = new ArrayList<>();
         for(Shape s: shapes){
-            if(s.isWithin(region)){
+            if(s!=null && s.isWithin(region)){
                 withinShapes.add(s);
             }
         }
@@ -79,7 +79,7 @@ public class ShapeManager implements ManageShape {
     public List<Shape> within(CircleRegion region) {
         List<Shape> withinShapes = new ArrayList<>();
         for(Shape s: shapes){
-            if(s.isWithin(region)){
+            if(s!=null &&s.isWithin(region)){
                 withinShapes.add(s);
             }
         }
@@ -87,15 +87,20 @@ public class ShapeManager implements ManageShape {
     }
 
     /**
-     * Транслира/Премества всички фигури по зададен от потребителя интервал
+     * Премества всички фигури по зададен от потребителя интервал
      * @param x - разстояние на което фигурата ще се измести по Х абцисата
      * @param y -растояние на което фигурата ще се измести по У ординатата
      */
     @Override
     public void translate(int x, int y) {
+        if(shapes.isEmpty()){
+            return;
+        }
         for(Shape s:shapes){
-            s.translateX(x);
-            s.translateY(y);
+            if(s!=null) {
+                s.translateX(x);
+                s.translateY(y);
+            }
         }
     }
 
