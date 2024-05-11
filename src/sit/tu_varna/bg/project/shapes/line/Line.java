@@ -35,7 +35,7 @@ public class Line implements Shape {
     }
     /**
      * Методът конвертира обекта в стрингова репрезентация като запазва полетата на обеката във вид:
-     * <line [strokeWidth [stroke] [xStart] [yStart] [xEnd] [yEnd] />
+     * line [strokeWidth] [stroke] [xStart] [yStart] [xEnd] [yEnd]
      * Методът не използва параметри
      * @return Низ представляваш SVG команда за създаването на линия
      */
@@ -44,8 +44,8 @@ public class Line implements Shape {
             return "<line stroke-width=\""+strokeWidth+"\" stroke=\""+color+"\" x1=\""+startX+"\" y1=\""+startY+"\" x2=\""+endX+"\" y2=\""+endY+"\" />";
     }
     /**
-     * Транслира/Измества линията по Х кординат
-     * @param sx - > изместване по Х абцисата
+     * Транслира линията по Х кординат
+     * @param sx -  изместване по Х абцисата
      */
     @Override
     public void translateX(int sx) {
@@ -53,8 +53,8 @@ public class Line implements Shape {
         setEndX(getEndX()+sx);
     }
     /**
-     * Транслира/Измества линия по У кординат
-     * @param sy - > изместване по У ординатата
+     * Транслира линия по У кординат
+     * @param sy -  изместване по У ординатата
      */
     @Override
     public void translateY(int sy) {
@@ -65,7 +65,7 @@ public class Line implements Shape {
 
     /**
      * Проверява дали дадената линия ще е попадне в кръгов регион използвайки формула за кръг:
-     * (x-x0)^2+(y-y0)^2<=R^2
+     * (x-x0)^2+(y-y0)^2=R^2
      * @param region представлява регионът, който методът получава като параметър
      * @return връща дали линия е попаднала изцяло в областта
      */

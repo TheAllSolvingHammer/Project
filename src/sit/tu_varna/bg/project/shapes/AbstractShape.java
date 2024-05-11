@@ -7,7 +7,7 @@ import sit.tu_varna.bg.project.contracts.Shape;
 public abstract class AbstractShape implements Shape {
 
     private NamedColors fill;
-    private double strokeWidth;
+    private int strokeWidth;
     private NamedColors stroke;
 
     /**
@@ -16,7 +16,7 @@ public abstract class AbstractShape implements Shape {
      * @param strokeWidth - дебелина на линията описваща фигурата
      * @param stroke - цвят на линията
      */
-    public AbstractShape(NamedColors fill, double strokeWidth, NamedColors stroke) {
+    public AbstractShape(NamedColors fill, int strokeWidth, NamedColors stroke) {
 
         this.fill = fill;
         this.strokeWidth = strokeWidth;
@@ -44,11 +44,11 @@ public abstract class AbstractShape implements Shape {
         this.fill = fill;
     }
 
-    public double getStrokeWidth() {
+    public int getStrokeWidth() {
         return strokeWidth;
     }
 
-    public void setStrokeWidth(double strokeWidth) {
+    public void setStrokeWidth(int strokeWidth) {
         this.strokeWidth = strokeWidth;
     }
 

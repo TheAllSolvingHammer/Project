@@ -13,7 +13,7 @@ public abstract class AbstractCreator implements Creator {
     @Override
     public boolean validColor(String color) {
         for (NamedColors namedColor : NamedColors.values()) {
-            if (namedColor.name().equalsIgnoreCase(color)) {
+            if (namedColor.toString().equalsIgnoreCase(color)) {
                 return true;
             }
         }

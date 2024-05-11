@@ -21,46 +21,55 @@ public class RectangleCreator extends AbstractCreator {
         Scanner scanner = new Scanner(getParameters());
         if (!scanner.hasNext()) {
             System.out.println("Not enough arguments!");
+            scanner.close();
             return null;
         }
         String fillColor = scanner.next();
         if (!validColor(fillColor)) {
             System.out.println("Fill color is not valid!");
+            scanner.close();
             return null;
         }
         NamedColors fill = NamedColors.valueOf(fillColor.toUpperCase(Locale.ROOT));
         if (!scanner.hasNext()) {
             System.out.println("Not enough arguments!");
+            scanner.close();
             return null;
         }
         String strokeColor = scanner.next();
         if (!validColor(strokeColor)) {
             System.out.println("Stroke color is not valid!");
+            scanner.close();
             return null;
         }
         NamedColors stroke = NamedColors.valueOf(strokeColor.toUpperCase(Locale.ROOT));
         if (!scanner.hasNextInt()) {
             System.out.println("Passed value for stroke width is not a real number!");
+            scanner.close();
             return null;
         }
         int strokeWidth = scanner.nextInt();
         if (!scanner.hasNextInt()) {
             System.out.println("Passed value for X coordinate is not a real number!");
+            scanner.close();
             return null;
         }
         int initialX = scanner.nextInt();
         if (!scanner.hasNextInt()) {
             System.out.println("Passed value for Y coordinate is not a real number!");
+            scanner.close();
             return null;
         }
         int initialY = scanner.nextInt();
         if (!scanner.hasNextInt()) {
             System.out.println("Passed value for width is not a real number!");
+            scanner.close();
             return null;
         }
         int width = scanner.nextInt();
         if (!scanner.hasNextInt()) {
             System.out.println("Passed value for height is not a real number!");
+            scanner.close();
             return null;
         }
         int height = scanner.nextInt();
@@ -72,11 +81,13 @@ public class RectangleCreator extends AbstractCreator {
         if (scanner.hasNextInt()) {
             roundCornerY = scanner.nextInt();
         }
+        scanner.close();
         if (roundCornerY == 0 || roundCornerX == 0) {
             return new Rectangle(fill, strokeWidth, stroke, initialX, initialY, width, height);
         } else {
             return new Rectangle(fill, strokeWidth, stroke, initialX, initialY, width, height, roundCornerX, roundCornerY);
         }
+
     }
 
 }

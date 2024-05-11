@@ -16,13 +16,13 @@ public class Rectangle extends AbstractShape {
 
     /**
      *Конструктор за създаване на правоъгълник
-     * @param fill -> Параметър за цввта за запълване на фигурата
-     * @param strokeWidth -> Параметър за дебелина на линията около създадената фигура
-     * @param stroke -> Параметър за цввта за линията
-     * @param initialX -> Начален Х кординат
-     * @param initialY -> Начален У- кординат
-     * @param width -> Параметър за широчина на фигурата
-     * @param height -> Параметър за височина на фигурата
+     * @param fill - Параметър за цввта за запълване на фигурата
+     * @param strokeWidth - Параметър за дебелина на линията около създадената фигура
+     * @param stroke - Параметър за цввта за линията
+     * @param initialX - Начален Х кординат
+     * @param initialY - Начален У- кординат
+     * @param width - Параметър за широчина на фигурата
+     * @param height - Параметър за височина на фигурата
      */
     public Rectangle(NamedColors fill, int strokeWidth, NamedColors stroke,int initialX, int initialY, int width, int height) {
         super(fill, strokeWidth, stroke);
@@ -34,15 +34,15 @@ public class Rectangle extends AbstractShape {
 
     /**
      * Втори конструктор който ще отговаря за създаването на закръглен правоъгълник
-     * @param fill -> Параметър за цввта за запълване на фигурата
-     * @param strokeWidth -> Параметър за дебелина на линията около създадената фигура
-     * @param stroke -> Параметър за цввта за линията
-     * @param initialX -> Начален Х кординат
-     * @param initialY -> Начален У- кординат
-     * @param width -> Параметър за широчина на фигурата
-     * @param height -> Параметър за височина на фигурата
-     * @param roundCornerX -> Параметър за закръгленост по Х абсицата
-     * @param roundCornerY -> Параметър за закръгленост по У ординатата
+     * @param fill - Параметър за цввта за запълване на фигурата
+     * @param strokeWidth - Параметър за дебелина на линията около създадената фигура
+     * @param stroke - Параметър за цввта за линията
+     * @param initialX - Начален Х кординат
+     * @param initialY - Начален У- кординат
+     * @param width - Параметър за широчина на фигурата
+     * @param height - Параметър за височина на фигурата
+     * @param roundCornerX - Параметър за закръгленост по Х абсицата
+     * @param roundCornerY - Параметър за закръгленост по У ординатата
      */
     public Rectangle(NamedColors fill, int strokeWidth, NamedColors stroke,int initialX, int initialY, int width, int height,int roundCornerX,int roundCornerY) {
         super(fill, strokeWidth, stroke);
@@ -57,7 +57,7 @@ public class Rectangle extends AbstractShape {
 
     /**
      * Методът конвертира обекта в стрингова репрезентация като запазва полетата на обеката във вид:
-     * <superMethod резултат>  <x>  <y> <широчина> <дебелина> <закръгленост по Х> <закръгленост по Y>
+     * [superMethod резултат]  [x]  [y] [широчина] [дебелина] [закръгленост по Х] [закръгленост по Y]
      * Методът не използва параметри
      * @return Низ презентиращ SVG команда за генериране на правоъгълник по указани параметри
      */
@@ -83,8 +83,8 @@ public class Rectangle extends AbstractShape {
     }
 
     /**
-     * Транслира/Измества фигура по Х кординат
-     * @param sx - > изместване по Х абцисата
+     * Транслира фигура по Х кординат
+     * @param sx - изместване по Х абцисата
      */
     @Override
     public void translateX(int sx) {
@@ -92,8 +92,8 @@ public class Rectangle extends AbstractShape {
     }
 
     /**
-     * Транслира/Измества фигура по У кординат
-     * @param sy - > изместване по У ординатата
+     * Транслира фигура по У кординат
+     * @param sy - изместване по У ординатата
      */
     @Override
     public void translateY(int sy) {
@@ -103,7 +103,7 @@ public class Rectangle extends AbstractShape {
 
     /**
      * Проверява дали дадената фигура ще е попадне в кръгов регион използвайки формула за кръг:
-     * (x-x0)^2+(y-y0)^2<=R^2
+     * (x-x0)^2+(y-y0)^2=R^2
      * @param region представлява регионът който методът получава като параметър
      * @return връща дали фигурата е попаднала изцяло в областта
      */

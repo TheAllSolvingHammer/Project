@@ -12,19 +12,19 @@ public class Polyline extends AbstractShape {
 
     /**
      * Конструктор за многолиниев SVG елемент. SVG позволява от своя страна многолинията да има всебе си fill-color
-     * @param fill -> Запълване на многоъгълника
-     * @param strokeWidth ->дебелина на линията описваща многоъгълника
-     * @param stroke ->цвят на линията
-     * @param arrayOfCoordinates -> масив от кординати , редувайки двойката (х,у)
+     * @param fill - Запълване на многоъгълника
+     * @param strokeWidth - дебелина на линията описваща многоъгълника
+     * @param stroke - цвят на линията
+     * @param arrayOfCoordinates - масив от кординати , редувайки двойката (х,у)
      */
-    public Polyline(NamedColors fill, double strokeWidth, NamedColors stroke,List<Integer> arrayOfCoordinates) {
+    public Polyline(NamedColors fill, int strokeWidth, NamedColors stroke,List<Integer> arrayOfCoordinates) {
         super(fill, strokeWidth, stroke);
         this.arrayOfCoordinates = arrayOfCoordinates;
     }
 
     /**
      * Методът конвертира обекта в стрингова репрезентация като запазва полетата на обеката във вид:
-     * <superMethod резултат>  <масив от кориднати>
+     * [superMethod резултат]  [масив от кориднати]
      * Методът не използва параметри
      * @return Низ представляваш SVG команда за създаването на многоъгълник
      */
@@ -43,8 +43,8 @@ public class Polyline extends AbstractShape {
         return sb.toString();
     }
     /**
-     * Транслира/Измества фигура по Х кординат
-     * @param sx - > изместване по Х абцисата
+     * Транслира фигура по Х кординат
+     * @param sx -  изместване по Х абцисата
      */
     @Override
     public void translateX(int sx) {
@@ -53,8 +53,8 @@ public class Polyline extends AbstractShape {
         }
     }
     /**
-     * Транслира/Измества фигура по У кординат
-     * @param sy - > изместване по У ординатата
+     * Транслира фигура по У кординат
+     * @param sy - изместване по У ординатата
      */
     @Override
     public void translateY(int sy) {
@@ -64,7 +64,7 @@ public class Polyline extends AbstractShape {
     }
     /**
      * Проверява дали дадената фигура ще е попадне в кръгов регион използвайки формула за кръг:
-     * (x-x0)^2+(y-y0)^2<=R^2
+     * (x-x0)^2+(y-y0)^2=R^2
      * @param region представлява регионът, който методът получава като параметър
      * @return връща дали фигурата е попаднала изцяло в областта
      */
