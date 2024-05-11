@@ -39,8 +39,8 @@ public class PolylineReaderShape implements ReaderShape {
 
         if (scanner.hasNext("stroke-width")) {
             scanner.next();
-            if (scanner.hasNextDouble()) {
-                formattedString.append(scanner.nextDouble()).append(" ");
+            if (scanner.hasNextInt()) {
+                formattedString.append(scanner.nextInt()).append(" ");
             } else {
                 System.out.println("Error: 'stroke-width' attribute is not a double.");
                 return null;
