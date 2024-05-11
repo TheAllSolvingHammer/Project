@@ -5,7 +5,6 @@ import sit.tu_varna.bg.project.complete.ParseIntoText;
 import sit.tu_varna.bg.project.contracts.ManageShape;
 import sit.tu_varna.bg.project.contracts.Parser;
 import sit.tu_varna.bg.project.contracts.Shape;
-import sit.tu_varna.bg.project.readers.CircleReaderShape;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 import sit.tu_varna.bg.project.shapes.circle.Circle;
 import sit.tu_varna.bg.project.shapes.elipse.Ellipse;

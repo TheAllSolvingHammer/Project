@@ -1,4 +1,4 @@
-package sit.tu_varna.bg.project.readers;
+package sit.tu_varna.bg.project.readers.ellipse;
 
 import sit.tu_varna.bg.project.contracts.ReaderShape;
 

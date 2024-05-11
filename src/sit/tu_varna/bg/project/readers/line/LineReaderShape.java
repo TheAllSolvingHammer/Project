@@ -1,36 +1,25 @@
-package sit.tu_varna.bg.project.readers;
+package sit.tu_varna.bg.project.readers.line;
 
 import sit.tu_varna.bg.project.contracts.ReaderShape;
 
 import java.util.Scanner;
 
-public class CircleReaderShape implements ReaderShape {
+public class LineReaderShape implements ReaderShape {
     private String shapeString;
 
-    public CircleReaderShape(String shapeString) {
+    public LineReaderShape(String shapeString) {
         this.shapeString = shapeString;
     }
 
-
     @Override
     public String convertShapeToUserReadable() {
-        // String s1 = "<circle fill=\"BLUE\" stroke=\"GREEN\" stroke-width=\"2\" cx=\"30\" cy=\"20\" r=\"10\" />";
-
         Scanner scanner = new Scanner(shapeString);
         scanner.useDelimiter("[=\" ]+");
 
         scanner.next();
 
         StringBuilder formattedString = new StringBuilder();
-        formattedString.append("circle ");
-
-        if (scanner.hasNext("fill")) {
-            scanner.next();
-            formattedString.append(scanner.next()).append(" ");
-        } else {
-            System.out.println("Error: 'fill' attribute not found.");
-            return null;
-        }
+        formattedString.append("line ");
 
         if (scanner.hasNext("stroke")) {
             scanner.next();
@@ -53,47 +42,59 @@ public class CircleReaderShape implements ReaderShape {
             return null;
         }
 
-        if (scanner.hasNext("cx")) {
+        if (scanner.hasNext("x1")) {
             scanner.next();
             if (scanner.hasNextInt()) {
                 formattedString.append(scanner.nextInt()).append(" ");
             } else {
-                System.out.println("Error: 'cx' attribute is not an integer.");
+                System.out.println("Error: 'x1' attribute is not an integer.");
                 return null;
             }
         } else {
-            System.out.println("Error: 'cx' attribute not found.");
+            System.out.println("Error: 'x1' attribute not found.");
             return null;
         }
 
-        if (scanner.hasNext("cy")) {
+        if (scanner.hasNext("y1")) {
             scanner.next();
             if (scanner.hasNextInt()) {
                 formattedString.append(scanner.nextInt()).append(" ");
             } else {
-                System.out.println("Error: 'cy' attribute is not an integer.");
+                System.out.println("Error: 'y1' attribute is not an integer.");
                 return null;
             }
         } else {
-            System.out.println("Error: 'cy' attribute not found.");
+            System.out.println("Error: 'y1' attribute not found.");
             return null;
         }
 
-        if (scanner.hasNext("r")) {
+        if (scanner.hasNext("x2")) {
+            scanner.next();
+            if (scanner.hasNextInt()) {
+                formattedString.append(scanner.nextInt()).append(" ");
+            } else {
+                System.out.println("Error: 'x2' attribute is not an integer.");
+                return null;
+            }
+        } else {
+            System.out.println("Error: 'x2' attribute not found.");
+            return null;
+        }
+
+        if (scanner.hasNext("y2")) {
             scanner.next();
             if (scanner.hasNextInt()) {
                 formattedString.append(scanner.nextInt());
             } else {
-                System.out.println("Error: 'r' attribute is not an integer.");
+                System.out.println("Error: 'y2' attribute is not an integer.");
                 return null;
             }
         } else {
-            System.out.println("Error: 'r' attribute not found.");
+            System.out.println("Error: 'y2' attribute not found.");
             return null;
         }
 
         scanner.close();
         return formattedString.toString();
-
     }
 }

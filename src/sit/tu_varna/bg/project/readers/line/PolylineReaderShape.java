@@ -1,13 +1,13 @@
-package sit.tu_varna.bg.project.readers;
+package sit.tu_varna.bg.project.readers.line;
 
 import sit.tu_varna.bg.project.contracts.ReaderShape;
 
 import java.util.Scanner;
 
-public class PolygonReaderShape implements ReaderShape {
+public class PolylineReaderShape implements ReaderShape {
     private String shapeString;
 
-    public PolygonReaderShape(String shapeString) {
+    public PolylineReaderShape(String shapeString) {
         this.shapeString = shapeString;
     }
 
@@ -19,7 +19,7 @@ public class PolygonReaderShape implements ReaderShape {
         scanner.next();
 
         StringBuilder formattedString = new StringBuilder();
-        formattedString.append("polygon ");
+        formattedString.append("polyline ");
 
         if (scanner.hasNext("fill")) {
             scanner.next();
