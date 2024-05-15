@@ -1,6 +1,9 @@
 package sit.tu_varna.bg.project.shapes.polygon;
 
+import sit.tu_varna.bg.project.contracts.ReaderShape;
 import sit.tu_varna.bg.project.enums.NamedColors;
+import sit.tu_varna.bg.project.readers.line.LineReaderShape;
+import sit.tu_varna.bg.project.readers.polygon.PolygonReaderShape;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
@@ -93,7 +96,7 @@ public class Polygon extends AbstractShape {
         boolean xCheck,yCheck;
         for(int i=0;i< arrayOfCoordinates.size();i+=2){
             xCheck= (arrayOfCoordinates.get(i) <= region.getX()+ region.getWidth() && arrayOfCoordinates.get(i)>= region.getX());
-            yCheck= (arrayOfCoordinates.get(+1)<=region.getY()+region.getHeight() && arrayOfCoordinates.get(i+1)>= region.getY());
+            yCheck= (arrayOfCoordinates.get(i+1)<=region.getY()+region.getHeight() && arrayOfCoordinates.get(i+1)>= region.getY());
             if(!(xCheck && yCheck)){
                 flag=false;
                 break;
@@ -102,11 +105,28 @@ public class Polygon extends AbstractShape {
         return flag;
     }
 
+    /**
+     * Превръща атрибутите на класа, лесно четими за потребителя
+     * @return Низ представляваш лесно прочитаема команда от окото на потребителя
+     */
+    @Override
+    public String toUser() {
+        ReaderShape p1= new PolygonReaderShape(convertIntoString());
+        return p1.convertShapeToUserReadable();
+    }
 
+    /**
+     * Гетър на всички кординати представеня в Списък
+     * @return Списък от кординати
+     */
     public List<Integer> getArrayOfCoordinates() {
         return arrayOfCoordinates;
     }
 
+    /**
+     * Задава нов списък с кординати за Многоъгълник
+     * @param arrayOfCoordinates списък от нови кординати като параметър
+     */
     public void setArrayOfCoordinates(List<Integer> arrayOfCoordinates) {
         this.arrayOfCoordinates = arrayOfCoordinates;
     }

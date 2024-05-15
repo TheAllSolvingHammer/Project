@@ -1,6 +1,8 @@
 package sit.tu_varna.bg.project.shapes.circle;
 
+import sit.tu_varna.bg.project.contracts.ReaderShape;
 import sit.tu_varna.bg.project.enums.NamedColors;
+import sit.tu_varna.bg.project.readers.circle.CircleReaderShape;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
@@ -93,6 +95,20 @@ public class Circle extends AbstractShape {
         return centerCheck && withinBounds;
     }
 
+    /**
+     * Превръща атрибутите на класа, лесно четими за потребителя
+     * @return Низ представляваш лесно прочитаема команда от окото на потребителя
+     */
+    @Override
+    public String toUser() {
+        ReaderShape c1= new CircleReaderShape(convertIntoString());
+        return c1.convertShapeToUserReadable();
+    }
+
+    /**
+     *
+     * @return
+     */
     public int getCenterX() {
         return centerX;
     }

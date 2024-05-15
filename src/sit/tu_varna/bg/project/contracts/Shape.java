@@ -9,5 +9,6 @@ public interface Shape {
     void translateY(int sy);
     boolean isWithin(CircleRegion region);
     boolean isWithin(RectangleRegion region);
+    String toUser();
 
 }

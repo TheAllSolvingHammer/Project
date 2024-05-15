@@ -1,7 +1,9 @@
 package sit.tu_varna.bg.project.shapes.line;
 
+import sit.tu_varna.bg.project.contracts.ReaderShape;
 import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.contracts.Shape;
+import sit.tu_varna.bg.project.readers.line.LineReaderShape;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 
@@ -87,6 +89,16 @@ public class Line implements Shape {
         boolean xCheck2= (endX <= region.getX()+ region.getWidth() && endX>= region.getX());
         boolean yCheck2= (endY<=region.getY()+region.getHeight() && endY>= region.getY());
         return (xCheck && yCheck && xCheck2 && yCheck2);
+    }
+
+    /**
+     * Превръща атрибутите на класа, лесно четими за потребителя
+     * @return Низ представляваш лесно прочитаема команда от окото на потребителя
+     */
+    @Override
+    public String toUser() {
+        ReaderShape l1= new LineReaderShape(convertIntoString());
+        return l1.convertShapeToUserReadable();
     }
 
     public int getStrokeWidth() {

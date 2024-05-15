@@ -1,10 +1,15 @@
 package sit.tu_varna.bg.project.shapes.rectangle;
 
+import sit.tu_varna.bg.project.contracts.ReaderShape;
 import sit.tu_varna.bg.project.enums.NamedColors;
+import sit.tu_varna.bg.project.readers.rectangle.RectangleReaderShape;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
 
+/**
+ * Клас Правоъгълник за създаване на фигура правоъгълник в SVG
+ */
 public class Rectangle extends AbstractShape {
 
     private int initialX;
@@ -125,31 +130,68 @@ public class Rectangle extends AbstractShape {
         return (xCheck && yCheck);
     }
 
+    /**
+     * Превръща атрибутите на класа, лесно четими за потребителя
+     * @return Низ представляваш лесно прочитаема команда от окото на потребителя
+     */
+    @Override
+    public String toUser() {
+        ReaderShape sg= new RectangleReaderShape(convertIntoString());
+        return sg.convertShapeToUserReadable();
+    }
 
+    /**
+     * Гетър на кординат Х1
+     * @return цяло число отнасящо Х-кордината на първата точка
+     */
     public int getInitialX() {
         return initialX;
     }
 
+    /**
+     * Задава кординат Х1
+     * @param initialX новия кординат
+     */
     public void setInitialX(int initialX) {
         this.initialX = initialX;
     }
 
+    /**
+     * Гетър на кординат У1
+     * @return цяло число отнасящо У-кордината на първата точка
+     */
     public int getInitialY() {
         return initialY;
     }
 
+    /**
+     * Задава кординат Х1
+     * @param initialY новия кординат
+     */
     public void setInitialY(int initialY) {
         this.initialY = initialY;
     }
 
+    /**
+     * Гетър на широчина
+     * @return широчината като цяло число
+     */
     public int getWidth() {
         return width;
     }
 
+    /**
+     * Задава нова стойност на широчината
+     * @param width
+     */
     public void setWidth(int width) {
         this.width = width;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getHeight() {
         return height;
     }

@@ -39,4 +39,16 @@ public class OpenFile implements FileManage {
             }
         }
     }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

@@ -1,6 +1,8 @@
 package sit.tu_varna.bg.project.shapes.elipse;
 
+import sit.tu_varna.bg.project.contracts.ReaderShape;
 import sit.tu_varna.bg.project.enums.NamedColors;
+import sit.tu_varna.bg.project.readers.ellipse.EllipseReaderShape;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
@@ -92,6 +94,16 @@ public class Ellipse extends AbstractShape {
         boolean centerCheck = Math.pow((centerX - h) / aAxis, 2) + Math.pow((centerY - k) / bAxis, 2) <= 1;
         boolean axisCheck = aAxis <= region.getWidth() / 2.0 && bAxis <= region.getHeight() / 2.0;
         return centerCheck && axisCheck;
+    }
+
+    /**
+     * Превръща атрибутите на класа, лесно четими за потребителя
+     * @return Низ представляваш лесно прочитаема команда от окото на потребителя
+     */
+    @Override
+    public String toUser() {
+        ReaderShape e1= new EllipseReaderShape(convertIntoString());
+        return e1.convertShapeToUserReadable();
     }
 
     public int getCenterX() {

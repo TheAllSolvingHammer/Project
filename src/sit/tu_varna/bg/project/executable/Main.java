@@ -26,7 +26,7 @@ public class Main {
 
 
 
-        String s1="rectangle brown pink 10 200 300 500 400 10 20";
+        String s1="rectangle brown pink 10 200 300 500 400 10";
         int index=s1.indexOf(" ");
         String s2=s1.substring(index+1);
 
@@ -44,7 +44,7 @@ public class Main {
             System.out.println(p1.parseText());
             System.out.println();
 
-        ReaderShape r1 = new RectangleReaderShape("<rect fill=\"BROWN\" stroke=\"PINK\" stroke-width=\"10\" x=\"200\" y=\"300\" width=\"500\" height=\"400\" rx=\"10\" ry=\"20\" />");
+        ReaderShape r1 = new RectangleReaderShape("<rect fill=\"BROWN\" stroke=\"PINK\" stroke-width=\"10\" x=\"200\" y=\"300\" width=\"500\" height=\"400\" rx=\"10\" />");
         System.out.println(r1.convertShapeToUserReadable().toLowerCase(Locale.ROOT));
 
 

@@ -1,6 +1,8 @@
 package sit.tu_varna.bg.project.shapes.line;
 
+import sit.tu_varna.bg.project.contracts.ReaderShape;
 import sit.tu_varna.bg.project.enums.NamedColors;
+import sit.tu_varna.bg.project.readers.line.PolylineReaderShape;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
@@ -101,10 +103,28 @@ public class Polyline extends AbstractShape {
         return flag;
     }
 
+    /**
+     * Превръща атрибутите на класа, лесно четими за потребителя
+     * @return Низ представляваш лесно прочитаема команда от окото на потребителя
+     */
+    @Override
+    public String toUser() {
+        ReaderShape l1= new PolylineReaderShape(convertIntoString());
+        return l1.convertShapeToUserReadable();
+    }
+
+    /**
+     * Гетър на всички кординати представеня в Списък
+     * @return Списък от кординати
+     */
     public List<Integer> getArrayOfCoordinates() {
         return arrayOfCoordinates;
     }
 
+    /**
+     * Задава нов списък с кординати за Многоъгълник
+     * @param arrayOfCoordinates списък от нови кординати като параметър
+     */
     public void setArrayOfCoordinates(List<Integer> arrayOfCoordinates) {
         this.arrayOfCoordinates = arrayOfCoordinates;
     }
