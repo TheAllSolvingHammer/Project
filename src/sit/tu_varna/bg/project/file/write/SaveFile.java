@@ -16,14 +16,16 @@ public class SaveFile implements FileManage {
     }
 
     @Override
-    public void execute() {
+    public void execute(){
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
             writer.write(content);
             writer.close();
             System.out.println("File saved at: " + filePath);
+            return;
         } catch (IOException e) {
             System.out.println("Error in saving file: " + e.getMessage());
+            return;
         }
     }
 

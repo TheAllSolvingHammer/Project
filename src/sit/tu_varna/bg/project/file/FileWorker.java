@@ -45,14 +45,14 @@ public class FileWorker implements FileInterface {
     }
 
     @Override
-    public void read() throws IOException {
+    public void read() {
         if(!opened){
             System.out.println("No file is opened!");
             return;
         }
-        BufferedReader reader = new BufferedReader(new FileReader(path));
-        StringBuilder sb1 = new StringBuilder();
         try  {
+            BufferedReader reader = new BufferedReader(new FileReader(path));
+            StringBuilder sb1 = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
                 sb1.append(line).append("\n");
@@ -61,7 +61,7 @@ public class FileWorker implements FileInterface {
             reader.close();
         } catch (IOException e) {
             System.out.println("Error reading from file: " + e.getMessage());
-
+        return;
         }
     }
 
@@ -88,6 +88,11 @@ public class FileWorker implements FileInterface {
         }
         String s2=s1.substring(index+1);
         return s2.equals("svg");
+    }
+
+    @Override
+    public String getPath() {
+        return path;
     }
 
 

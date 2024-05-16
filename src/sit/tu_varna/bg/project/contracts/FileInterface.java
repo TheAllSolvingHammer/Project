@@ -8,4 +8,5 @@ public interface FileInterface {
     void close();
     String getContent();
     boolean isSvgExtension();
+    String getPath();
 }

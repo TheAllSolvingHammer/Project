@@ -9,7 +9,9 @@ import sit.tu_varna.bg.project.regions.RectangleRegion;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Мениджър клас отговарящ за съхраняването на всички фигури
+ */
 public class ShapeManager implements ManageShape {
     private List<Shape> shapes;
 
@@ -36,6 +38,9 @@ public class ShapeManager implements ManageShape {
      */
     @Override
     public void addShape(Shape shape) {
+        if(shape==null){
+            return;
+        }
         shapes.add(shape);
     }
 
@@ -102,6 +107,19 @@ public class ShapeManager implements ManageShape {
                 s.translateY(y);
             }
         }
+    }
+
+    /**
+     * Метод за представяне на потребителя всички фигури
+     * @return низ предтсавляващ всички фигури, като всяка фигура е на нов ред
+     */
+    @Override
+    public String getItemsToUser() {
+        StringBuilder sb1 = new StringBuilder();
+        for (Shape s:shapes){
+            sb1.append(s.toUser()).append("\n");
+        }
+        return sb1.toString();
     }
 
 }

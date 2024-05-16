@@ -12,6 +12,7 @@ import sit.tu_varna.bg.project.enums.Figures;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 /**
  * Класът отговаря за създаването на на обекти от вход на потребителя
@@ -21,7 +22,7 @@ public class FlyWeightCreator {
     private final Map<Figures,Map<String,Shape>> products= new EnumMap<>(Figures.class);
 
     /**
-     * Конструктор инициализиращ енумМап, със стойност други мапове
+     * Конструктор инициализиращ енум-Мап, със стойност други мапове
      */
     public FlyWeightCreator() {
         products.put(Figures.RECTANGLE, new HashMap<>());
@@ -29,6 +30,7 @@ public class FlyWeightCreator {
         products.put(Figures.CIRCLE, new HashMap<>());
         products.put(Figures.LINE, new HashMap<>());
         products.put(Figures.POLYLINE, new HashMap<>());
+        products.put(Figures.ELLIPSE, new HashMap<>());
 
     }
 
@@ -43,7 +45,7 @@ public class FlyWeightCreator {
     public Shape getProduct(String figure,String parameters){
         Figures type;
         try {
-            type = Figures.valueOf(figure);
+            type = Figures.valueOf(figure.toUpperCase(Locale.ROOT));
         } catch (IllegalArgumentException e) {
             System.out.println("Invalid figure name!");
             return null;
