@@ -31,8 +31,6 @@ public class FileWorker implements FileInterface {
                 try {
                     if (!file.createNewFile()) {
                         System.out.println("Failed to create a new file");
-                    } else {
-                        file.createNewFile();
                     }
                     System.out.println("New empty file created: " + path);
                 } catch (IOException e) {
