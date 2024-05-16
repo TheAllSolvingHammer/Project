@@ -41,7 +41,7 @@ public class Main {
         System.out.println(manager.getItemsToUser());
         ReaderShape r1 = new RectangleReaderShape("<rect fill=\"BROWN\" stroke=\"PINK\" stroke-width=\"10\" x=\"200\" y=\"300\" width=\"500\" height=\"400\" rx=\"10\" ry=\"20\" />");
         System.out.println(r1.convertShapeToUserReadable().toLowerCase(Locale.ROOT));
-        FileWorker fr1 = new FileWorker("D:\\testSvg\\fig.svg");
+        FileWorker fr1 =  FileWorker.getInstance("D:\\testSvg\\fig.svg");
         fr1.open();
         fr1.read();
         System.out.println(fr1.getContent());

@@ -110,6 +110,25 @@ public class ShapeManager implements ManageShape {
     }
 
     /**
+     * Премества фигура по зададен от потребителя интервал
+     * @param x - разстояние на което фигурата ще се измести по Х абцисата
+     * @param y -растояние на което фигурата ще се измести по У ординатата
+     */
+    @Override
+    public void translate(int x, int y, int index) {
+
+        if(index<0)
+            return;
+        if(shapes.isEmpty())
+            return;
+        Shape s1= shapes.get(index);
+        s1.translateX(x);
+        s1.translateY(y);
+        shapes.set(index,s1);
+
+    }
+
+    /**
      * Метод за представяне на потребителя всички фигури
      * @return низ предтсавляващ всички фигури, като всяка фигура е на нов ред
      */

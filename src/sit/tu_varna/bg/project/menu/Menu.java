@@ -1,50 +1,54 @@
 package sit.tu_varna.bg.project.menu;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import com.sun.org.apache.bcel.internal.generic.FSUB;
+import sit.tu_varna.bg.project.contracts.FileManage;
+import sit.tu_varna.bg.project.contracts.ManageShape;
+import sit.tu_varna.bg.project.enums.CommandEnum;
+import sit.tu_varna.bg.project.file.FileWorker;
+import sit.tu_varna.bg.project.file.write.SaveAsFile;
+import sit.tu_varna.bg.project.file.write.SaveFile;
 
-class Menu {/*
-    private final Map<String, Command> commands = new HashMap<>();
-    private final Scanner scanner = new Scanner(System.in);
+import java.util.EnumMap;
+import java.util.Locale;
 
-    public Menu() {
-        FileOpener fileOpener = FileOpener.getInstance();
-        FileReader fileReader = new FileReader(fileOpener);
-        FileSaver fileSaver = new FileSaver(fileOpener);
-        ShapePrinter shapePrinter = new ShapePrinter();
-        ShapeCreator shapeCreator = new ShapeCreator();
-        CommandLister commandLister = new CommandLister();
 
-        commands.put("open", new OpenFileCommand(fileOpener, scanner));
-        commands.put("read", new ReadFileCommand(fileReader));
-        commands.put("save", new SaveFileCommand(fileSaver));
-        commands.put("saveAs", new SaveAsFileCommand(fileSaver, scanner));
-        commands.put("print", new PrintCommand(shapePrinter));
-        commands.put("create", new CreateShapeCommand(shapeCreator, scanner));
-        commands.put("help", new HelpCommand(commandLister));
-        commands.put("exit", new ExitCommand());
+public class Menu {
+    private EnumMap<CommandEnum,MenuCommand> map;
+    private FileWorker worker;
+    private ManageShape manageShape;
+    private String command;
+    private SaveAsFile saveAsFile;
+    private SaveFile saveFile;
+
+
+    public Menu(FileWorker worker, ManageShape manageShape, String command, SaveAsFile saveAsFile, SaveFile saveFile) {
+        this.worker = worker;
+        this.manageShape = manageShape;
+        this.command = command;
+        this.saveAsFile = saveAsFile;
+        this.saveFile = saveFile;
+        map= new EnumMap<>(CommandEnum.class);
+        map.put(CommandEnum.OPEN,new OpenFileCommand(worker));
+        map.put(CommandEnum.READ,new ReadFileCommand(worker));
+        map.put(CommandEnum.SAVE,new SaveCommand(saveFile));
+        map.put(CommandEnum.SAVEAS, new SaveAsCommand(saveAsFile));
+        map.put(CommandEnum.CLOSE,new CloseFileCommand(worker));
+        map.put(CommandEnum.PRINT,new PrintCommand(manageShape));
+        map.put(CommandEnum.CREATE,new CreateCommand(manageShape,command));
+        map.put(CommandEnum.ERASE,new EraseCommand(manageShape,command));
+        map.put(CommandEnum.HELP,new HelpCommand());
+        map.put(CommandEnum.EXIT,new ExitCommand());
     }
 
-    public void display() {
-        System.out.println("Menu:");
-        System.out.println("1. open");
-        System.out.println("2. read");
-        System.out.println("3. save");
-        System.out.println("4. saveAs");
-        System.out.println("5. print");
-        System.out.println("6. create");
-        System.out.println("7. help");
-        System.out.println("8. exit");
-    }
-
-    public void executeCommand(String commandName) {
-        Command command = commands.get(commandName);
-        if (command != null) {
-            command.execute();
-        } else {
-            System.out.println("Invalid command. Type 'help' to see available commands.");
+    public void run(){
+        int index=command.indexOf(" ");
+        if(index==-1){
+            return;
+        }
+        String s1=command.substring(0,index);
+        s1=s1.toLowerCase(Locale.ROOT);
+        if(map.containsKey(s1)){
+            map.get(s1).execute();
         }
     }
-    */
 }

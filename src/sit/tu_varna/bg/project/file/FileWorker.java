@@ -12,8 +12,9 @@ public class FileWorker implements FileInterface {
     private String content;
     private final String path;
     private boolean opened;
+    private static FileWorker instance;
 
-    public FileWorker(String path) {
+    private FileWorker(String path) {
         this.path = path;
         content=null;
         opened=false;
@@ -68,9 +69,10 @@ public class FileWorker implements FileInterface {
     }
 
     @Override
-    public void close(){
+    public synchronized void close(){
         if(opened) {
             System.out.println("Closing file!");
+            instance=null;
             opened = false;
         }
         else System.out.println("No file is opened to be closed!");
@@ -96,6 +98,10 @@ public class FileWorker implements FileInterface {
     public String getPath() {
         return path;
     }
-
-
+    public static synchronized FileWorker getInstance(String path) {
+        if (instance == null) {
+            instance = new FileWorker(path);
+        }
+        return instance;
+    }
 }

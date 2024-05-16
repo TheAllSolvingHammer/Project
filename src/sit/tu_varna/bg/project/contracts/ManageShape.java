@@ -12,6 +12,7 @@ public interface ManageShape {
     List<Shape> within(RectangleRegion region);
     List<Shape> within(CircleRegion region);
     void translate(int x, int y);
+    void translate(int x, int y,int index);
     String getItemsToUser();
 
 }
