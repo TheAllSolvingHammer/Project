@@ -101,8 +101,10 @@ public class Circle extends AbstractShape {
      */
     @Override
     public String toUser() {
-        ReaderShape c1= new CircleReaderShape(convertIntoString());
-        return c1.convertShapeToUserReadable();
+        StringBuilder sb1 = new StringBuilder();
+        sb1.append("circle ").append(super.toUser()).append(" ").append(centerX)
+                .append(" ").append(centerY).append(" ").append(radius);
+        return sb1.toString();
     }
 
     /**

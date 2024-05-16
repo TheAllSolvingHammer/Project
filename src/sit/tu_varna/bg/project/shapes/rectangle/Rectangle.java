@@ -136,8 +136,14 @@ public class Rectangle extends AbstractShape {
      */
     @Override
     public String toUser() {
-        ReaderShape sg= new RectangleReaderShape(convertIntoString());
-        return sg.convertShapeToUserReadable();
+        StringBuilder sb1 = new StringBuilder();
+        sb1.append("rectangle ").append(super.toUser()).append(" ").append(initialX)
+                .append(" ").append(initialY).append(" ").append(width).append(" ").append(height);
+        if(roundCornerY>0 && roundCornerX>0){
+            sb1.append(" ").append(roundCornerX).append(" ").append(roundCornerY);
+            return sb1.toString();
+        }
+        return sb1.toString();
     }
 
     /**

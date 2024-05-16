@@ -1,27 +1,19 @@
 package sit.tu_varna.bg.project.executable;
 
-import sit.tu_varna.bg.project.contracts.ReaderShape;
-import sit.tu_varna.bg.project.enums.NamedColors;
+import sit.tu_varna.bg.project.contracts.*;
 import sit.tu_varna.bg.project.complete.ParseIntoText;
-import sit.tu_varna.bg.project.contracts.ManageShape;
-import sit.tu_varna.bg.project.contracts.Parser;
-import sit.tu_varna.bg.project.contracts.Shape;
 import sit.tu_varna.bg.project.factory.FlyWeightCreator;
+import sit.tu_varna.bg.project.file.FileWorker;
 import sit.tu_varna.bg.project.readers.rectangle.RectangleReaderShape;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
-import sit.tu_varna.bg.project.shapes.circle.Circle;
-import sit.tu_varna.bg.project.shapes.elipse.Ellipse;
-import sit.tu_varna.bg.project.shapes.polygon.Polygon;
-import sit.tu_varna.bg.project.shapes.rectangle.Rectangle;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 import java.util.Locale;
 
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 	// write your code here
 
 
@@ -40,12 +32,21 @@ public class Main {
             manager.addShape(t1);
             manager.translate(20,30);
             Parser p1 = new ParseIntoText(manager);
-
+        System.out.println(t1.toUser());
             System.out.println(p1.parseText());
             System.out.println();
 
-        ReaderShape r1 = new RectangleReaderShape("<rect fill=\"BROWN\" stroke=\"PINK\" stroke-width=\"10\" x=\"200\" y=\"300\" width=\"500\" height=\"400\" rx=\"10\" />");
+        ReaderShape r1 = new RectangleReaderShape("<rect fill=\"BROWN\" stroke=\"PINK\" stroke-width=\"10\" x=\"200\" y=\"300\" width=\"500\" height=\"400\" rx=\"10\" ry=\"20\" />");
         System.out.println(r1.convertShapeToUserReadable().toLowerCase(Locale.ROOT));
+        FileWorker fr1 = new FileWorker("D:\\testSvg\\fig.svr");
+        fr1.open();
+        System.out.println(fr1.getContent());
+
+
+
+        System.out.println();
+
+
 
 
 

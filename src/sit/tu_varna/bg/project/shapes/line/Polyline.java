@@ -109,8 +109,12 @@ public class Polyline extends AbstractShape {
      */
     @Override
     public String toUser() {
-        ReaderShape l1= new PolylineReaderShape(convertIntoString());
-        return l1.convertShapeToUserReadable();
+        StringBuilder sb1 = new StringBuilder();
+        sb1.append("polyline ").append(super.toUser());
+        for(Integer i1:arrayOfCoordinates){
+            sb1.append(" ").append(i1);
+        }
+        return sb1.toString();
     }
 
     /**

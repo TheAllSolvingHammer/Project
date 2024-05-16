@@ -111,8 +111,12 @@ public class Polygon extends AbstractShape {
      */
     @Override
     public String toUser() {
-        ReaderShape p1= new PolygonReaderShape(convertIntoString());
-        return p1.convertShapeToUserReadable();
+        StringBuilder sb1 = new StringBuilder();
+        sb1.append("polygon ").append(super.toUser());
+        for(Integer i1:arrayOfCoordinates){
+            sb1.append(" ").append(i1);
+        }
+        return sb1.toString();
     }
 
     /**

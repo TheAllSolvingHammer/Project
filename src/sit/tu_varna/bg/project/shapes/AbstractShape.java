@@ -3,8 +3,11 @@ package sit.tu_varna.bg.project.shapes;
 import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.contracts.Shape;
 
+import java.util.Locale;
+
 
 public abstract class AbstractShape implements Shape {
+
 
     private NamedColors fill;
     private int strokeWidth;
@@ -34,6 +37,13 @@ public abstract class AbstractShape implements Shape {
             return "fill=\""+fill+"\" stroke=\""+stroke+"\" stroke-width=\""+strokeWidth+"\"";
     }
 
+    @Override
+    public String toUser() {
+        StringBuilder sb1= new StringBuilder();
+        sb1.append(fill.toString().toLowerCase(Locale.ROOT)).append(" ").append(stroke.toString().toLowerCase(Locale.ROOT))
+                .append(" ").append(strokeWidth);
+        return sb1.toString();
+    }
 
 
     public NamedColors getFill() {

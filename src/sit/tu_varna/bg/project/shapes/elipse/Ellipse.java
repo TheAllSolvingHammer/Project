@@ -1,8 +1,6 @@
 package sit.tu_varna.bg.project.shapes.elipse;
 
-import sit.tu_varna.bg.project.contracts.ReaderShape;
 import sit.tu_varna.bg.project.enums.NamedColors;
-import sit.tu_varna.bg.project.readers.ellipse.EllipseReaderShape;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
@@ -102,8 +100,10 @@ public class Ellipse extends AbstractShape {
      */
     @Override
     public String toUser() {
-        ReaderShape e1= new EllipseReaderShape(convertIntoString());
-        return e1.convertShapeToUserReadable();
+        StringBuilder sb1 = new StringBuilder();
+        sb1.append("ellipse ").append(super.toUser()).append(" ").append(centerX)
+                .append(" ").append(centerY).append(" ").append(aAxis).append(" ").append(bAxis);
+        return sb1.toString();
     }
 
     public int getCenterX() {

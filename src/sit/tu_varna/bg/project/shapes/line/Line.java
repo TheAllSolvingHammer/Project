@@ -1,9 +1,7 @@
 package sit.tu_varna.bg.project.shapes.line;
 
-import sit.tu_varna.bg.project.contracts.ReaderShape;
 import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.contracts.Shape;
-import sit.tu_varna.bg.project.readers.line.LineReaderShape;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 
@@ -97,8 +95,10 @@ public class Line implements Shape {
      */
     @Override
     public String toUser() {
-        ReaderShape l1= new LineReaderShape(convertIntoString());
-        return l1.convertShapeToUserReadable();
+        StringBuilder sb1 = new StringBuilder();
+        sb1.append("line ").append(strokeWidth).append(" ").append(color.toString())
+                .append(" ").append(startX).append(" ").append(startY).append(" ").append(endX).append(" ").append(endY);
+        return sb1.toString();
     }
 
     public int getStrokeWidth() {
