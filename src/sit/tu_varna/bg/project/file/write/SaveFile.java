@@ -22,10 +22,10 @@ public class SaveFile implements FileManage {
             writer.write(content);
             writer.close();
             System.out.println("File saved at: " + filePath);
-            return;
+
         } catch (IOException e) {
             System.out.println("Error in saving file: " + e.getMessage());
-            return;
+
         }
     }
 
