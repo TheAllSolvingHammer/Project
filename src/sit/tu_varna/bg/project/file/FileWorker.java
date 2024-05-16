@@ -29,7 +29,11 @@ public class FileWorker implements FileInterface {
             File file = new File(path);
             if (!file.exists() ) {
                 try {
-                    file.createNewFile();
+                    if (!file.createNewFile()) {
+                        System.out.println("Failed to create a new file");
+                    } else {
+                        file.createNewFile();
+                    }
                     System.out.println("New empty file created: " + path);
                 } catch (IOException e) {
                     System.out.println("Error creating new file: " + e.getMessage());
@@ -61,7 +65,7 @@ public class FileWorker implements FileInterface {
             reader.close();
         } catch (IOException e) {
             System.out.println("Error reading from file: " + e.getMessage());
-        return;
+
         }
     }
 
