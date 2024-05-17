@@ -1,16 +1,6 @@
 package sit.tu_varna.bg.project.executable;
 
-import sit.tu_varna.bg.project.contracts.*;
-import sit.tu_varna.bg.project.complete.ParseIntoText;
-import sit.tu_varna.bg.project.factory.FlyWeightCreator;
-import sit.tu_varna.bg.project.file.FileWorker;
-import sit.tu_varna.bg.project.file.write.SaveFile;
-import sit.tu_varna.bg.project.readers.rectangle.RectangleReaderShape;
-import sit.tu_varna.bg.project.shapes.Application;
-import sit.tu_varna.bg.project.shapes.ShapeManager;
-
-import java.io.IOException;
-import java.util.Locale;
+import sit.tu_varna.bg.project.Application;
 
 
 public class Main {

@@ -1,12 +1,6 @@
 package sit.tu_varna.bg.project.menu;
 
-import com.sun.org.apache.bcel.internal.generic.FSUB;
-import sit.tu_varna.bg.project.contracts.FileManage;
-import sit.tu_varna.bg.project.contracts.ManageShape;
 import sit.tu_varna.bg.project.enums.CommandEnum;
-import sit.tu_varna.bg.project.file.FileWorker;
-import sit.tu_varna.bg.project.file.write.SaveAsFile;
-import sit.tu_varna.bg.project.file.write.SaveFile;
 
 import java.util.EnumMap;
 import java.util.Locale;
@@ -14,43 +8,49 @@ import java.util.Locale;
 
 public class Menu {
     private EnumMap<CommandEnum,MenuCommand> map;
-    private FileWorker worker;
-    private ManageShape manageShape;
-    private String command;
+    private String command=null;
 
 
 
-    public Menu(FileWorker worker, ManageShape manageShape) {
-        this.worker = worker;
-        this.manageShape = manageShape;
-        this.command = "help";
+    public Menu() {
         map= new EnumMap<>(CommandEnum.class);
         map.put(CommandEnum.OPEN,new OpenFileCommand(command));
-        map.put(CommandEnum.SAVE,new SaveCommand(command,manageShape,worker));
-        map.put(CommandEnum.SAVEAS, new SaveAsCommand(command,manageShape,worker));
-        map.put(CommandEnum.CLOSE,new CloseFileCommand(worker,command));
-        map.put(CommandEnum.PRINT,new PrintCommand(manageShape,command));
-        map.put(CommandEnum.CREATE,new CreateCommand(manageShape,command));
-        map.put(CommandEnum.ERASE,new EraseCommand(manageShape,command));
+        map.put(CommandEnum.SAVE,new SaveCommand(command));
+        map.put(CommandEnum.SAVEAS, new SaveAsCommand(command));
+        map.put(CommandEnum.CLOSE,new CloseFileCommand(command));
+        map.put(CommandEnum.PRINT,new PrintCommand(command));
+        map.put(CommandEnum.CREATE,new CreateCommand(command));
+        map.put(CommandEnum.ERASE,new EraseCommand(command));
         map.put(CommandEnum.HELP,new HelpCommand());
         map.put(CommandEnum.EXIT,new ExitCommand());
     }
 
     public void run(){
         if(command==null || command.isEmpty()){
-            System.out.println("no command");
             return;
         }
-        int index=command.indexOf(" ");
-        if(index==-1 && command.length()>0){
-            index=command.length()-1;
-        }
-        String s1=command.substring(0,index);
-        s1=s1.toLowerCase(Locale.ROOT);
-        CommandEnum com=CommandEnum.getEnum(s1);
-        if(map.containsKey(com)){
+        String normalizedCommand = command.toLowerCase(Locale.ROOT);
 
-            map.get(com).execute();
+        if (normalizedCommand.startsWith("open")) {
+            map.get(CommandEnum.OPEN).execute();
+        } else if (normalizedCommand.startsWith("close")) {
+            map.get(CommandEnum.CLOSE).execute();
+        } else if (normalizedCommand.startsWith("save")) {
+            map.get(CommandEnum.SAVE).execute();
+        } else if (normalizedCommand.startsWith("saveas")) {
+            map.get(CommandEnum.SAVEAS).execute();
+        } else if (normalizedCommand.startsWith("print")) {
+            map.get(CommandEnum.PRINT).execute();
+        } else if (normalizedCommand.startsWith("create")) {
+            map.get(CommandEnum.CREATE).execute();
+        } else if (normalizedCommand.startsWith("erase")) {
+            map.get(CommandEnum.ERASE).execute();
+        } else if (normalizedCommand.startsWith("help")) {
+            map.get(CommandEnum.HELP).execute();
+        } else if (normalizedCommand.startsWith("exit")) {
+            map.get(CommandEnum.EXIT).execute();
+        } else {
+            System.out.println("Unknown command");
         }
     }
 
@@ -60,5 +60,17 @@ public class Menu {
 
     public void setCommand(String command) {
         this.command = command;
+        map.put(CommandEnum.OPEN,new OpenFileCommand(command));
+        map.put(CommandEnum.SAVE,new SaveCommand(command));
+        map.put(CommandEnum.SAVEAS, new SaveAsCommand(command));
+        map.put(CommandEnum.CLOSE,new CloseFileCommand(command));
+        map.put(CommandEnum.PRINT,new PrintCommand(command));
+        map.put(CommandEnum.CREATE,new CreateCommand(command));
+        map.put(CommandEnum.ERASE,new EraseCommand(command));
+        map.put(CommandEnum.HELP,new HelpCommand());
+        map.put(CommandEnum.EXIT,new ExitCommand());
     }
+
+
+
 }

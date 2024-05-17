@@ -14,12 +14,13 @@ import java.util.List;
  */
 public class ShapeManager implements ManageShape {
     private List<Shape> shapes;
+    private static ShapeManager instance;
 
     /**
      * Конструктор на класа ShapeManager
      * В него се създава ArrayList съдържащ създадените от нас фигури
      */
-    public ShapeManager() {
+    private ShapeManager() {
         shapes= new ArrayList<>();
     }
 
@@ -51,7 +52,7 @@ public class ShapeManager implements ManageShape {
      */
     @Override
     public void removeShape(int index) {
-        if(index<0 || index>shapes.size()){
+        if(index<0 || index>=shapes.size()){
             return;
         }
         if(shapes.isEmpty()){
@@ -141,4 +142,10 @@ public class ShapeManager implements ManageShape {
         return sb1.toString();
     }
 
+    public static ShapeManager getInstance() {
+        if(instance==null){
+            instance = new ShapeManager();
+        }
+        return instance;
+    }
 }

@@ -10,14 +10,17 @@ import java.io.IOException;
 
 public class FileWorker implements FileInterface {
     private String content;
-    private final String path;
+    private String path;
     private boolean opened;
     private static FileWorker instance;
 
-    private FileWorker(String path) {
-        this.path = path;
+    private FileWorker() {
         content=null;
         opened=false;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     @Override
@@ -98,10 +101,11 @@ public class FileWorker implements FileInterface {
     public String getPath() {
         return path;
     }
-    public static synchronized FileWorker getInstance(String path) {
+    public static synchronized FileWorker getInstance() {
         if (instance == null) {
-            instance = new FileWorker(path);
+            instance = new FileWorker();
         }
         return instance;
     }
+
 }

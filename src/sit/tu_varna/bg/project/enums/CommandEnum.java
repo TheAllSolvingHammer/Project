@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Locale;
 
 public enum CommandEnum {
-    OPEN("open"), READ("read"), CLOSE("close"), SAVE("save"), SAVEAS("saveas"),
+    OPEN("open"), CLOSE("close"), SAVE("save"), SAVEAS("saveas"),
     HELP("help"), PRINT("print"), CREATE("create"),
     ERASE("erase"), TRANSLATE("translate"), WITHIN("within"), EXIT("exit");
 

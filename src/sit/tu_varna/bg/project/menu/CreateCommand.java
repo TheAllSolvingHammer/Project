@@ -9,82 +9,40 @@ import sit.tu_varna.bg.project.creator.line.LineCreator;
 import sit.tu_varna.bg.project.creator.line.PolylineCreator;
 import sit.tu_varna.bg.project.creator.polygon.PolygonCreator;
 import sit.tu_varna.bg.project.creator.rectangle.RectangleCreator;
+import sit.tu_varna.bg.project.factory.FlyWeightCreator;
+import sit.tu_varna.bg.project.shapes.ShapeManager;
 
 import java.util.Scanner;
 
 public class CreateCommand implements MenuCommand{
-    private ManageShape manageShape;
+
     private String command;
 
-    public CreateCommand(ManageShape manageShape, String command) {
-        this.manageShape = manageShape;
+    public CreateCommand(String command) {
         this.command = command;
     }
 
     @Override
     public void execute() {
-        Scanner scanner = new Scanner(command);
-        scanner.useDelimiter(" ");
-        if(!scanner.hasNext()) {
+        if(command==null || command.isEmpty()){
             return;
         }
-        String s1=scanner.next();
+        ShapeManager manageShape = ShapeManager.getInstance();
 
-        if(!s1.equalsIgnoreCase("create")){
-            return;
+        if(command.startsWith("create")){
+            command=command.substring(7);
         }
-        if(!scanner.hasNext()){
-            return;
-        }
-        String fig= scanner.next();
-        Creator c1;
-        StringBuilder sb1= new StringBuilder(fig+" ");
-        switch (fig){
-            case "rectangle":
-                while (scanner.hasNext()) {
-                    sb1.append(scanner.next()).append(" ");
-                }
-                c1 = new RectangleCreator(sb1.toString());
-                break;
-            case "circle":
-                while (scanner.hasNext()) {
-                    sb1.append(scanner.next()).append(" ");
-                }
-                c1 = new CircleCreator(sb1.toString());
-                break;
-            case "polygon":
-                while (scanner.hasNext()) {
-                    sb1.append(scanner.next()).append(" ");
-                }
-                c1 = new PolygonCreator(sb1.toString());
-                break;
-            case "polyline":
-                while (scanner.hasNext()) {
-                    sb1.append(scanner.next()).append(" ");
-                }
-                c1 = new PolylineCreator(sb1.toString());
-                break;
-            case "ellipse":
-                while (scanner.hasNext()) {
-                    sb1.append(scanner.next()).append(" ");
-                }
-                c1 = new EllipseCreator(sb1.toString());
-                break;
-            case "line":
-                while (scanner.hasNext()) {
-                    sb1.append(scanner.next()).append(" ");
-                }
-                c1 = new LineCreator(sb1.toString());
-                break;
-            default:
-                System.out.println("Unsupported figure type: " + fig);
-                return;
 
-        }
-        if(c1==null){
+        int index=command.indexOf(" ");
+        if(index==-1){
+            System.out.println("Index is wrong");
             return;
         }
-        Shape shape=c1.createShape();
+
+        String s2=command.substring(0,index);
+        String s3=command.substring(index+1);
+        FlyWeightCreator f1 = new FlyWeightCreator();
+        Shape shape = f1.getProduct(s2,s3);
         manageShape.addShape(shape);
     }
 }

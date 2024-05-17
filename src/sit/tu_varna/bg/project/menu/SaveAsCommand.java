@@ -7,22 +7,25 @@ import sit.tu_varna.bg.project.contracts.Parser;
 import sit.tu_varna.bg.project.file.FileWorker;
 import sit.tu_varna.bg.project.file.write.SaveAsFile;
 import sit.tu_varna.bg.project.file.write.SaveFile;
+import sit.tu_varna.bg.project.shapes.ShapeManager;
 
 import java.util.Scanner;
 
 public class SaveAsCommand implements MenuCommand{
     private String command;
-    private ManageShape manageShape;
-    private FileWorker worker;
 
-    public SaveAsCommand(String command, ManageShape manageShape, FileWorker worker) {
+
+    public SaveAsCommand(String command) {
         this.command = command;
-        this.manageShape = manageShape;
-        this.worker = worker;
     }
 
     @Override
     public void execute() {
+        if(command==null || command.isEmpty()){
+            return;
+        }
+        ShapeManager manageShape = ShapeManager.getInstance();
+        FileWorker worker = FileWorker.getInstance();
         Scanner scanner = new Scanner(command);
         scanner.useDelimiter(" ");
         if(!scanner.hasNext()){
