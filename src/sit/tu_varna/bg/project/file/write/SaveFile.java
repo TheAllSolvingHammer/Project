@@ -1,6 +1,7 @@
 package sit.tu_varna.bg.project.file.write;
 
 import sit.tu_varna.bg.project.contracts.FileManage;
+import sit.tu_varna.bg.project.file.FileWorker;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -17,6 +18,11 @@ public class SaveFile implements FileManage {
 
     @Override
     public void execute(){
+        FileWorker f1=FileWorker.getInstance();
+        if(!f1.isOpened()){
+            System.out.println("no opened file");
+            return;
+        }
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
             writer.write(content);

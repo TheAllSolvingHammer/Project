@@ -1,6 +1,7 @@
 package sit.tu_varna.bg.project.file.write;
 
 import sit.tu_varna.bg.project.contracts.FileManage;
+import sit.tu_varna.bg.project.file.FileWorker;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -19,6 +20,7 @@ public class SaveAsFile implements FileManage {
 
     @Override
     public void execute() {
+        //D:\\testSvg\\fig.svg
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(newFilePath));
             writer.write(content);

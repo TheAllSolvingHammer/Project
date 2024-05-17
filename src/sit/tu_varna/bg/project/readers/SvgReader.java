@@ -20,5 +20,8 @@ public class SvgReader {
             throw new IllegalArgumentException("Invalid SVG string: Missing closing </svg> tag");
         }
         System.out.println(read.substring(startIndex, endIndex + 6));
+        if(read.startsWith("<svg ")){
+
+        }
     }
 }

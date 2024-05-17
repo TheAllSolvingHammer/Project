@@ -35,7 +35,7 @@ public class Menu {
             map.get(CommandEnum.OPEN).execute();
         } else if (normalizedCommand.startsWith("close")) {
             map.get(CommandEnum.CLOSE).execute();
-        } else if (normalizedCommand.startsWith("save")) {
+        } else if (normalizedCommand.startsWith("save") && normalizedCommand.length()==4) {
             map.get(CommandEnum.SAVE).execute();
         } else if (normalizedCommand.startsWith("saveas")) {
             map.get(CommandEnum.SAVEAS).execute();

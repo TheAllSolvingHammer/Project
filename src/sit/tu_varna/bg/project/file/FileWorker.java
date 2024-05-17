@@ -108,4 +108,7 @@ public class FileWorker implements FileInterface {
         return instance;
     }
 
+    public boolean isOpened() {
+        return opened;
+    }
 }

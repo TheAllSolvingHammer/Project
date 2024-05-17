@@ -22,6 +22,7 @@ public class SaveAsCommand implements MenuCommand{
     @Override
     public void execute() {
         if(command==null || command.isEmpty()){
+            System.out.println("command is empty");
             return;
         }
         ShapeManager manageShape = ShapeManager.getInstance();
@@ -29,16 +30,20 @@ public class SaveAsCommand implements MenuCommand{
         Scanner scanner = new Scanner(command);
         scanner.useDelimiter(" ");
         if(!scanner.hasNext()){
+            System.out.println("Not enough args");
             return;
         }
         String s1= scanner.next();
         if(!s1.equalsIgnoreCase("saveas")){
+            System.out.println("unknown command");
            return;
         }
         if(!scanner.hasNext()){
+            System.out.println("not enough args");
             return;
         }
         String argument=scanner.next();
+        System.out.println(argument);
         String path = worker.getPath();
         Parser p1 = new ParseIntoText(manageShape);
         String content = p1.parseText();
