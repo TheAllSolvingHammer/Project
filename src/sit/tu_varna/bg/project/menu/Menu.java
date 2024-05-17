@@ -17,23 +17,19 @@ public class Menu {
     private FileWorker worker;
     private ManageShape manageShape;
     private String command;
-    private SaveAsFile saveAsFile;
-    private SaveFile saveFile;
 
 
-    public Menu(FileWorker worker, ManageShape manageShape, String command, SaveAsFile saveAsFile, SaveFile saveFile) {
+
+    public Menu(FileWorker worker, ManageShape manageShape) {
         this.worker = worker;
         this.manageShape = manageShape;
-        this.command = command;
-        this.saveAsFile = saveAsFile;
-        this.saveFile = saveFile;
+        this.command = "help";
         map= new EnumMap<>(CommandEnum.class);
-        map.put(CommandEnum.OPEN,new OpenFileCommand(worker));
-        map.put(CommandEnum.READ,new ReadFileCommand(worker));
-        map.put(CommandEnum.SAVE,new SaveCommand(saveFile));
-        map.put(CommandEnum.SAVEAS, new SaveAsCommand(saveAsFile));
-        map.put(CommandEnum.CLOSE,new CloseFileCommand(worker));
-        map.put(CommandEnum.PRINT,new PrintCommand(manageShape));
+        map.put(CommandEnum.OPEN,new OpenFileCommand(command));
+        map.put(CommandEnum.SAVE,new SaveCommand(command,manageShape,worker));
+        map.put(CommandEnum.SAVEAS, new SaveAsCommand(command,manageShape,worker));
+        map.put(CommandEnum.CLOSE,new CloseFileCommand(worker,command));
+        map.put(CommandEnum.PRINT,new PrintCommand(manageShape,command));
         map.put(CommandEnum.CREATE,new CreateCommand(manageShape,command));
         map.put(CommandEnum.ERASE,new EraseCommand(manageShape,command));
         map.put(CommandEnum.HELP,new HelpCommand());
@@ -41,14 +37,28 @@ public class Menu {
     }
 
     public void run(){
-        int index=command.indexOf(" ");
-        if(index==-1){
+        if(command==null || command.isEmpty()){
+            System.out.println("no command");
             return;
+        }
+        int index=command.indexOf(" ");
+        if(index==-1 && command.length()>0){
+            index=command.length()-1;
         }
         String s1=command.substring(0,index);
         s1=s1.toLowerCase(Locale.ROOT);
-        if(map.containsKey(s1)){
-            map.get(s1).execute();
+        CommandEnum com=CommandEnum.getEnum(s1);
+        if(map.containsKey(com)){
+
+            map.get(com).execute();
         }
+    }
+
+    public String getCommand() {
+        return command;
+    }
+
+    public void setCommand(String command) {
+        this.command = command;
     }
 }

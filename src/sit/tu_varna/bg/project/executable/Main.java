@@ -6,6 +6,7 @@ import sit.tu_varna.bg.project.factory.FlyWeightCreator;
 import sit.tu_varna.bg.project.file.FileWorker;
 import sit.tu_varna.bg.project.file.write.SaveFile;
 import sit.tu_varna.bg.project.readers.rectangle.RectangleReaderShape;
+import sit.tu_varna.bg.project.shapes.Application;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 
 import java.io.IOException;
@@ -18,7 +19,7 @@ public class Main {
 	// write your code here
 
 
-
+/*
         String s1="rectangle brown pink 10 200 300 500 400";
         int index=s1.indexOf(" ");
         String s2=s1.substring(index+1);
@@ -51,9 +52,10 @@ public class Main {
 
 
         System.out.println();
+        */
 
 
-
+        Application.runProgram();
 
 
 

@@ -38,7 +38,7 @@ public class CreateCommand implements MenuCommand{
         }
         String fig= scanner.next();
         Creator c1;
-        StringBuilder sb1= new StringBuilder();
+        StringBuilder sb1= new StringBuilder(fig+" ");
         switch (fig){
             case "rectangle":
                 while (scanner.hasNext()) {

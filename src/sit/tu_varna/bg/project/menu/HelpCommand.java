@@ -3,6 +3,7 @@ package sit.tu_varna.bg.project.menu;
 public class HelpCommand implements MenuCommand{
     @Override
     public void execute() {
+
         System.out.println("Available Commands:");
         System.out.println("open  - Opens a file");
         System.out.println("read  - Reads content from the opened file");

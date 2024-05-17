@@ -4,14 +4,19 @@ import sit.tu_varna.bg.project.contracts.ManageShape;
 
 public class PrintCommand implements MenuCommand{
     private ManageShape manageShape;
+    private String command;
 
-    public PrintCommand(ManageShape manageShape) {
+    public PrintCommand(ManageShape manageShape, String command) {
         this.manageShape = manageShape;
+        this.command = command;
     }
 
     @Override
     public void execute() {
-        String s1=manageShape.getItemsToUser();
-        System.out.println(s1);
+        if(command.equalsIgnoreCase("print")){
+            String s1=manageShape.getItemsToUser();
+            System.out.println(s1);
+        }
+
     }
 }
