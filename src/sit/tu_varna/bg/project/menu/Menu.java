@@ -49,7 +49,9 @@ public class Menu {
         } else if (normalizedCommand.startsWith("erase")) {
             map.get(CommandEnum.ERASE).execute();
         } else if (normalizedCommand.startsWith("translate")) {
-            map.get(CommandEnum.TRANSLATE).execute();
+            map.get(CommandEnum.TRANSLATE).execute();}
+        else if (normalizedCommand.startsWith("within")) {
+            map.get(CommandEnum.WITHIN).execute();
         } else if (normalizedCommand.startsWith("help")) {
             map.get(CommandEnum.HELP).execute();
         } else if (normalizedCommand.startsWith("exit")) {
@@ -73,6 +75,7 @@ public class Menu {
         map.put(CommandEnum.CREATE,new CreateCommand(command));
         map.put(CommandEnum.ERASE,new EraseCommand(command));
         map.put(CommandEnum.TRANSLATE,new TranslateCommand(command));
+        map.put(CommandEnum.WITHIN,new WithinCommand(command));
         map.put(CommandEnum.HELP,new HelpCommand());
         map.put(CommandEnum.EXIT,new ExitCommand());
 

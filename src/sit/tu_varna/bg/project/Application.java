@@ -15,7 +15,7 @@ public class Application {
             command = scanner.nextLine();
             m1.setCommand(command);
             m1.run();
-        } while (command.startsWith("exit"));
+        } while(true);
 
     }
 }
