@@ -18,13 +18,13 @@ import java.util.Map;
  * Класът отговаря за създаването на на обекти от вход на потребителя
  */
 public class FlyWeightCreator {
-
+    private static FlyWeightCreator instance;
     private final Map<Figures,Map<String,Shape>> products= new EnumMap<>(Figures.class);
 
     /**
      * Конструктор инициализиращ енум-Мап, със стойност други мапове
      */
-    public FlyWeightCreator() {
+    private FlyWeightCreator() {
         products.put(Figures.RECTANGLE, new HashMap<>());
         products.put(Figures.POLYGON, new HashMap<>());
         products.put(Figures.CIRCLE, new HashMap<>());
@@ -106,5 +106,12 @@ public class FlyWeightCreator {
             }
         }
         return products.get(type).get(parameters);
+    }
+
+    public static FlyWeightCreator getInstance() {
+        if(instance==null){
+            instance = new FlyWeightCreator();
+        }
+        return instance;
     }
 }

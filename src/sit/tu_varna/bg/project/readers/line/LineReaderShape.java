@@ -1,10 +1,11 @@
 package sit.tu_varna.bg.project.readers.line;
 
 import sit.tu_varna.bg.project.contracts.ReaderShape;
+import sit.tu_varna.bg.project.readers.ReaderAbstractShape;
 
 import java.util.Scanner;
 
-public class LineReaderShape implements ReaderShape {
+public class LineReaderShape extends ReaderAbstractShape implements ReaderShape {
     private String shapeString;
 
     public LineReaderShape(String shapeString) {

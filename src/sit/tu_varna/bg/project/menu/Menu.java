@@ -1,13 +1,15 @@
 package sit.tu_varna.bg.project.menu;
 
+import sit.tu_varna.bg.project.contracts.MenuCommand;
 import sit.tu_varna.bg.project.enums.CommandEnum;
+import sit.tu_varna.bg.project.menu.commands.*;
 
 import java.util.EnumMap;
 import java.util.Locale;
 
 
 public class Menu {
-    private EnumMap<CommandEnum,MenuCommand> map;
+    private EnumMap<CommandEnum, MenuCommand> map;
     private String command=null;
 
 
@@ -21,6 +23,7 @@ public class Menu {
         map.put(CommandEnum.PRINT,new PrintCommand(command));
         map.put(CommandEnum.CREATE,new CreateCommand(command));
         map.put(CommandEnum.ERASE,new EraseCommand(command));
+        map.put(CommandEnum.TRANSLATE,new TranslateCommand(command));
         map.put(CommandEnum.HELP,new HelpCommand());
         map.put(CommandEnum.EXIT,new ExitCommand());
     }
@@ -45,6 +48,8 @@ public class Menu {
             map.get(CommandEnum.CREATE).execute();
         } else if (normalizedCommand.startsWith("erase")) {
             map.get(CommandEnum.ERASE).execute();
+        } else if (normalizedCommand.startsWith("translate")) {
+            map.get(CommandEnum.TRANSLATE).execute();
         } else if (normalizedCommand.startsWith("help")) {
             map.get(CommandEnum.HELP).execute();
         } else if (normalizedCommand.startsWith("exit")) {
@@ -67,8 +72,10 @@ public class Menu {
         map.put(CommandEnum.PRINT,new PrintCommand(command));
         map.put(CommandEnum.CREATE,new CreateCommand(command));
         map.put(CommandEnum.ERASE,new EraseCommand(command));
+        map.put(CommandEnum.TRANSLATE,new TranslateCommand(command));
         map.put(CommandEnum.HELP,new HelpCommand());
         map.put(CommandEnum.EXIT,new ExitCommand());
+
     }
 
 

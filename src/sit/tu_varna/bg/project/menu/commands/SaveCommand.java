@@ -1,10 +1,9 @@
-package sit.tu_varna.bg.project.menu;
+package sit.tu_varna.bg.project.menu.commands;
 
 import sit.tu_varna.bg.project.complete.ParseIntoText;
 import sit.tu_varna.bg.project.contracts.FileManage;
-import sit.tu_varna.bg.project.contracts.ManageShape;
+import sit.tu_varna.bg.project.contracts.MenuCommand;
 import sit.tu_varna.bg.project.contracts.Parser;
-import sit.tu_varna.bg.project.enums.CommandEnum;
 import sit.tu_varna.bg.project.file.FileWorker;
 import sit.tu_varna.bg.project.file.write.SaveFile;
 import sit.tu_varna.bg.project.shapes.ShapeManager;

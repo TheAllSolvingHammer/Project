@@ -1,12 +1,13 @@
-package sit.tu_varna.bg.project.menu;
+package sit.tu_varna.bg.project.menu.commands;
 
-public class HelpCommand implements MenuCommand{
+import sit.tu_varna.bg.project.contracts.MenuCommand;
+
+public class HelpCommand implements MenuCommand {
     @Override
     public void execute() {
 
         System.out.println("Available Commands:");
         System.out.println("open  - Opens a file");
-        System.out.println("read  - Reads content from the opened file");
         System.out.println("save  - Saves the currently opened file");
         System.out.println("saveAs - Saves the content in a new location");
         System.out.println("close - closes opened file");

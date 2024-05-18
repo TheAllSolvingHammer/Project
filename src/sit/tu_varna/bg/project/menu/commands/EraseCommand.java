@@ -1,12 +1,11 @@
-package sit.tu_varna.bg.project.menu;
+package sit.tu_varna.bg.project.menu.commands;
 
-import sit.tu_varna.bg.project.contracts.ManageShape;
+import sit.tu_varna.bg.project.contracts.MenuCommand;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 
-import java.util.Locale;
 import java.util.Scanner;
 
-public class EraseCommand implements MenuCommand{
+public class EraseCommand implements MenuCommand {
     private String command;
 
     public EraseCommand(String command) {
@@ -20,7 +19,7 @@ public class EraseCommand implements MenuCommand{
         }
         ShapeManager manageShape= ShapeManager.getInstance();
         Scanner scanner = new Scanner(command);
-        int index=-1;
+        int index;
         scanner.useDelimiter(" ");
         if(!scanner.hasNext()) {
             System.out.println("empty instructions");

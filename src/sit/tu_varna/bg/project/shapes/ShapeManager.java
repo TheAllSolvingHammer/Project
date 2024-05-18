@@ -108,6 +108,7 @@ public class ShapeManager implements ManageShape {
                 s.translateY(y);
             }
         }
+        System.out.println("Translated all figures");
     }
 
     /**
@@ -118,7 +119,7 @@ public class ShapeManager implements ManageShape {
     @Override
     public void translate(int x, int y, int index) {
 
-        if(index<0)
+        if(index<0|| index>shapes.size()-1)
             return;
         if(shapes.isEmpty())
             return;
@@ -126,7 +127,7 @@ public class ShapeManager implements ManageShape {
         s1.translateX(x);
         s1.translateY(y);
         shapes.set(index,s1);
-
+        System.out.println("Translated figure at index "+index);
     }
 
     /**

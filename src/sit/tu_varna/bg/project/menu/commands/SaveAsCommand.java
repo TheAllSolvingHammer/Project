@@ -1,17 +1,16 @@
-package sit.tu_varna.bg.project.menu;
+package sit.tu_varna.bg.project.menu.commands;
 
 import sit.tu_varna.bg.project.complete.ParseIntoText;
 import sit.tu_varna.bg.project.contracts.FileManage;
-import sit.tu_varna.bg.project.contracts.ManageShape;
+import sit.tu_varna.bg.project.contracts.MenuCommand;
 import sit.tu_varna.bg.project.contracts.Parser;
 import sit.tu_varna.bg.project.file.FileWorker;
 import sit.tu_varna.bg.project.file.write.SaveAsFile;
-import sit.tu_varna.bg.project.file.write.SaveFile;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 
 import java.util.Scanner;
 
-public class SaveAsCommand implements MenuCommand{
+public class SaveAsCommand implements MenuCommand {
     private String command;
 
 

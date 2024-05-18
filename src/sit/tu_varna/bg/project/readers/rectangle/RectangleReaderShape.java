@@ -1,10 +1,12 @@
 package sit.tu_varna.bg.project.readers.rectangle;
 
 import sit.tu_varna.bg.project.contracts.ReaderShape;
+import sit.tu_varna.bg.project.readers.ReaderAbstractShape;
 
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
-public class RectangleReaderShape implements ReaderShape {
+public class RectangleReaderShape extends ReaderAbstractShape implements ReaderShape {
     private String shapeString;
 
     public RectangleReaderShape(String shapeString) {
@@ -13,116 +15,73 @@ public class RectangleReaderShape implements ReaderShape {
 
     @Override
     public String convertShapeToUserReadable() {
-        Scanner scanner = new Scanner(shapeString);
-        scanner.useDelimiter("[=\" ]+");
-
-        scanner.next();
+        Map<String, String> attributes = parseAttributes(shapeString);
 
         StringBuilder sb = new StringBuilder();
-        sb.append("rect ");
+        sb.append("rectangle ");
 
-        if (scanner.hasNext("fill")) {
-            scanner.next();
-            sb.append(scanner.next()).append(" ");
+        String fill = attributes.get("fill");
+        if (fill != null && isValidColor(fill)) {
+            sb.append(fill).append(" ");
         } else {
-            System.out.println("Error: 'fill' attribute not found.");
+            System.out.println("Error: Invalid 'fill' attribute.");
             return null;
         }
 
-        if (scanner.hasNext("stroke")) {
-            scanner.next();
-            sb.append(scanner.next()).append(" ");
+        String stroke = attributes.get("stroke");
+        if (stroke != null && isValidColor(stroke)) {
+            sb.append(stroke).append(" ");
         } else {
-            System.out.println("Error: 'stroke' attribute not found.");
+            System.out.println("Error: Invalid 'stroke' attribute.");
             return null;
         }
 
-        if (scanner.hasNext("stroke-width")) {
-            scanner.next();
-            if (scanner.hasNextInt()) {
-                sb.append(scanner.nextInt()).append(" ");
-            } else {
-                System.out.println("Error: 'stroke-width' attribute is not a double.");
-                return null;
-            }
+        String strokeWidth = attributes.get("stroke-width");
+        if (strokeWidth != null && isValidInteger(strokeWidth)) {
+            sb.append(strokeWidth).append(" ");
         } else {
-            System.out.println("Error: 'stroke-width' attribute not found.");
+            System.out.println("Error: Invalid 'stroke-width' attribute.");
             return null;
         }
 
-        if (scanner.hasNext("x")) {
-            scanner.next();
-            if (scanner.hasNextInt()) {
-                sb.append(scanner.nextInt()).append(" ");
-            } else {
-                System.out.println("Error: 'x' attribute is not an integer.");
-                return null;
-            }
+        String x = attributes.get("x");
+        if (x != null && isValidInteger(x)) {
+            sb.append(x).append(" ");
         } else {
-            System.out.println("Error: 'x' attribute not found.");
+            System.out.println("Error: Invalid 'x' attribute.");
             return null;
         }
 
-        if (scanner.hasNext("y")) {
-            scanner.next();
-            if (scanner.hasNextInt()) {
-                sb.append(scanner.nextInt()).append(" ");
-            } else {
-                System.out.println("Error: 'y' attribute is not an integer.");
-                return null;
-            }
+        String y = attributes.get("y");
+        if (y != null && isValidInteger(y)) {
+            sb.append(y).append(" ");
         } else {
-            System.out.println("Error: 'y' attribute not found.");
+            System.out.println("Error: Invalid 'y' attribute.");
             return null;
         }
 
-        if (scanner.hasNext("width")) {
-            scanner.next();
-            if (scanner.hasNextInt()) {
-                sb.append(scanner.nextInt()).append(" ");
-            } else {
-                System.out.println("Error: 'width' attribute is not an integer.");
-                return null;
-            }
+        String width = attributes.get("width");
+        if (width != null && isValidInteger(width)) {
+            sb.append(width).append(" ");
         } else {
-            System.out.println("Error: 'width' attribute not found.");
+            System.out.println("Error: Invalid 'width' attribute.");
             return null;
         }
 
-        if (scanner.hasNext("height")) {
-            scanner.next();
-            if (scanner.hasNextInt()) {
-                sb.append(scanner.nextInt()).append(" ");
-            } else {
-                System.out.println("Error: 'height' attribute is not an integer.");
-                return null;
-            }
+        String height = attributes.get("height");
+        if (height != null && isValidInteger(height)) {
+            sb.append(height);
         } else {
-            System.out.println("Error: 'height' attribute not found.");
+            System.out.println("Error: Invalid 'height' attribute.");
             return null;
         }
-        if(!scanner.hasNext()){
-            scanner.close();
-            return sb.toString();
+
+        String rx = attributes.get("rx");
+        String ry = attributes.get("ry");
+        if (rx != null && ry != null && isValidInteger(rx) && isValidInteger(ry)) {
+            sb.append(" ").append(rx).append(" ").append(ry);
         }
-        int roundX=0,roundY=0;
-        if (scanner.hasNext("rx")) {
-            scanner.next();
-            if (scanner.hasNextInt()) {
-                roundX= scanner.nextInt();
-            }
-        }
-        if (scanner.hasNext("ry")) {
-            scanner.next();
-            if (scanner.hasNextInt()) {
-                roundY= scanner.nextInt();
-            }
-        }
-        if(roundX>0 && roundY>0){
-            sb.append(roundX).append(" ").append(roundY);
-        }
-        scanner.close();
+
         return sb.toString();
-
     }
 }

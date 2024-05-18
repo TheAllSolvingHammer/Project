@@ -1,12 +1,12 @@
-package sit.tu_varna.bg.project.menu;
+package sit.tu_varna.bg.project.menu.commands;
 
+import sit.tu_varna.bg.project.contracts.MenuCommand;
 import sit.tu_varna.bg.project.file.FileWorker;
 import sit.tu_varna.bg.project.readers.SvgReader;
 
-import java.io.File;
 import java.util.Scanner;
 
-public class OpenFileCommand implements MenuCommand{
+public class OpenFileCommand implements MenuCommand {
     private String command;
 
     public OpenFileCommand(String command) {
@@ -21,7 +21,6 @@ public class OpenFileCommand implements MenuCommand{
         }
         Scanner scanner=new Scanner(command);
         if(!scanner.hasNext()){
-            System.out.println("dao");
             return;
         }
         String s1=scanner.next();

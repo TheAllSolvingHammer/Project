@@ -1,10 +1,9 @@
-package sit.tu_varna.bg.project.menu;
+package sit.tu_varna.bg.project.menu.commands;
 
-import sit.tu_varna.bg.project.contracts.ManageShape;
-import sit.tu_varna.bg.project.contracts.Shape;
+import sit.tu_varna.bg.project.contracts.MenuCommand;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 
-public class PrintCommand implements MenuCommand{
+public class PrintCommand implements MenuCommand {
     private String command;
 
     public PrintCommand(String command) {

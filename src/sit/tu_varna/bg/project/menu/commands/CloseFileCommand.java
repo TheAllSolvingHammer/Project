@@ -1,11 +1,11 @@
-package sit.tu_varna.bg.project.menu;
+package sit.tu_varna.bg.project.menu.commands;
 
-import sit.tu_varna.bg.project.enums.CommandEnum;
+import sit.tu_varna.bg.project.contracts.MenuCommand;
 import sit.tu_varna.bg.project.file.FileWorker;
 
 import java.util.Scanner;
 
-public class CloseFileCommand implements MenuCommand{
+public class CloseFileCommand implements MenuCommand {
     private String command;
 
     public CloseFileCommand(String command) {

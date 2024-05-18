@@ -20,7 +20,7 @@ public class SaveAsFile implements FileManage {
 
     @Override
     public void execute() {
-        //D:\\testSvg\\fig.svg
+
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(newFilePath));
             writer.write(content);
