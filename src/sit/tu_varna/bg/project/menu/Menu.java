@@ -1,11 +1,13 @@
 package sit.tu_varna.bg.project.menu;
 
+import com.sun.corba.se.impl.protocol.InfoOnlyServantCacheLocalCRDImpl;
 import sit.tu_varna.bg.project.contracts.MenuCommand;
 import sit.tu_varna.bg.project.enums.CommandEnum;
 import sit.tu_varna.bg.project.menu.commands.*;
 
 import java.util.EnumMap;
 import java.util.Locale;
+import java.util.Scanner;
 
 /**
  * Клас меню, с което потребителя ще достъпва различните функционалности на програмата
@@ -42,32 +44,16 @@ public class Menu {
             return;
         }
         String normalizedCommand = command.toLowerCase(Locale.ROOT);
-
-        if (normalizedCommand.startsWith("open")) {
-            map.get(CommandEnum.OPEN).execute(normalizedCommand);
-        } else if (normalizedCommand.startsWith("close")) {
-            map.get(CommandEnum.CLOSE).execute(normalizedCommand);
-        } else if (normalizedCommand.startsWith("save") && normalizedCommand.length()==4) {
-            map.get(CommandEnum.SAVE).execute(normalizedCommand);
-        } else if (normalizedCommand.startsWith("saveas")) {
-            map.get(CommandEnum.SAVEAS).execute(normalizedCommand);
-        } else if (normalizedCommand.startsWith("print")) {
-            map.get(CommandEnum.PRINT).execute(normalizedCommand);
-        } else if (normalizedCommand.startsWith("create")) {
-            map.get(CommandEnum.CREATE).execute(normalizedCommand);
-        } else if (normalizedCommand.startsWith("erase")) {
-            map.get(CommandEnum.ERASE).execute(normalizedCommand);
-        } else if (normalizedCommand.startsWith("translate")) {
-            map.get(CommandEnum.TRANSLATE).execute(normalizedCommand);}
-        else if (normalizedCommand.startsWith("within")) {
-            map.get(CommandEnum.WITHIN).execute(normalizedCommand);
-        } else if (normalizedCommand.startsWith("help")) {
-            map.get(CommandEnum.HELP).execute(normalizedCommand);
-        } else if (normalizedCommand.startsWith("exit")) {
-            map.get(CommandEnum.EXIT).execute(normalizedCommand);
-        } else {
-            System.out.println("Unknown command");
+        Scanner scanner = new Scanner(normalizedCommand);
+        scanner.useDelimiter(" ");
+        if(!scanner.hasNext()){
+            return;
         }
+        String commandWork=scanner.next();
+        if(map.containsKey(CommandEnum.getEnum(commandWork))) {
+            map.get(CommandEnum.getEnum(commandWork)).execute(command);
+        }
+        else System.out.println("Wrong command");
     }
 
     public String getCommand() {

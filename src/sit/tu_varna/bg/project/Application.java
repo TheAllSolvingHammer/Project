@@ -11,11 +11,11 @@ public class Application {
         Scanner scanner = new Scanner(System.in);
         Menu m1 = new Menu();
         String command;
-        do {
+        while(true) {
             command = scanner.nextLine();
             m1.setCommand(command);
             m1.run();
-        } while(true);
+        }
 
     }
 }
