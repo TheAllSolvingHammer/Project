@@ -2,9 +2,6 @@ package sit.tu_varna.bg.project.contracts;
 
 import java.io.IOException;
 
-/**
- * Интерфейс с който класа FileWorker ще работи
- */
 public interface FileInterface {
     void open() throws IOException;
     void read() throws IOException;

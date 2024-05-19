@@ -5,9 +5,7 @@ import sit.tu_varna.bg.project.regions.RectangleRegion;
 
 import java.util.List;
 
-/**
- * Интерфейс за мениджър на фигури
- */
+
 public interface ManageShape {
     List<Shape> getShapes();
     void addShape(Shape shape);
