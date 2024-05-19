@@ -8,12 +8,22 @@ import sit.tu_varna.bg.project.shapes.circle.Circle;
 
 import java.util.Locale;
 import java.util.Scanner;
-
+/**
+ * Клас за създаване на кръгове, който наследява AbstractCreator.
+ */
 public class CircleCreator extends AbstractCreator {
+    /**
+     * Конструктор за създаване на обект от класа CircleCreator с дадени параметри.
+     * @param parameters Параметрите за създаване на обектите.
+     */
     public CircleCreator(String parameters) {
         super(parameters);
     }
 
+    /**
+     * Метод, който създава кръг на базата на подадените параметри.
+     * @return Връща създадения кръг.
+     */
     @Override
     public Shape createShape() {
         Scanner scanner = new Scanner(getParameters());

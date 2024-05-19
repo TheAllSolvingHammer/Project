@@ -5,10 +5,10 @@ import sit.tu_varna.bg.project.contracts.Parser;
 import sit.tu_varna.bg.project.contracts.Shape;
 
 
-public class ParseIntoText implements Parser {
+public class SvgParseString implements Parser {
     private ManageShape shape;
 
-    public ParseIntoText(ManageShape shape) {
+    public SvgParseString(ManageShape shape) {
         this.shape = shape;
     }
 

@@ -10,6 +10,9 @@ import sit.tu_varna.bg.project.shapes.AbstractShape;
 
 import java.util.List;
 
+/**
+ * Клас многоъгълник
+ */
 public class Polygon extends AbstractShape {
 
     private List<Integer> arrayOfCoordinates;

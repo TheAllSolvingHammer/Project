@@ -7,6 +7,9 @@ import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
 
+/**
+ * Клас за създаването на кръг
+ */
 public class Circle extends AbstractShape {
     private int centerX;
     private int centerY;
@@ -104,29 +107,54 @@ public class Circle extends AbstractShape {
         return sb1.toString();
     }
 
+    /**
+     * Връща координатата X на центъра на кръга.
+     * @return Координатата X на центъра на кръга.
+     */
     public int getCenterX() {
         return centerX;
     }
 
+    /**
+     * Задава координатата X на центъра на кръга.
+     * @param centerX Новата координата X на центъра на кръга.
+     */
     public void setCenterX(int centerX) {
         this.centerX = centerX;
     }
 
+    /**
+     * Връща координатата Y на центъра на кръга.
+     * @return Координатата Y на центъра на кръга.
+     */
     public int getCenterY() {
         return centerY;
     }
 
+    /**
+     * Задава координатата Y на центъра на кръга.
+     * @param centerY Новата координата Y на центъра на кръга.
+     */
     public void setCenterY(int centerY) {
         this.centerY = centerY;
     }
 
+    /**
+     * Връща радиуса на кръга.
+     * @return Радиуса на кръга.
+     */
     public int getRadius() {
         return radius;
     }
 
+    /**
+     * Задава радиуса на кръга.
+     * @param radius Новият радиус на кръга.
+     */
     public void setRadius(int radius) {
         this.radius = radius;
     }
+
 
 
 }

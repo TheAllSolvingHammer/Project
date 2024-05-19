@@ -4,9 +4,14 @@ import sit.tu_varna.bg.project.contracts.MenuCommand;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 
 import java.util.Scanner;
-
+/**
+ * Клас за командата Translate
+ */
 public class TranslateCommand implements MenuCommand {
-
+    /**
+     * Метод обработващ командата
+     * @param command командата която се подава
+     */
     @Override
     public void execute(String command) {
         if(command==null || command.isEmpty()){

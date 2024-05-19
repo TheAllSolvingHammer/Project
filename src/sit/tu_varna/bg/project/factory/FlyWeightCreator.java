@@ -108,6 +108,10 @@ public class FlyWeightCreator {
         return products.get(type).get(parameters);
     }
 
+    /**
+     * Метод, който връща инстанцията на този клас.
+     * @return инстанция от този клас
+     */
     public static FlyWeightCreator getInstance() {
         if(instance==null){
             instance = new FlyWeightCreator();

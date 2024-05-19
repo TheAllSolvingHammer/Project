@@ -52,10 +52,10 @@ public class ShapeManager implements ManageShape {
      */
     @Override
     public void removeShape(int index) {
-        if(index<0 || index>=shapes.size()){
+        if(shapes.isEmpty()){
             return;
         }
-        if(shapes.isEmpty()){
+        if(index<0 || index>=shapes.size()){
             return;
         }
         shapes.remove(index);
@@ -118,10 +118,9 @@ public class ShapeManager implements ManageShape {
      */
     @Override
     public void translate(int x, int y, int index) {
-
-        if(index<0|| index>shapes.size()-1)
-            return;
         if(shapes.isEmpty())
+            return;
+        if(index<0|| index>shapes.size()-1)
             return;
         Shape s1= shapes.get(index);
         s1.translateX(x);
@@ -143,6 +142,10 @@ public class ShapeManager implements ManageShape {
         return sb1.toString();
     }
 
+    /**
+     * Метод за получаване на инстанцията от класа, зададена статично
+     * @return инсатция от калса
+     */
     public static ShapeManager getInstance() {
         if(instance==null){
             instance = new ShapeManager();

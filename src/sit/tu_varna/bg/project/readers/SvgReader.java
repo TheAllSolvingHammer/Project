@@ -12,12 +12,23 @@ import sit.tu_varna.bg.project.readers.polygon.PolygonReaderShape;
 import sit.tu_varna.bg.project.readers.rectangle.RectangleReaderShape;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 
+/**
+ * Клас който проита съжърданието от HTML таговете на SVG
+ */
 public class SvgReader {
     private String read;
 
+    /**
+     * Конструктор за реализиращ класа
+     * @param string низ със съдържанието от файла
+     */
     public SvgReader(String string) {
         this.read = string;
     }
+
+    /**
+     * Прочита всички дъжерни тагове на SVG
+     */
     public void readAllItems(){
         if (read == null || read.isEmpty()) {
             return;
@@ -39,6 +50,11 @@ public class SvgReader {
 
 
     }
+
+    /**
+     * Проверява дали тагът за сигура съответства
+     * @param str е фигурата
+     */
     public void checkFigure(String str){
         FlyWeightCreator f1 = FlyWeightCreator.getInstance();
         ReaderShape sh;

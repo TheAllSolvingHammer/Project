@@ -9,12 +9,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
-
+/**
+ * Клас за създаване на многоъгълници, който наследява AbstractCreator.
+ */
 public class PolygonCreator extends AbstractCreator {
+    /**
+     * Конструктор за създаване на обект от класа PolygonCreator с дадени параметри.
+     * @param parameters Параметрите за създаване на обектите.
+     */
     public PolygonCreator(String parameters) {
         super(parameters);
     }
 
+    /**
+     * Метод, който създава многоъгълник на базата на подадените параметри.
+     * @return Връща създадения многоъгълник.
+     */
     @Override
     public Shape createShape() {
         Scanner scanner = new Scanner(getParameters());

@@ -9,6 +9,9 @@ import sit.tu_varna.bg.project.shapes.AbstractShape;
 
 import java.util.List;
 
+/**
+ * Клас за създаване на Многолиния/Пречупена линия
+ */
 public class Polyline extends AbstractShape {
     private List<Integer> arrayOfCoordinates;
 

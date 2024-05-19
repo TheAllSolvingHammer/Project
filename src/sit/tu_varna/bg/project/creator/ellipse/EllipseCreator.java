@@ -7,12 +7,22 @@ import sit.tu_varna.bg.project.shapes.elipse.Ellipse;
 
 import java.util.Locale;
 import java.util.Scanner;
-
+/**
+ * Клас за създаване на елипси, който наследява AbstractCreator.
+ */
 public class EllipseCreator extends AbstractCreator {
+    /**
+     * Конструктор за създаване на обект от класа EllipseCreator с дадени параметри.
+     * @param parameters Параметрите за създаване на обектите.
+     */
     public EllipseCreator(String parameters) {
         super(parameters);
     }
 
+    /**
+     * Метод, който създава елипса на базата на подадените параметри.
+     * @return Връща създадената елипса.
+     */
     @Override
     public Shape createShape() {
         Scanner scanner = new Scanner(getParameters());

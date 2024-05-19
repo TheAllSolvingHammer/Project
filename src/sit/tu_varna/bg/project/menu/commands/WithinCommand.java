@@ -11,7 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Клас за командата Within
+ */
 public class WithinCommand implements MenuCommand {
+    /**
+     * Метод обработващ командата
+     * @param command командата която се подава
+     */
     @Override
     public void execute(String command) {
         if(command==null || command.isEmpty()){

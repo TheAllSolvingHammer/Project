@@ -10,12 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
-
+/**
+ * Клас за създаване на полилинии, който наследява AbstractCreator.
+ */
 public class PolylineCreator extends AbstractCreator {
+    /**
+     * Конструктор за създаване на обект от класа PolylineCreator с дадени параметри.
+     * @param parameters Параметрите за създаване на обектите.
+     */
     public PolylineCreator(String parameters) {
         super(parameters);
     }
 
+    /**
+     * Метод, който създава полилиния на базата на подадените параметри.
+     * @return Връща създадената полилиния.
+     */
     @Override
     public Shape createShape() {
         Scanner scanner = new Scanner(getParameters());

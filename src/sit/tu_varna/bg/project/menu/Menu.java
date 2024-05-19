@@ -7,13 +7,17 @@ import sit.tu_varna.bg.project.menu.commands.*;
 import java.util.EnumMap;
 import java.util.Locale;
 
-
+/**
+ * Клас меню, с което потребителя ще достъпва различните функционалности на програмата
+ */
 public class Menu {
     private EnumMap<CommandEnum, MenuCommand> map;
     private String command=null;
 
 
-
+    /**
+     * Конструктор на менюто, инициализиращ мап с командите
+     */
     public Menu() {
         map= new EnumMap<>(CommandEnum.class);
         map.put(CommandEnum.OPEN,new OpenFileCommand());
@@ -24,10 +28,15 @@ public class Menu {
         map.put(CommandEnum.CREATE,new CreateCommand());
         map.put(CommandEnum.ERASE,new EraseCommand());
         map.put(CommandEnum.TRANSLATE,new TranslateCommand());
+        map.put(CommandEnum.WITHIN,new WithinCommand());
         map.put(CommandEnum.HELP,new HelpCommand());
         map.put(CommandEnum.EXIT,new ExitCommand());
+
     }
 
+    /**
+     * стартира команда спрямо това каквъв е бил потребителския избор, ако е грешен се изписва съобщение за грешка
+     */
     public void run(){
         if(command==null || command.isEmpty()){
             return;

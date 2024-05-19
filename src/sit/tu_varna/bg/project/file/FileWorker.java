@@ -7,22 +7,34 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-
+/**
+ * Клас оговарящ за работата с файлове
+ */
 public class FileWorker implements FileInterface {
     private String content;
     private String path;
     private boolean opened;
     private static FileWorker instance;
 
+    /**
+     * Конструктор който инициализира параметрите за съдържание и дали файлът е отворен
+     */
     private FileWorker() {
         content=null;
         opened=false;
     }
 
+    /**
+     * Задава локацията от която файлът ще работи
+     * @param path локация в ОС
+     */
     public void setPath(String path) {
         this.path = path;
     }
 
+    /**
+     * Метод който отваря файл, ако разширението му е .svg. Ако не намери такъв файл, създава нов с подаденото име от потребителя
+     */
     @Override
     public void open() {
         if(!isSvgExtension()){
@@ -50,6 +62,10 @@ public class FileWorker implements FileInterface {
 
     }
 
+    /**
+     * Чете отвореният файл, ако той не е отворен ще бъде известен потребителя. Методът е реализиран самостоятелно за да може да ако се използва поотделно
+     * да бъде използван самосйтоятелно като мето.
+     */
     @Override
     public void read() {
         if(!opened){
@@ -71,6 +87,9 @@ public class FileWorker implements FileInterface {
         }
     }
 
+    /**
+     * Метод който затваря файла. В същото време изтрива инстанцията на този клас
+     */
     @Override
     public synchronized void close(){
         if(opened) {
@@ -81,11 +100,19 @@ public class FileWorker implements FileInterface {
         else System.out.println("No file is opened to be closed!");
     }
 
+    /**
+     * Гетър на съдържанието на файла
+     * @return съдържанието от файла
+     */
     @Override
     public String getContent() {
         return content;
     }
 
+    /**
+     * Проверка дали
+     * @return връща дали файлът е във формат SVG
+     */
     @Override
     public boolean isSvgExtension() {
         String s1 = path;
@@ -97,10 +124,19 @@ public class FileWorker implements FileInterface {
         return s2.equals("svg");
     }
 
+    /**
+     * Гетър на локацията на файлът
+     * @return локацията
+     */
     @Override
     public String getPath() {
         return path;
     }
+
+    /**
+     * Гетър на инстанцията на този клас, реализиращ сингълтън патерна
+     * @return инстанция
+     */
     public static synchronized FileWorker getInstance() {
         if (instance == null) {
             instance = new FileWorker();
@@ -108,6 +144,10 @@ public class FileWorker implements FileInterface {
         return instance;
     }
 
+    /**
+     * Проверява дали има отворен файл. Използва се за да се избегне използването на методите Save и SaveAs без да бъде отворен файл предварително
+     * @return истина или лъжа
+     */
     public boolean isOpened() {
         return opened;
     }

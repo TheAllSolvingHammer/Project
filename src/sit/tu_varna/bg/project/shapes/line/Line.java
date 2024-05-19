@@ -5,6 +5,9 @@ import sit.tu_varna.bg.project.contracts.Shape;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 
+/**
+ * Клас за създаване на линия
+ */
 public class Line implements Shape {
     private int strokeWidth;
     private NamedColors color;
@@ -101,51 +104,100 @@ public class Line implements Shape {
         return sb1.toString();
     }
 
+    /**
+     * Метод за получаване на дебелината на линията.
+     * @return дебелината на линията
+     */
     public int getStrokeWidth() {
         return strokeWidth;
     }
 
+    /**
+     * Метод за задаване на дебелината на линията.
+     * @param strokeWidth - новата дебелина на линията
+     */
     public void setStrokeWidth(int strokeWidth) {
         this.strokeWidth = strokeWidth;
     }
 
+    /**
+     * Метод за получаване на цвета на линията.
+     * @return цвета на линията
+     */
     public NamedColors getColor() {
         return color;
     }
 
+    /**
+     * Метод за задаване на цвета на линията.
+     * @param color - новият цвят на линията
+     */
     public void setColor(NamedColors color) {
         this.color = color;
     }
 
+    /**
+     * Метод за получаване на началната X координата на линията.
+     * @return началната X координата
+     */
     public int getStartX() {
         return startX;
     }
 
+    /**
+     * Метод за задаване на началната X координата на линията.
+     * @param startX - новата начална X координата
+     */
     public void setStartX(int startX) {
         this.startX = startX;
     }
 
+    /**
+     * Метод за получаване на началната Y координата на линията.
+     * @return началната Y координата
+     */
     public int getStartY() {
         return startY;
     }
 
+    /**
+     * Метод за задаване на началната Y координата на линията.
+     * @param startY - новата начална Y координата
+     */
     public void setStartY(int startY) {
         this.startY = startY;
     }
 
+    /**
+     * Метод за получаване на крайната X координата на линията.
+     * @return крайната X координата
+     */
     public int getEndX() {
         return endX;
     }
 
+    /**
+     * Метод за задаване на крайната X координата на линията.
+     * @param endX - новата крайна X координата
+     */
     public void setEndX(int endX) {
         this.endX = endX;
     }
 
+    /**
+     * Метод за получаване на крайната Y координата на линията.
+     * @return крайната Y координата
+     */
     public int getEndY() {
         return endY;
     }
 
+    /**
+     * Метод за задаване на крайната Y координата на линията.
+     * @param endY - новата крайна Y координата
+     */
     public void setEndY(int endY) {
         this.endY = endY;
     }
+
 }

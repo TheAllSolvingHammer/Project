@@ -188,36 +188,57 @@ public class Rectangle extends AbstractShape {
 
     /**
      * Задава нова стойност на широчината
-     * @param width
+     * @param width представлява широчината
      */
     public void setWidth(int width) {
         this.width = width;
     }
 
+
     /**
-     *
-     * @return
+     * Метод за получаване на текущата височина на правоъгълника.
+     * @return текущата височина
      */
     public int getHeight() {
         return height;
     }
 
+    /**
+     * Метод за задаване на височина на правоъгълника.
+     * @param height - новата височина
+     */
     public void setHeight(int height) {
         this.height = height;
     }
 
+    /**
+     * Метод за получаване на радиуса на закръгленост по оста X на правоъгълника.
+     * @return радиуса на закръгленост по X
+     */
     public int getRoundCornerX() {
         return roundCornerX;
     }
 
+    /**
+     * Метод за задаване на радиуса на закръгленост по оста X на правоъгълника.
+     * @param roundCornerX - новият радиус на закръгленост по X
+     */
     public void setRoundCornerX(int roundCornerX) {
         this.roundCornerX = roundCornerX;
     }
 
+    /**
+     * Метод за получаване на радиуса на закръгленост по оста Y на правоъгълника.
+     * @return радиуса на закръгленост по Y
+     */
     public int getRoundCornerY() {
         return roundCornerY;
     }
 
+    /**
+     * Метод за задаване на радиуса на закръгленост по оста Y на правоъгълника.
+     * @param roundCornerY - новият радиус на закръгленост по Y
+     */
     public void setRoundCornerY(int roundCornerY) {
         this.roundCornerY = roundCornerY;
     }

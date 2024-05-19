@@ -5,9 +5,14 @@ import sit.tu_varna.bg.project.file.FileWorker;
 import sit.tu_varna.bg.project.readers.SvgReader;
 
 import java.util.Scanner;
-
+/**
+ * Клас за командата Open
+ */
 public class OpenFileCommand implements MenuCommand {
-
+    /**
+     * Метод обработващ командата
+     * @param command командата която се подава
+     */
     @Override
     public void execute(String command) {
         if(command==null){

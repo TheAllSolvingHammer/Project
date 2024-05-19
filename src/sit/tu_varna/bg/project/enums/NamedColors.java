@@ -1,5 +1,8 @@
 package sit.tu_varna.bg.project.enums;
 
+/**
+ * Енум със всички възможни цветове
+ */
 public enum NamedColors {
     ALICEBLUE, ANTIQUEWHITE, AQUA, AQUAMARINE, AZURE, BEIGE, BISQUE, BLACK, BLANCHEDALMOND, BLUE, BLUEVIOLET,
     BROWN, BURLYWOOD, CADETBLUE, CHARTREUSE, CHOCOLATE, CORAL, CORNFLOWERBLUE, CORNSILK, CRIMSON, CYAN, DARKBLUE,

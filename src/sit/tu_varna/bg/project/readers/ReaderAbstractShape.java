@@ -6,7 +6,15 @@ import sit.tu_varna.bg.project.enums.NamedColors;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Aбстрактен клас за четците на фигури, имплеменмтираш интергейсът ReaderShape
+ */
 public abstract class ReaderAbstractShape implements ReaderShape {
+    /**
+     * Парсва всички атрибути
+     * @param shapeString параметър на прочетената фигура от файл
+     * @return върща мап от всички атрибути
+     */
     public Map<String, String> parseAttributes(String shapeString) {
         Map<String, String> attributes = new HashMap<>();
         String[] parts = shapeString.split("[ =\"/]+");
@@ -18,6 +26,11 @@ public abstract class ReaderAbstractShape implements ReaderShape {
         return attributes;
     }
 
+    /**
+     * Проверява дали цвета на фигурата е валиден
+     * @param value параметър за цвета
+     * @return истина или лъжа спрямо проверката дали съществува
+     */
     @Override
     public boolean isValidColor(String value) {
         try {

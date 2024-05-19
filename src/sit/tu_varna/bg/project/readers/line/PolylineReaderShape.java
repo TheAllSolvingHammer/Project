@@ -1,17 +1,26 @@
 package sit.tu_varna.bg.project.readers.line;
 
-import sit.tu_varna.bg.project.contracts.ReaderShape;
 import sit.tu_varna.bg.project.readers.ReaderAbstractShape;
 
 import java.util.Scanner;
-
-public class PolylineReaderShape extends ReaderAbstractShape implements ReaderShape {
+/**
+ * Клас четец на пречупена линия, наследяващ абстрактния клас ReaderAbstractShape
+ */
+public class PolylineReaderShape extends ReaderAbstractShape{
     private String shapeString;
 
+    /**
+     * Конструктор реализиращ класа
+     * @param shapeString низ съответстващ на фигурата
+     */
     public PolylineReaderShape(String shapeString) {
         this.shapeString = shapeString;
     }
 
+    /**
+     * Метод за превърщане на фигурата в лесно четим за хората начин
+     * @return низ предствляващ фигурата
+     */
     @Override
     public String convertShapeToUserReadable() {
         Scanner scanner = new Scanner(shapeString);

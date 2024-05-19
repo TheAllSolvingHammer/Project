@@ -1,8 +1,14 @@
 package sit.tu_varna.bg.project.menu.commands;
 
 import sit.tu_varna.bg.project.contracts.MenuCommand;
-
+/**
+ * Клас за командата Help
+ */
 public class HelpCommand implements MenuCommand {
+    /**
+     * Метод изписващ командата
+     * @param command командата която се подава
+     */
     @Override
     public void execute(String command) {
         System.out.println("Available Commands:");

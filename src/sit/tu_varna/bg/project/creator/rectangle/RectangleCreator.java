@@ -2,20 +2,27 @@ package sit.tu_varna.bg.project.creator.rectangle;
 
 import sit.tu_varna.bg.project.creator.AbstractCreator;
 import sit.tu_varna.bg.project.enums.NamedColors;
-import sit.tu_varna.bg.project.contracts.Creator;
 import sit.tu_varna.bg.project.contracts.Shape;
 import sit.tu_varna.bg.project.shapes.rectangle.Rectangle;
 
 import java.util.Locale;
 import java.util.Scanner;
-
+/**
+ * Клас за създаване на правоъгълни обекти, който наследява AbstractCreator.
+ */
 public class RectangleCreator extends AbstractCreator {
     private String parameters;
-
+    /**
+     * Конструктор за създаване на обект от класа RectangleCreator с дадени параметри.
+     * @param parameters Параметрите за създаване на обектите.
+     */
     public RectangleCreator(String parameters) {
         super(parameters);
     }
-
+    /**
+     * Метод, който създава правоъгълник на базата на подадените параметри.
+     * @return Връща създадения правоъгълник.
+     */
     @Override
     public Shape createShape() {
         Scanner scanner = new Scanner(getParameters());

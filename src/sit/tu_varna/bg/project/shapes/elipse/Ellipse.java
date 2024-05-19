@@ -5,6 +5,9 @@ import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
 
+/**
+ * Клас за създаване на елипса
+ */
 public class Ellipse extends AbstractShape {
 
     private int centerX;
@@ -106,34 +109,66 @@ public class Ellipse extends AbstractShape {
         return sb1.toString();
     }
 
+    /**
+     * Връща координатата X на центъра на елипсата.
+     * @return Координатата X на центъра на елипсата.
+     */
     public int getCenterX() {
         return centerX;
     }
 
+    /**
+     * Задава координатата X на центъра на елипсата.
+     * @param centerX Новата координата X на центъра на елипсата.
+     */
     public void setCenterX(int centerX) {
         this.centerX = centerX;
     }
 
+    /**
+     * Връща координатата Y на центъра на елипсата.
+     * @return Координатата Y на центъра на елипсата.
+     */
     public int getCenterY() {
         return centerY;
     }
 
+    /**
+     * Задава координатата Y на центъра на елипсата.
+     * @param centerY Новата координата Y на центъра на елипсата.
+     */
     public void setCenterY(int centerY) {
         this.centerY = centerY;
     }
 
+    /**
+     * Връща дължината на главната полуос на елипсата.
+     * @return Дължината на главната полуос на елипсата.
+     */
     public int getaAxis() {
         return aAxis;
     }
 
+    /**
+     * Задава дължината на главната полуос на елипсата.
+     * @param aAxis Новата дължина на главната полуос на елипсата.
+     */
     public void setaAxis(int aAxis) {
         this.aAxis = aAxis;
     }
 
+    /**
+     * Връща дължината на втората полуос (маката ос) на елипсата.
+     * @return Дължината на втората полуос (маката ос) на елипсата.
+     */
     public int getbAxis() {
         return bAxis;
     }
 
+    /**
+     * Задава дължината на втората полуос (маката ос) на елипсата.
+     * @param bAxis Новата дължина на втората полуос (маката ос) на елипсата.
+     */
     public void setbAxis(int bAxis) {
         this.bAxis = bAxis;
     }

@@ -1,18 +1,26 @@
 package sit.tu_varna.bg.project.readers.rectangle;
 
-import sit.tu_varna.bg.project.contracts.ReaderShape;
 import sit.tu_varna.bg.project.readers.ReaderAbstractShape;
-
-import java.util.HashMap;
 import java.util.Map;
 
-public class RectangleReaderShape extends ReaderAbstractShape implements ReaderShape {
+/**
+ * Клас четец на правоъгълници, наследяващ абстрактния клас ReaderAbstractShape
+ */
+public class RectangleReaderShape extends ReaderAbstractShape {
     private String shapeString;
 
+    /**
+     * Конструктор реализиращ класа
+     * @param shapeString низ съответстващ на фигурата
+     */
     public RectangleReaderShape(String shapeString) {
         this.shapeString = shapeString;
     }
 
+    /**
+     * Метод за превърщане на фигурата в лесно четим за хората начин
+     * @return низ предствляващ фигурата
+     */
     @Override
     public String convertShapeToUserReadable() {
         Map<String, String> attributes = parseAttributes(shapeString);

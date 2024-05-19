@@ -8,12 +8,21 @@ import sit.tu_varna.bg.project.shapes.line.Line;
 
 import java.util.Locale;
 import java.util.Scanner;
-
+/**
+ * Клас за създаване на линии, който наследява AbstractCreator.
+ */
 public class LineCreator extends AbstractCreator {
+    /**
+     * Конструктор за създаване на обект от класа LineCreator с дадени параметри.
+     * @param parameters Параметрите за създаване на обектите.
+     */
     public LineCreator(String parameters) {
         super(parameters);
     }
-
+    /**
+     * Метод, който създава линия на базата на подадените параметри.
+     * @return Връща създадената линия.
+     */
     @Override
     public Shape createShape() {
         Scanner scanner = new Scanner(getParameters());
