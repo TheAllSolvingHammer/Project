@@ -104,10 +104,6 @@ public class Circle extends AbstractShape {
         return sb1.toString();
     }
 
-    /**
-     *
-     * @return
-     */
     public int getCenterX() {
         return centerX;
     }
