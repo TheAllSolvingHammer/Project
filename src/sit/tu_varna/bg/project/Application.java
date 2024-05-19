@@ -11,7 +11,7 @@ public class Application {
         Scanner scanner = new Scanner(System.in);
         Menu m1 = new Menu();
         String command;
-        while(true) {
+        while (true) {
             command = scanner.nextLine();
             m1.setCommand(command);
             m1.run();
