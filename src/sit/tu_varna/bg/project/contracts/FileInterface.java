@@ -9,4 +9,5 @@ public interface FileInterface {
     String getContent();
     boolean isSvgExtension();
     String getPath();
+
 }

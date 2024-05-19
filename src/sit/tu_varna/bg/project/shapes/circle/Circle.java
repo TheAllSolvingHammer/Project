@@ -86,13 +86,10 @@ public class Circle extends AbstractShape {
      */
     @Override
     public boolean isWithin(RectangleRegion region) {
-        double rectangleCenterX = region.getX() + region.getWidth() / 2.0;
-        double rectangleCenterY = region.getY() + region.getHeight() / 2.0;
-        boolean centerCheck = Math.pow(centerX - rectangleCenterX, 2) + Math.pow(centerY - rectangleCenterY, 2) <= Math.pow(radius, 2);
-        boolean withinBounds = (centerX - radius) >= region.getX() &&
-                (centerX + radius) <= (region.getX() + region.getWidth()) && (centerY - radius) >= region.getY() &&
+        return (centerX - radius) >= region.getX() &&
+                (centerX + radius) <= (region.getX() + region.getWidth()) &&
+                (centerY - radius) >= region.getY() &&
                 (centerY + radius) <= (region.getY() + region.getHeight());
-        return centerCheck && withinBounds;
     }
 
     /**

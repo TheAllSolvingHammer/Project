@@ -7,18 +7,13 @@ import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class WithinCommand implements MenuCommand {
-    private String command;
-
-    public WithinCommand(String command) {
-        this.command = command;
-    }
-
     @Override
-    public void execute() {
+    public void execute(String command) {
         if(command==null || command.isEmpty()){
             return;
         }
@@ -27,8 +22,8 @@ public class WithinCommand implements MenuCommand {
         if(!scanner.hasNext()){
             return;
         }
-        String command= scanner.next();
-        if(!command.equalsIgnoreCase("within")){
+        String command1= scanner.next();
+        if(!command1.equalsIgnoreCase("within")){
             return;
         }
         if(!scanner.hasNext()){
@@ -38,43 +33,50 @@ public class WithinCommand implements MenuCommand {
         if(type.equalsIgnoreCase("circle")) {
             int x, y,r;
             if (!scanner.hasNextInt()) {
+                System.out.println("X is not integer");
                 return;
             }
             x = scanner.nextInt();
             if (!scanner.hasNextInt()) {
+                System.out.println("Y is not integer");
                 return;
             }
             y = scanner.nextInt();
             if (!scanner.hasNextInt()) {
+                System.out.println("Radius is not an integer");
                 return;
             }
             r= scanner.nextInt();
             CircleRegion region = new CircleRegion(x,y,r);
-            List<Shape>list =manageShape.within(region);
+            List<Shape>list = new ArrayList<>(manageShape.within(region));
             if(list.isEmpty()){
                 System.out.println("No occurrences!");
                 return;
             }
             for(Shape shape:list){
-                shape.toUser();
+                System.out.println(shape.toUser());
             }
 
         }
         else if(type.equalsIgnoreCase("rectangle")) {
             int x, y,w,h;
             if (!scanner.hasNextInt()) {
+                System.out.println("X is not integer");
                 return;
             }
             x = scanner.nextInt();
             if (!scanner.hasNextInt()) {
+                System.out.println("Y is not integer");
                 return;
             }
             y = scanner.nextInt();
             if (!scanner.hasNextInt()) {
+                System.out.println("Width is not integer");
                 return;
             }
             w= scanner.nextInt();
             if (!scanner.hasNextInt()) {
+                System.out.println("Height is not integer");
                 return;
             }
             h= scanner.nextInt();

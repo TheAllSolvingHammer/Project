@@ -6,14 +6,9 @@ import sit.tu_varna.bg.project.shapes.ShapeManager;
 import java.util.Scanner;
 
 public class EraseCommand implements MenuCommand {
-    private String command;
-
-    public EraseCommand(String command) {
-        this.command = command;
-    }
 
     @Override
-    public void execute() {
+    public void execute(String command) {
         if(command==null || command.isEmpty()){
             return;
         }

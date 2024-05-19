@@ -6,14 +6,9 @@ import sit.tu_varna.bg.project.file.FileWorker;
 import java.util.Scanner;
 
 public class CloseFileCommand implements MenuCommand {
-    private String command;
-
-    public CloseFileCommand(String command) {
-        this.command = command;
-    }
 
     @Override
-    public void execute() {
+    public void execute(String command) {
         if(command==null || command.isEmpty()){
             return;
         }

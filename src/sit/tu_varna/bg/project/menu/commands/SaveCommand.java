@@ -9,14 +9,9 @@ import sit.tu_varna.bg.project.file.write.SaveFile;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 
 public class SaveCommand implements MenuCommand {
-    private String command;
-
-    public SaveCommand(String command) {
-        this.command = command;
-    }
 
     @Override
-    public void execute() {
+    public void execute(String command) {
         if(command==null || command.isEmpty()){
             return;
         }

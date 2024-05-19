@@ -21,6 +21,15 @@ public class SaveAsFile implements FileManage {
     @Override
     public void execute() {
 
+        FileWorker f1=FileWorker.getInstance();
+        if(!f1.isOpened()){
+            System.out.println("no opened file");
+            return;
+        }
+        if(!isSvgExtension()){
+            System.out.println("File is not svg");
+            return;
+        }
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(newFilePath));
             writer.write(content);
@@ -29,6 +38,17 @@ public class SaveAsFile implements FileManage {
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
+    }
+
+    @Override
+    public boolean isSvgExtension() {
+        String s1 = newFilePath;
+        int index = s1.lastIndexOf(".");
+        if(index==-1){
+            return false;
+        }
+        String s2=s1.substring(index+1);
+        return s2.equals("svg");
     }
 
     public String getOldFilePath() {

@@ -4,8 +4,7 @@ import sit.tu_varna.bg.project.contracts.MenuCommand;
 
 public class HelpCommand implements MenuCommand {
     @Override
-    public void execute() {
-
+    public void execute(String command) {
         System.out.println("Available Commands:");
         System.out.println("open  - Opens a file");
         System.out.println("save  - Saves the currently opened file");

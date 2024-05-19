@@ -5,7 +5,7 @@ import sit.tu_varna.bg.project.contracts.MenuCommand;
 public class ExitCommand implements MenuCommand {
 
     @Override
-    public void execute() {
+    public void execute(String command) {
         System.exit(1);
     }
 }

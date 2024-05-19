@@ -11,15 +11,10 @@ import sit.tu_varna.bg.project.shapes.ShapeManager;
 import java.util.Scanner;
 
 public class SaveAsCommand implements MenuCommand {
-    private String command;
 
-
-    public SaveAsCommand(String command) {
-        this.command = command;
-    }
 
     @Override
-    public void execute() {
+    public void execute(String command) {
         if(command==null || command.isEmpty()){
             System.out.println("command is empty");
             return;
@@ -42,7 +37,6 @@ public class SaveAsCommand implements MenuCommand {
             return;
         }
         String argument=scanner.next();
-        System.out.println(argument);
         String path = worker.getPath();
         Parser p1 = new ParseIntoText(manageShape);
         String content = p1.parseText();

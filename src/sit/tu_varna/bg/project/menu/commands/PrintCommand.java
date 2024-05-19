@@ -4,14 +4,9 @@ import sit.tu_varna.bg.project.contracts.MenuCommand;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 
 public class PrintCommand implements MenuCommand {
-    private String command;
-
-    public PrintCommand(String command) {
-        this.command = command;
-    }
 
     @Override
-    public void execute() {
+    public void execute(String command) {
         if(command==null || command.isEmpty()){
             return;
         }

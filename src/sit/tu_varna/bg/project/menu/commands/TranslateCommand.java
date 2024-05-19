@@ -6,14 +6,9 @@ import sit.tu_varna.bg.project.shapes.ShapeManager;
 import java.util.Scanner;
 
 public class TranslateCommand implements MenuCommand {
-    private String command;
-
-    public TranslateCommand(String command) {
-        this.command = command;
-    }
 
     @Override
-    public void execute() {
+    public void execute(String command) {
         if(command==null || command.isEmpty()){
             return;
         }
@@ -22,8 +17,8 @@ public class TranslateCommand implements MenuCommand {
         if(!scanner.hasNext()){
             return;
         }
-        String command= scanner.next();
-        if(!command.equalsIgnoreCase("translate")){
+        String command1= scanner.next();
+        if(!command1.equalsIgnoreCase("translate")){
             return;
         }
         int x,y;

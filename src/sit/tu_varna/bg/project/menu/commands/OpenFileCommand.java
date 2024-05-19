@@ -7,14 +7,9 @@ import sit.tu_varna.bg.project.readers.SvgReader;
 import java.util.Scanner;
 
 public class OpenFileCommand implements MenuCommand {
-    private String command;
-
-    public OpenFileCommand(String command) {
-        this.command = command;
-    }
 
     @Override
-    public void execute() {
+    public void execute(String command) {
         if(command==null){
             System.out.println("command is empty");
             return;
