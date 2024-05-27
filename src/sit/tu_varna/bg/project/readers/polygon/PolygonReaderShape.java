@@ -28,7 +28,7 @@ public class PolygonReaderShape extends ReaderAbstractShape {
         Map<String, String> attributes = parseAttributes(shapeString);
 
         StringBuilder sb = new StringBuilder();
-        sb.append("polyline ");
+        sb.append("polygon ");
 
         String fill = attributes.get("fill");
         if (fill != null && isValidColor(fill)) {
