@@ -1,8 +1,7 @@
 package sit.tu_varna.bg.project.shapes.line;
 
-import sit.tu_varna.bg.project.contracts.ReaderShape;
+
 import sit.tu_varna.bg.project.enums.NamedColors;
-import sit.tu_varna.bg.project.readers.line.PolylineReaderShape;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
@@ -39,6 +38,9 @@ public class Polyline extends AbstractShape {
         sb.append("<polyline ").append(super.convertIntoString());
         sb.append (" points=\"");
         for(int i=0;i<arrayOfCoordinates.size();i+=2){
+            if(i+1>=arrayOfCoordinates.size()){
+                break;
+            }
             sb.append(arrayOfCoordinates.get(i)).append(",").append(arrayOfCoordinates.get(i+1)).append(" ");
 
         }

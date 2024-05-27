@@ -2,7 +2,8 @@ package sit.tu_varna.bg.project.readers.polygon;
 
 
 import sit.tu_varna.bg.project.readers.ReaderAbstractShape;
-import java.util.Map;
+
+import java.util.Scanner;
 
 
 /**
@@ -25,43 +26,59 @@ public class PolygonReaderShape extends ReaderAbstractShape {
      */
     @Override
     public String convertShapeToUserReadable() {
-        Map<String, String> attributes = parseAttributes(shapeString);
-
+        Scanner scanner = new Scanner(shapeString);
+        scanner.useDelimiter("[ =\"/,<>]+");
         StringBuilder sb = new StringBuilder();
-        sb.append("polygon ");
-
-        String fill = attributes.get("fill");
-        if (fill != null && isValidColor(fill)) {
-            sb.append(fill).append(" ");
-        } else {
-            System.out.println("Error: Invalid 'fill' attribute.");
+        if (!scanner.hasNext()) {
             return null;
         }
 
-        String stroke = attributes.get("stroke");
-        if (stroke != null && isValidColor(stroke)) {
-            sb.append(stroke).append(" ");
-        } else {
-            System.out.println("Error: Invalid 'stroke' attribute.");
+        String s1 = scanner.next();
+        if (!s1.equalsIgnoreCase("polygon")) {
             return null;
         }
+        sb.append(s1).append(" ");
 
-        String strokeWidth = attributes.get("stroke-width");
-        if (strokeWidth != null && isValidInteger(strokeWidth)) {
-            sb.append(strokeWidth).append(" ");
-        } else {
-            System.out.println("Error: Invalid 'stroke-width' attribute.");
-            return null;
+        while (scanner.hasNext()) {
+            String attribute = scanner.next();
+            switch (attribute) {
+                case "fill":
+                    String fill = scanner.next();
+                    if (!isValidColor(fill)) {
+                        System.out.println("Error: Invalid 'fill' attribute.");
+                        return null;
+                    }
+                    sb.append(fill).append(" ");
+                    break;
+                case "stroke":
+                    String stroke = scanner.next();
+                    if (!isValidColor(stroke)) {
+                        System.out.println("Error: Invalid 'stroke' attribute.");
+                        return null;
+                    }
+                    sb.append(stroke).append(" ");
+                    break;
+                case "stroke-width":
+                    String strokeWidth = scanner.next();
+                    if (!isValidInteger(strokeWidth)) {
+                        System.out.println("Error: Invalid 'stroke-width' attribute.");
+                        return null;
+                    }
+                    sb.append(strokeWidth).append(" ");
+                    break;
+                case "points":
+
+                    while (scanner.hasNextInt()) {
+                        sb.append(scanner.nextInt()).append(" ");
+                    }
+                    sb.deleteCharAt(sb.length() - 1);
+                    sb.append(" ");
+                    break;
+                default:
+                    scanner.next();
+                    break;
+            }
         }
-
-        String points = attributes.get("points");
-        if (points != null) {
-            sb.append(points);
-        } else {
-            System.out.println("Error: 'points' attribute not found.");
-            return null;
-        }
-
         return sb.toString();
     }
 

@@ -1,9 +1,8 @@
 package sit.tu_varna.bg.project.shapes.polygon;
 
-import sit.tu_varna.bg.project.contracts.ReaderShape;
+
 import sit.tu_varna.bg.project.enums.NamedColors;
-import sit.tu_varna.bg.project.readers.line.LineReaderShape;
-import sit.tu_varna.bg.project.readers.polygon.PolygonReaderShape;
+
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
@@ -41,6 +40,9 @@ public class Polygon extends AbstractShape {
         sb.append("<polygon ").append(super.convertIntoString());
         sb.append (" points=\"");
         for(int i=1;i<arrayOfCoordinates.size();i+=2){
+            if(i+1>=arrayOfCoordinates.size()){
+                break;
+            }
             sb.append(arrayOfCoordinates.get(i-1)).append(",").append(arrayOfCoordinates.get(i)).append(" ");
 
         }
