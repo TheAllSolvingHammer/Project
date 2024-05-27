@@ -4,6 +4,7 @@ import sit.tu_varna.bg.project.contracts.Shape;
 import sit.tu_varna.bg.project.creator.AbstractCreator;
 import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.shapes.line.Polyline;
+import sit.tu_varna.bg.project.shapes.polygon.Polygon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +64,6 @@ public class PolygonCreator extends AbstractCreator {
         }
 
          */
-        return new Polyline(fill,strokeWidth,stroke,array);
+        return new Polygon(fill,strokeWidth,stroke,array);
     }
 }

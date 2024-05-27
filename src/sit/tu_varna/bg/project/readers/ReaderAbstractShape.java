@@ -50,4 +50,5 @@ public abstract class ReaderAbstractShape implements ReaderShape {
             return false;
         }
     }
+
 }

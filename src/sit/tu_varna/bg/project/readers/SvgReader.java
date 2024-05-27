@@ -144,7 +144,6 @@ public class SvgReader {
 
         }
         else if(str.startsWith("<polygon")){
-
             sh= new PolygonReaderShape(str);
             String s1=sh.convertShapeToUserReadable();
             if(s1==null || s1.isEmpty()){

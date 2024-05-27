@@ -5,6 +5,7 @@ import sit.tu_varna.bg.project.contracts.Shape;
 import sit.tu_varna.bg.project.creator.circle.CircleCreator;
 import sit.tu_varna.bg.project.creator.ellipse.EllipseCreator;
 import sit.tu_varna.bg.project.creator.line.LineCreator;
+import sit.tu_varna.bg.project.creator.line.PolylineCreator;
 import sit.tu_varna.bg.project.creator.polygon.PolygonCreator;
 import sit.tu_varna.bg.project.creator.rectangle.RectangleCreator;
 import sit.tu_varna.bg.project.enums.Figures;
@@ -66,7 +67,7 @@ public class FlyWeightCreator {
                     c1= new PolygonCreator(parameters).createShape();
                     productMap.put(parameters,c1);
                 }
-                products.put(Figures.RECTANGLE,productMap);
+                products.put(Figures.POLYGON,productMap);
                 break;
             }
 
@@ -75,7 +76,7 @@ public class FlyWeightCreator {
                     c1= new EllipseCreator(parameters).createShape();
                     productMap.put(parameters,c1);
                 }
-                products.put(Figures.RECTANGLE,productMap);
+                products.put(Figures.ELLIPSE,productMap);
                 break;
             }
             case CIRCLE:{
@@ -83,7 +84,7 @@ public class FlyWeightCreator {
                     c1= new CircleCreator(parameters).createShape();
                     productMap.put(parameters,c1);
                 }
-                products.put(Figures.RECTANGLE,productMap);
+                products.put(Figures.CIRCLE,productMap);
                 break;
             }
 
@@ -92,13 +93,13 @@ public class FlyWeightCreator {
                     c1= new LineCreator(parameters).createShape();
                     productMap.put(parameters,c1);
                 }
-                products.put(Figures.RECTANGLE,productMap);
+                products.put(Figures.LINE,productMap);
                 break;
             }
 
             case POLYLINE:{
                 if(c1==null){
-                    c1= new PolygonCreator(parameters).createShape();
+                    c1= new PolylineCreator(parameters).createShape();
                     productMap.put(parameters,c1);
                 }
                 products.put(Figures.POLYLINE,productMap);

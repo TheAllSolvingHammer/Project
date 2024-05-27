@@ -9,6 +9,8 @@ public class Main {
         /*
         rectangle brown pink 10 200 300 500 400";
         D:\\testSvg\\fig.svg
+        D:\\Proekti Java\\CourseProject\\out\\artifacts\\CourseProject_jar
+
         */
         Application.runProgram();
 
