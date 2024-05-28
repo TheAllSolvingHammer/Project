@@ -3,8 +3,11 @@ package sit.tu_varna.bg.project.creator.ellipse;
 import sit.tu_varna.bg.project.contracts.Shape;
 import sit.tu_varna.bg.project.creator.AbstractCreator;
 import sit.tu_varna.bg.project.enums.NamedColors;
+import sit.tu_varna.bg.project.exceptions.CreatorException;
+import sit.tu_varna.bg.project.exceptions.FigureException;
 import sit.tu_varna.bg.project.shapes.elipse.Ellipse;
 
+import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 /**
@@ -15,7 +18,7 @@ public class EllipseCreator extends AbstractCreator {
      * Конструктор за създаване на обект от класа EllipseCreator с дадени параметри.
      * @param parameters Параметрите за създаване на обектите.
      */
-    public EllipseCreator(String parameters) {
+    public EllipseCreator(String parameters) throws CreatorException {
         super(parameters);
     }
 
@@ -25,52 +28,30 @@ public class EllipseCreator extends AbstractCreator {
      */
     @Override
     public Shape createShape() {
+        try{
         Scanner scanner = new Scanner(getParameters());
-        if (!scanner.hasNext()) {
-            System.out.println("Not enough arguments!");
-            return null;
-        }
         String fillColor = scanner.next();
-        if (!validColor(fillColor)) {
-            System.out.println("Fill color is not valid!");
-            return null;
-        }
         NamedColors fill = NamedColors.valueOf(fillColor.toUpperCase(Locale.ROOT));
-        if (!scanner.hasNext()) {
-            System.out.println("Not enough arguments!");
-            return null;
-        }
         String strokeColor = scanner.next();
-        if (!validColor(strokeColor)) {
-            System.out.println("Stroke color is not valid!");
-            return null;
-        }
         NamedColors stroke = NamedColors.valueOf(strokeColor.toUpperCase(Locale.ROOT));
-        if (!scanner.hasNextInt()) {
-            System.out.println("Passed value for stroke width is not a real number!");
-            return null;
-        }
         int strokeWidth = scanner.nextInt();
-        if (!scanner.hasNextInt()) {
-            System.out.println("Passed value for X coordinate is not a real number!");
-            return null;
-        }
         int initialX = scanner.nextInt();
-        if (!scanner.hasNextInt()) {
-            System.out.println("Passed value for Y coordinate is not a real number!");
-            return null;
-        }
         int initialY = scanner.nextInt();
-        if (!scanner.hasNextInt()) {
-            System.out.println("Passed value for radius is not a real number!");
-            return null;
-        }
         int radiusX = scanner.nextInt();
-        if (!scanner.hasNextInt()) {
-            System.out.println("Passed value for radius is not a real number!");
+        int radiusY = scanner.nextInt();
+            return new Ellipse(fill,strokeWidth,stroke,initialX,initialY,radiusX,radiusY);
+        }
+        catch (FigureException e){
+            System.out.println(e.getMessage());
             return null;
         }
-        int radiusY = scanner.nextInt();
-        return new Ellipse(fill,strokeWidth,stroke,initialX,initialY,radiusX,radiusY);
+        catch (InputMismatchException e){
+            System.out.println("Wrong integer");
+            return null;
+        }
+        catch (IllegalArgumentException e){
+            System.out.println("Wrong enum");
+            return null;
+        }
     }
 }

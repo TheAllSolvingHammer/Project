@@ -3,6 +3,7 @@ package sit.tu_varna.bg.project.shapes.polygon;
 
 import sit.tu_varna.bg.project.enums.NamedColors;
 
+import sit.tu_varna.bg.project.exceptions.FigureException;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
@@ -23,9 +24,9 @@ public class Polygon extends AbstractShape {
      * @param stroke - цвят на линията
      * @param arrayOfCoordinates - масив от кординати , редувайки двойката (х,у)
      */
-    public Polygon(NamedColors fill, int strokeWidth, NamedColors stroke,List<Integer> arrayOfCoordinates) {
+    public Polygon(NamedColors fill, int strokeWidth, NamedColors stroke,List<Integer> arrayOfCoordinates) throws FigureException {
         super(fill, strokeWidth, stroke);
-        this.arrayOfCoordinates = arrayOfCoordinates;
+        setArrayOfCoordinates(arrayOfCoordinates);
     }
 
     /**
@@ -56,7 +57,7 @@ public class Polygon extends AbstractShape {
      * @param sx -  изместване по Х абцисата
      */
     @Override
-    public void translateX(int sx) {
+    public void translateX(int sx) throws IllegalArgumentException {
         for(int i=0;i<arrayOfCoordinates.size();i+=2){
             arrayOfCoordinates.set(i,arrayOfCoordinates.get(i)+sx);
         }
@@ -136,7 +137,10 @@ public class Polygon extends AbstractShape {
      * Задава нов списък с кординати за Многоъгълник
      * @param arrayOfCoordinates списък от нови кординати като параметър
      */
-    public void setArrayOfCoordinates(List<Integer> arrayOfCoordinates) {
+    public void setArrayOfCoordinates(List<Integer> arrayOfCoordinates) throws FigureException,IllegalArgumentException {
+        if(arrayOfCoordinates.isEmpty()){
+            throw new FigureException("Array of coordinates is empty");
+        }
         this.arrayOfCoordinates = arrayOfCoordinates;
     }
 

@@ -1,6 +1,7 @@
 package sit.tu_varna.bg.project.shapes.elipse;
 
 import sit.tu_varna.bg.project.enums.NamedColors;
+import sit.tu_varna.bg.project.exceptions.FigureException;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
@@ -25,12 +26,12 @@ public class Ellipse extends AbstractShape {
      * @param aAxis - главна ос на елипсата
      * @param bAxis - второстепенна ос на елипсата
      */
-    public Ellipse(NamedColors fill, int strokeWidth, NamedColors stroke,int centerX, int centerY, int aAxis, int bAxis) {
+    public Ellipse(NamedColors fill, int strokeWidth, NamedColors stroke,int centerX, int centerY, int aAxis, int bAxis) throws FigureException {
         super(fill, strokeWidth, stroke);
-        this.centerX = centerX;
-        this.centerY = centerY;
-        this.aAxis = aAxis;
-        this.bAxis = bAxis;
+        setCenterX(centerX);
+        setCenterY(centerY);
+        setaAxis(aAxis);
+        setbAxis(bAxis);
     }
 
     /**
@@ -55,7 +56,7 @@ public class Ellipse extends AbstractShape {
      * @param sx -  изместване по Х абцисата
      */
     @Override
-    public void translateX(int sx) {
+    public void translateX(int sx) throws FigureException {
         setCenterX(getCenterX()+sx);
     }
     /**
@@ -63,7 +64,7 @@ public class Ellipse extends AbstractShape {
      * @param sy -  изместване по У ординатата
      */
     @Override
-    public void translateY(int sy) {
+    public void translateY(int sy) throws FigureException {
         setCenterY(getCenterY()+sy);
     }
 
@@ -121,7 +122,10 @@ public class Ellipse extends AbstractShape {
      * Задава координатата X на центъра на елипсата.
      * @param centerX Новата координата X на центъра на елипсата.
      */
-    public void setCenterX(int centerX) {
+    public void setCenterX(int centerX) throws FigureException {
+        if (centerX < 0) {
+            throw new FigureException("The center x should be greater than 0");
+        }
         this.centerX = centerX;
     }
 
@@ -137,7 +141,10 @@ public class Ellipse extends AbstractShape {
      * Задава координатата Y на центъра на елипсата.
      * @param centerY Новата координата Y на центъра на елипсата.
      */
-    public void setCenterY(int centerY) {
+    public void setCenterY(int centerY) throws FigureException {
+        if (centerY < 0) {
+            throw new FigureException("The center y should be greater than 0");
+        }
         this.centerY = centerY;
     }
 
@@ -153,7 +160,10 @@ public class Ellipse extends AbstractShape {
      * Задава дължината на главната полуос на елипсата.
      * @param aAxis Новата дължина на главната полуос на елипсата.
      */
-    public void setaAxis(int aAxis) {
+    public void setaAxis(int aAxis) throws FigureException {
+        if (aAxis < 0) {
+            throw new FigureException("The axis should be greater than 0");
+        }
         this.aAxis = aAxis;
     }
 
@@ -169,7 +179,10 @@ public class Ellipse extends AbstractShape {
      * Задава дължината на втората полуос (маката ос) на елипсата.
      * @param bAxis Новата дължина на втората полуос (маката ос) на елипсата.
      */
-    public void setbAxis(int bAxis) {
+    public void setbAxis(int bAxis) throws FigureException {
+        if (bAxis < 0) {
+            throw new FigureException("The axis should be greater than 0");
+        }
         this.bAxis = bAxis;
     }
 

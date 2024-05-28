@@ -3,6 +3,7 @@ package sit.tu_varna.bg.project.shapes;
 
 import sit.tu_varna.bg.project.contracts.ManageShape;
 import sit.tu_varna.bg.project.contracts.Shape;
+import sit.tu_varna.bg.project.exceptions.FigureException;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 
@@ -103,10 +104,15 @@ public class ShapeManager implements ManageShape {
             return;
         }
         for(Shape s:shapes){
-            if(s!=null) {
-                s.translateX(x);
-                s.translateY(y);
-            }
+                try {
+                    s.translateX(x);
+                    s.translateY(y);
+                } catch (FigureException e) {
+                    System.out.println(e.getMessage());
+                    return;
+                }
+
+
         }
         System.out.println("Translated all figures");
     }
@@ -123,8 +129,14 @@ public class ShapeManager implements ManageShape {
         if(index<0|| index>shapes.size()-1)
             return;
         Shape s1= shapes.get(index);
-        s1.translateX(x);
-        s1.translateY(y);
+        try {
+            s1.translateX(x);
+            s1.translateY(y);
+        } catch (FigureException e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+
         shapes.set(index,s1);
         System.out.println("Translated figure at index "+index);
     }

@@ -9,6 +9,7 @@ import sit.tu_varna.bg.project.creator.line.PolylineCreator;
 import sit.tu_varna.bg.project.creator.polygon.PolygonCreator;
 import sit.tu_varna.bg.project.creator.rectangle.RectangleCreator;
 import sit.tu_varna.bg.project.enums.Figures;
+import sit.tu_varna.bg.project.exceptions.CreatorException;
 
 
 import java.util.EnumMap;
@@ -44,69 +45,72 @@ public class FlyWeightCreator {
      * @return Фигура, създадена след обработване на параметъра parameters.
      */
     public Shape getProduct(String figure,String parameters){
-        Figures type;
         try {
+            Figures type;
             type = Figures.valueOf(figure.toUpperCase(Locale.ROOT));
-        } catch (IllegalArgumentException e) {
-            System.out.println("Invalid figure name!");
+            Map<String, Shape> productMap = products.get(type);
+            Shape c1 = productMap.get(parameters);
+            switch (type) {
+                case RECTANGLE: {
+                    if (c1 == null) {
+                        c1 = new RectangleCreator(parameters).createShape();
+                        productMap.put(parameters, c1);
+                    }
+                    products.put(Figures.RECTANGLE, productMap);
+                    break;
+                }
+                case POLYGON: {
+                    if (c1 == null) {
+                        c1 = new PolygonCreator(parameters).createShape();
+                        productMap.put(parameters, c1);
+                    }
+                    products.put(Figures.POLYGON, productMap);
+                    break;
+                }
+
+                case ELLIPSE: {
+                    if (c1 == null) {
+                        c1 = new EllipseCreator(parameters).createShape();
+                        productMap.put(parameters, c1);
+                    }
+                    products.put(Figures.ELLIPSE, productMap);
+                    break;
+                }
+                case CIRCLE: {
+                    if (c1 == null) {
+                        c1 = new CircleCreator(parameters).createShape();
+                        productMap.put(parameters, c1);
+                    }
+                    products.put(Figures.CIRCLE, productMap);
+                    break;
+                }
+
+                case LINE: {
+                    if (c1 == null) {
+                        c1 = new LineCreator(parameters).createShape();
+                        productMap.put(parameters, c1);
+                    }
+                    products.put(Figures.LINE, productMap);
+                    break;
+                }
+
+                case POLYLINE: {
+                    if (c1 == null) {
+                        c1 = new PolylineCreator(parameters).createShape();
+                        productMap.put(parameters, c1);
+                    }
+                    products.put(Figures.POLYLINE, productMap);
+                    break;
+                }
+            }
+            return products.get(type).get(parameters);
+        }catch (IllegalArgumentException e){
+            System.out.println("Wrong figure");
+            return null;
+        }catch (CreatorException e){
+            System.out.println(e.getMessage());
             return null;
         }
-        Map<String, Shape> productMap = products.get(type);
-        Shape c1 = productMap.get(parameters);
-        switch (type){
-            case RECTANGLE:{
-                if(c1==null){
-                    c1= new RectangleCreator(parameters).createShape();
-                    productMap.put(parameters,c1);
-                }
-                products.put(Figures.RECTANGLE,productMap);
-                break;
-            }
-            case POLYGON:{
-                if(c1==null){
-                    c1= new PolygonCreator(parameters).createShape();
-                    productMap.put(parameters,c1);
-                }
-                products.put(Figures.POLYGON,productMap);
-                break;
-            }
-
-            case ELLIPSE:{
-                if(c1==null){
-                    c1= new EllipseCreator(parameters).createShape();
-                    productMap.put(parameters,c1);
-                }
-                products.put(Figures.ELLIPSE,productMap);
-                break;
-            }
-            case CIRCLE:{
-                if(c1==null){
-                    c1= new CircleCreator(parameters).createShape();
-                    productMap.put(parameters,c1);
-                }
-                products.put(Figures.CIRCLE,productMap);
-                break;
-            }
-
-            case LINE:{
-                if(c1==null){
-                    c1= new LineCreator(parameters).createShape();
-                    productMap.put(parameters,c1);
-                }
-                products.put(Figures.LINE,productMap);
-                break;
-            }
-
-            case POLYLINE:{
-                if(c1==null){
-                    c1= new PolylineCreator(parameters).createShape();
-                    productMap.put(parameters,c1);
-                }
-                products.put(Figures.POLYLINE,productMap);
-                break;
-            }
-        }
-        return products.get(type).get(parameters);
     }
 
     /**

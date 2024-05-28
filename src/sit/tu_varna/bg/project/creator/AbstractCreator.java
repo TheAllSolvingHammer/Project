@@ -2,6 +2,7 @@ package sit.tu_varna.bg.project.creator;
 
 import sit.tu_varna.bg.project.contracts.Creator;
 import sit.tu_varna.bg.project.enums.NamedColors;
+import sit.tu_varna.bg.project.exceptions.CreatorException;
 
 /**
  * Абстрактен клас за създаване на обекти, който имплементира интерфейса Creator.
@@ -13,8 +14,8 @@ public abstract class AbstractCreator implements Creator {
      * Конструктор за създаване на обект от класа AbstractCreator с дадени параметри.
      * @param parameters Параметрите за създаване на обектите.
      */
-    public AbstractCreator(String parameters) {
-        this.parameters = parameters;
+    public AbstractCreator(String parameters) throws CreatorException {
+        setParameters(parameters);
     }
 
     /**
@@ -44,7 +45,10 @@ public abstract class AbstractCreator implements Creator {
      * Метод, който задава новите параметри за създаване на обекти.
      * @param parameters Новите параметри за създаване на обекти.
      */
-    public void setParameters(String parameters) {
+    public void setParameters(String parameters) throws CreatorException {
+        if(parameters == null || parameters.isEmpty()) {
+            throw new CreatorException("Empty parameters");
+        }
         this.parameters = parameters;
     }
 }

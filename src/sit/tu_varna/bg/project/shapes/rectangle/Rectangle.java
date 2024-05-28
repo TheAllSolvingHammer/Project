@@ -1,8 +1,9 @@
 package sit.tu_varna.bg.project.shapes.rectangle;
 
-import sit.tu_varna.bg.project.contracts.ReaderShape;
+
 import sit.tu_varna.bg.project.enums.NamedColors;
-import sit.tu_varna.bg.project.readers.rectangle.RectangleReaderShape;
+import sit.tu_varna.bg.project.exceptions.FigureException;
+
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
@@ -29,12 +30,12 @@ public class Rectangle extends AbstractShape {
      * @param width - Параметър за широчина на фигурата
      * @param height - Параметър за височина на фигурата
      */
-    public Rectangle(NamedColors fill, int strokeWidth, NamedColors stroke,int initialX, int initialY, int width, int height) {
+    public Rectangle(NamedColors fill, int strokeWidth, NamedColors stroke,int initialX, int initialY, int width, int height) throws FigureException {
         super(fill, strokeWidth, stroke);
-        this.initialX = initialX;
-        this.initialY = initialY;
-        this.width = width;
-        this.height = height;
+        setInitialX(initialX);
+        setInitialY(initialY);
+        setWidth(width);
+        setHeight(height);
     }
 
     /**
@@ -49,14 +50,14 @@ public class Rectangle extends AbstractShape {
      * @param roundCornerX - Параметър за закръгленост по Х абсицата
      * @param roundCornerY - Параметър за закръгленост по У ординатата
      */
-    public Rectangle(NamedColors fill, int strokeWidth, NamedColors stroke,int initialX, int initialY, int width, int height,int roundCornerX,int roundCornerY) {
+    public Rectangle(NamedColors fill, int strokeWidth, NamedColors stroke,int initialX, int initialY, int width, int height,int roundCornerX,int roundCornerY) throws FigureException {
         super(fill, strokeWidth, stroke);
-        this.initialX = initialX;
-        this.initialY = initialY;
-        this.width = width;
-        this.height = height;
-        this.roundCornerX=roundCornerX;
-        this.roundCornerY=roundCornerY;
+        setInitialX(initialX);
+        setInitialY(initialY);
+        setWidth(width);
+        setHeight(height);
+        setRoundCornerX(roundCornerX);
+        setRoundCornerY(roundCornerY);
 
     }
 
@@ -92,7 +93,7 @@ public class Rectangle extends AbstractShape {
      * @param sx - изместване по Х абцисата
      */
     @Override
-    public void translateX(int sx) {
+    public void translateX(int sx) throws FigureException,IllegalArgumentException {
         setInitialX(getInitialX()+sx);
     }
 
@@ -101,7 +102,7 @@ public class Rectangle extends AbstractShape {
      * @param sy - изместване по У ординатата
      */
     @Override
-    public void translateY(int sy) {
+    public void translateY(int sy) throws FigureException {
         setInitialY(getInitialY()+sy);
     }
 
@@ -158,7 +159,10 @@ public class Rectangle extends AbstractShape {
      * Задава кординат Х1
      * @param initialX новия кординат
      */
-    public void setInitialX(int initialX) {
+    public void setInitialX(int initialX) throws FigureException,IllegalArgumentException {
+        if(initialX<0){
+            throw new FigureException("Illegal initialX");
+        }
         this.initialX = initialX;
     }
 
@@ -174,7 +178,10 @@ public class Rectangle extends AbstractShape {
      * Задава кординат Х1
      * @param initialY новия кординат
      */
-    public void setInitialY(int initialY) {
+    public void setInitialY(int initialY) throws FigureException,IllegalArgumentException {
+        if(initialY<0){
+            throw new FigureException("Illegal initialY");
+        }
         this.initialY = initialY;
     }
 
@@ -190,7 +197,10 @@ public class Rectangle extends AbstractShape {
      * Задава нова стойност на широчината
      * @param width представлява широчината
      */
-    public void setWidth(int width) {
+    public void setWidth(int width) throws FigureException,IllegalArgumentException{
+        if(width<0){
+            throw new FigureException("Illegal width");
+        }
         this.width = width;
     }
 
@@ -207,7 +217,10 @@ public class Rectangle extends AbstractShape {
      * Метод за задаване на височина на правоъгълника.
      * @param height - новата височина
      */
-    public void setHeight(int height) {
+    public void setHeight(int height) throws FigureException,IllegalArgumentException {
+        if(height<0){
+            throw new FigureException("Illegal height");
+        }
         this.height = height;
     }
 
@@ -223,7 +236,10 @@ public class Rectangle extends AbstractShape {
      * Метод за задаване на радиуса на закръгленост по оста X на правоъгълника.
      * @param roundCornerX - новият радиус на закръгленост по X
      */
-    public void setRoundCornerX(int roundCornerX) {
+    public void setRoundCornerX(int roundCornerX) throws FigureException,IllegalArgumentException {
+        if(roundCornerX<0){
+            throw new FigureException("Illegal roundCornerX");
+        }
         this.roundCornerX = roundCornerX;
     }
 
@@ -239,7 +255,10 @@ public class Rectangle extends AbstractShape {
      * Метод за задаване на радиуса на закръгленост по оста Y на правоъгълника.
      * @param roundCornerY - новият радиус на закръгленост по Y
      */
-    public void setRoundCornerY(int roundCornerY) {
+    public void setRoundCornerY(int roundCornerY) throws FigureException,IllegalArgumentException {
+        if(roundCornerY<0){
+            throw new FigureException("Illegal roundCornerY");
+        }
         this.roundCornerY = roundCornerY;
     }
 }

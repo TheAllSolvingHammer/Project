@@ -2,6 +2,7 @@ package sit.tu_varna.bg.project.shapes;
 
 import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.contracts.Shape;
+import sit.tu_varna.bg.project.exceptions.FigureException;
 
 import java.util.Locale;
 
@@ -18,10 +19,10 @@ public abstract class AbstractShape implements Shape {
      * @param strokeWidth - дебелина на линията описваща фигурата
      * @param stroke - цвят на линията
      */
-    public AbstractShape(NamedColors fill, int strokeWidth, NamedColors stroke) {
-        this.fill = fill;
-        this.strokeWidth = strokeWidth;
-        this.stroke = stroke;
+    public AbstractShape(NamedColors fill, int strokeWidth, NamedColors stroke) throws FigureException {
+        setFill(fill);
+        setStrokeWidth(strokeWidth);
+        setStroke(stroke);
     }
 
     /**
@@ -61,7 +62,10 @@ public abstract class AbstractShape implements Shape {
      * Метод за задаване на цвят на запълване на фигурата.
      * @param fill - новият цвят на запълване
      */
-    public void setFill(NamedColors fill) {
+    public void setFill(NamedColors fill) throws IllegalArgumentException {
+        if (fill == null) {
+            throw new IllegalArgumentException();
+        }
         this.fill = fill;
     }
 
@@ -77,7 +81,10 @@ public abstract class AbstractShape implements Shape {
      * Метод за задаване на дебелина на линията на фигурата.
      * @param strokeWidth - новата дебелина на линията
      */
-    public void setStrokeWidth(int strokeWidth) {
+    public void setStrokeWidth(int strokeWidth) throws IllegalArgumentException ,FigureException {
+        if(strokeWidth<0){
+            throw new FigureException("Wrong width for stroke");
+        }
         this.strokeWidth = strokeWidth;
     }
 
@@ -93,7 +100,10 @@ public abstract class AbstractShape implements Shape {
      * Метод за задаване на цвят на линията на фигурата.
      * @param stroke - новият цвят на линията
      */
-    public void setStroke(NamedColors stroke) {
+    public void setStroke(NamedColors stroke) throws IllegalArgumentException {
+        if(stroke==null){
+            throw new IllegalArgumentException("Wrong enum NamedColors");
+        }
         this.stroke = stroke;
     }
 }

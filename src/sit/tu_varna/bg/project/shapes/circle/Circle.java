@@ -1,8 +1,7 @@
 package sit.tu_varna.bg.project.shapes.circle;
 
-import sit.tu_varna.bg.project.contracts.ReaderShape;
 import sit.tu_varna.bg.project.enums.NamedColors;
-import sit.tu_varna.bg.project.readers.circle.CircleReaderShape;
+import sit.tu_varna.bg.project.exceptions.FigureException;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 import sit.tu_varna.bg.project.shapes.AbstractShape;
@@ -24,11 +23,11 @@ public class Circle extends AbstractShape {
      * @param centerY - У център на окръжността
      * @param radius - радиус на окръжността
      */
-    public Circle(NamedColors fill, int strokeWidth, NamedColors stroke,int centerX, int centerY, int radius) {
+    public Circle(NamedColors fill, int strokeWidth, NamedColors stroke,int centerX, int centerY, int radius) throws FigureException {
         super(fill, strokeWidth, stroke);
-        this.centerX = centerX;
-        this.centerY = centerY;
-        this.radius = radius;
+        setCenterX(centerX);
+        setCenterY(centerY);
+        setRadius(radius);
     }
 
     /**
@@ -52,7 +51,7 @@ public class Circle extends AbstractShape {
      * @param sx - изместване по Х абцисата
      */
     @Override
-    public void translateX(int sx) {
+    public void translateX(int sx) throws FigureException {
         setCenterX(getCenterX()+sx);
     }
 
@@ -61,7 +60,7 @@ public class Circle extends AbstractShape {
      * @param sy - изместване по У ординатата
      */
     @Override
-    public void translateY(int sy) {
+    public void translateY(int sy) throws FigureException {
         setCenterY(getCenterY()+sy);
     }
 
@@ -119,7 +118,10 @@ public class Circle extends AbstractShape {
      * Задава координатата X на центъра на кръга.
      * @param centerX Новата координата X на центъра на кръга.
      */
-    public void setCenterX(int centerX) {
+    public void setCenterX(int centerX) throws IllegalArgumentException, FigureException {
+        if (centerX < 0) {
+            throw new FigureException("Wrong center X");
+        }
         this.centerX = centerX;
     }
 
@@ -135,7 +137,10 @@ public class Circle extends AbstractShape {
      * Задава координатата Y на центъра на кръга.
      * @param centerY Новата координата Y на центъра на кръга.
      */
-    public void setCenterY(int centerY) {
+    public void setCenterY(int centerY) throws IllegalArgumentException, FigureException {
+        if (centerX < 0) {
+            throw new FigureException("Wrong center Y");
+        }
         this.centerY = centerY;
     }
 

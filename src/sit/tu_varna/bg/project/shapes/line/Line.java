@@ -2,6 +2,7 @@ package sit.tu_varna.bg.project.shapes.line;
 
 import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.contracts.Shape;
+import sit.tu_varna.bg.project.exceptions.FigureException;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 
@@ -27,13 +28,13 @@ public class Line implements Shape {
      * @param endX - краен Х кординат
      * @param endY - краен У кординат
      */
-    public Line(int strokeWidth, NamedColors color,int startX, int startY, int endX, int endY) {
-        this.strokeWidth = strokeWidth;
-        this.color = color;
-        this.startX = startX;
-        this.startY = startY;
-        this.endX = endX;
-        this.endY = endY;
+    public Line(int strokeWidth, NamedColors color,int startX, int startY, int endX, int endY) throws FigureException {
+        setStrokeWidth(strokeWidth);
+        setColor(color);
+        setStartX(startX);
+        setStartY(startY);
+         setEndX(endX);
+        setEndY(endY);
 
     }
     /**
@@ -51,7 +52,7 @@ public class Line implements Shape {
      * @param sx -  изместване по Х абцисата
      */
     @Override
-    public void translateX(int sx) {
+    public void translateX(int sx) throws FigureException {
         setStartX(getStartX()+sx);
         setEndX(getEndX()+sx);
     }
@@ -60,7 +61,7 @@ public class Line implements Shape {
      * @param sy -  изместване по У ординатата
      */
     @Override
-    public void translateY(int sy) {
+    public void translateY(int sy) throws FigureException {
         setStartY(getStartY()+sy);
         setEndY(getEndY()+sy);
 
@@ -116,7 +117,10 @@ public class Line implements Shape {
      * Метод за задаване на дебелината на линията.
      * @param strokeWidth - новата дебелина на линията
      */
-    public void setStrokeWidth(int strokeWidth) {
+    public void setStrokeWidth(int strokeWidth) throws FigureException {
+        if(strokeWidth<0){
+            throw new FigureException("Error for strokewidth");
+        }
         this.strokeWidth = strokeWidth;
     }
 
@@ -132,7 +136,10 @@ public class Line implements Shape {
      * Метод за задаване на цвета на линията.
      * @param color - новият цвят на линията
      */
-    public void setColor(NamedColors color) {
+    public void setColor(NamedColors color) throws FigureException {
+        if(color==null){
+           throw new FigureException("Error for color");
+        }
         this.color = color;
     }
 
@@ -148,7 +155,10 @@ public class Line implements Shape {
      * Метод за задаване на началната X координата на линията.
      * @param startX - новата начална X координата
      */
-    public void setStartX(int startX) {
+    public void setStartX(int startX) throws FigureException {
+        if(startX<0){
+            throw new FigureException("Error for startX");
+        }
         this.startX = startX;
     }
 
@@ -164,7 +174,10 @@ public class Line implements Shape {
      * Метод за задаване на началната Y координата на линията.
      * @param startY - новата начална Y координата
      */
-    public void setStartY(int startY) {
+    public void setStartY(int startY) throws FigureException {
+        if(startY<0){
+            throw new FigureException("Error for startY");
+        }
         this.startY = startY;
     }
 
@@ -180,7 +193,10 @@ public class Line implements Shape {
      * Метод за задаване на крайната X координата на линията.
      * @param endX - новата крайна X координата
      */
-    public void setEndX(int endX) {
+    public void setEndX(int endX) throws FigureException{
+        if(endX<0){
+            throw new FigureException("Error for endX");
+        }
         this.endX = endX;
     }
 
@@ -196,7 +212,10 @@ public class Line implements Shape {
      * Метод за задаване на крайната Y координата на линията.
      * @param endY - новата крайна Y координата
      */
-    public void setEndY(int endY) {
+    public void setEndY(int endY) throws FigureException {
+        if(endY<0){
+            throw new FigureException("Error for endY");
+        }
         this.endY = endY;
     }
 
