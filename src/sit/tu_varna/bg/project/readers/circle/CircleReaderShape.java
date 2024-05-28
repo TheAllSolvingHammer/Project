@@ -30,55 +30,12 @@ public class CircleReaderShape extends ReaderAbstractShape{
 
         StringBuilder sb = new StringBuilder();
         sb.append("circle ");
-
-        String fill = attributes.get("fill");
-        if (fill != null && isValidColor(fill)) {
-            sb.append(fill).append(" ");
-        } else {
-            System.out.println("Error: Invalid 'fill' attribute.");
-            return null;
-        }
-
-        String stroke = attributes.get("stroke");
-        if (stroke != null && isValidColor(stroke)) {
-            sb.append(stroke).append(" ");
-        } else {
-            System.out.println("Error: Invalid 'stroke' attribute.");
-            return null;
-        }
-
-        String strokeWidth = attributes.get("stroke-width");
-        if (strokeWidth != null && isValidInteger(strokeWidth)) {
-            sb.append(strokeWidth).append(" ");
-        } else {
-            System.out.println("Error: Invalid 'stroke-width' attribute.");
-            return null;
-        }
-
-        String cx = attributes.get("cx");
-        if (cx != null && isValidInteger(cx)) {
-            sb.append(cx).append(" ");
-        } else {
-            System.out.println("Error: Invalid 'cx' attribute.");
-            return null;
-        }
-
-        String cy = attributes.get("cy");
-        if (cy != null && isValidInteger(cy)) {
-            sb.append(cy).append(" ");
-        } else {
-            System.out.println("Error: Invalid 'cy' attribute.");
-            return null;
-        }
-
-        String r = attributes.get("r");
-        if (r != null && isValidInteger(r)) {
-            sb.append(r);
-        } else {
-            System.out.println("Error: Invalid 'r' attribute.");
-            return null;
-        }
-
+        sb.append(attributes.get("fill")).append(" ");
+        sb.append(attributes.get("stroke")).append(" ");
+        sb.append(attributes.get("stroke-width")).append(" ");
+        sb.append(attributes.get("cx")).append(" ");
+        sb.append(attributes.get("cy")).append(" ");
+        sb.append(attributes.get("r"));
         return sb.toString();
     }
 }

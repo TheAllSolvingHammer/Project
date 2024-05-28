@@ -52,53 +52,40 @@ public class FlyWeightCreator {
             Shape c1 = productMap.get(parameters);
             switch (type) {
                 case RECTANGLE: {
-                    if (c1 == null) {
                         c1 = new RectangleCreator(parameters).createShape();
                         productMap.put(parameters, c1);
-                    }
                     products.put(Figures.RECTANGLE, productMap);
                     break;
                 }
                 case POLYGON: {
-                    if (c1 == null) {
                         c1 = new PolygonCreator(parameters).createShape();
                         productMap.put(parameters, c1);
-                    }
                     products.put(Figures.POLYGON, productMap);
                     break;
                 }
-
                 case ELLIPSE: {
-                    if (c1 == null) {
                         c1 = new EllipseCreator(parameters).createShape();
                         productMap.put(parameters, c1);
-                    }
                     products.put(Figures.ELLIPSE, productMap);
                     break;
                 }
                 case CIRCLE: {
-                    if (c1 == null) {
                         c1 = new CircleCreator(parameters).createShape();
                         productMap.put(parameters, c1);
-                    }
                     products.put(Figures.CIRCLE, productMap);
                     break;
                 }
 
                 case LINE: {
-                    if (c1 == null) {
                         c1 = new LineCreator(parameters).createShape();
                         productMap.put(parameters, c1);
-                    }
                     products.put(Figures.LINE, productMap);
                     break;
                 }
 
                 case POLYLINE: {
-                    if (c1 == null) {
                         c1 = new PolylineCreator(parameters).createShape();
                         productMap.put(parameters, c1);
-                    }
                     products.put(Figures.POLYLINE, productMap);
                     break;
                 }

@@ -39,7 +39,12 @@ public class Polygon extends AbstractShape {
     public String convertIntoString() {
         StringBuilder sb = new StringBuilder();
         sb.append("<polygon ").append(super.convertIntoString());
+
         sb.append (" points=\"");
+        if(arrayOfCoordinates.isEmpty()){
+            sb.append("\"");
+            return sb.toString();
+        }
         for(int i=1;i<arrayOfCoordinates.size();i+=2){
             if(i+1>=arrayOfCoordinates.size()){
                 break;
