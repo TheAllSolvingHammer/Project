@@ -64,7 +64,7 @@ public abstract class AbstractShape implements Shape {
      */
     public void setFill(NamedColors fill) throws IllegalArgumentException {
         if (fill == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Wrong name for color");
         }
         this.fill = fill;
     }

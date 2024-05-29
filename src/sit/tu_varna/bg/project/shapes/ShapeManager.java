@@ -4,6 +4,7 @@ package sit.tu_varna.bg.project.shapes;
 import sit.tu_varna.bg.project.contracts.ManageShape;
 import sit.tu_varna.bg.project.contracts.Shape;
 import sit.tu_varna.bg.project.exceptions.FigureException;
+import sit.tu_varna.bg.project.exceptions.ManagerException;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
 
@@ -39,9 +40,9 @@ public class ShapeManager implements ManageShape {
      * @param shape фигурата която ще бъде добавена към листа с фигури
      */
     @Override
-    public void addShape(Shape shape) {
+    public void addShape(Shape shape) throws ManagerException {
         if(shape==null){
-            return;
+            throw new ManagerException("Shape is null");
         }
         shapes.add(shape);
     }
@@ -52,12 +53,12 @@ public class ShapeManager implements ManageShape {
      * @param index индекс на съответствие на фигурата
      */
     @Override
-    public void removeShape(int index) {
+    public void removeShape(int index) throws ManagerException {
         if(shapes.isEmpty()){
-            return;
+            throw new ManagerException("List is empty");
         }
         if(index<0 || index>=shapes.size()){
-            return;
+            throw new ManagerException("Index is out of bounds");
         }
         shapes.remove(index);
     }
@@ -99,7 +100,7 @@ public class ShapeManager implements ManageShape {
      * @param y -растояние на което фигурата ще се измести по У ординатата
      */
     @Override
-    public void translate(int x, int y) {
+    public void translate(int x, int y) throws ManagerException {
         if(shapes.isEmpty()){
             return;
         }
@@ -111,8 +112,6 @@ public class ShapeManager implements ManageShape {
                     System.out.println(e.getMessage());
                     return;
                 }
-
-
         }
         System.out.println("Translated all figures");
     }
@@ -123,11 +122,11 @@ public class ShapeManager implements ManageShape {
      * @param y -растояние на което фигурата ще се измести по У ординатата
      */
     @Override
-    public void translate(int x, int y, int index) {
+    public void translate(int x, int y, int index) throws ManagerException {
         if(shapes.isEmpty())
-            return;
+            throw new ManagerException("List is empty");
         if(index<0|| index>shapes.size()-1)
-            return;
+            throw new ManagerException("Index is out of bounds");
         Shape s1= shapes.get(index);
         try {
             s1.translateX(x);

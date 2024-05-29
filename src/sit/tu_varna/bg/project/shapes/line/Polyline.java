@@ -39,7 +39,7 @@ public class Polyline extends AbstractShape {
         sb.append("<polyline ").append(super.convertIntoString());
         sb.append (" points=\"");
         if(arrayOfCoordinates.isEmpty()){
-            sb.append("\"");
+            sb.append("\" />");
             return sb.toString();
         }
         for(int i=0;i<arrayOfCoordinates.size();i+=2){

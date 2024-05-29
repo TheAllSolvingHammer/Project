@@ -19,27 +19,11 @@ public class SaveAsCommand implements MenuCommand {
      */
     @Override
     public void execute(String command) {
-        if(command==null || command.isEmpty()){
-            System.out.println("command is empty");
-            return;
-        }
         ShapeManager manageShape = ShapeManager.getInstance();
         FileWorker worker = FileWorker.getInstance();
         Scanner scanner = new Scanner(command);
         scanner.useDelimiter(" ");
-        if(!scanner.hasNext()){
-            System.out.println("Not enough args");
-            return;
-        }
-        String s1= scanner.next();
-        if(!s1.equalsIgnoreCase("saveas")){
-            System.out.println("unknown command");
-           return;
-        }
-        if(!scanner.hasNext()){
-            System.out.println("not enough args");
-            return;
-        }
+        scanner.next();
         String argument=scanner.next();
         String path = worker.getPath();
         Parser p1 = new SvgParseString(manageShape);

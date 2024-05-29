@@ -1,8 +1,10 @@
 package sit.tu_varna.bg.project.menu.commands;
 
 import sit.tu_varna.bg.project.contracts.MenuCommand;
+import sit.tu_varna.bg.project.exceptions.ManagerException;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 /**
  * Клас за командата Еrase
@@ -14,31 +16,19 @@ public class EraseCommand implements MenuCommand {
      */
     @Override
     public void execute(String command) {
-        if(command==null || command.isEmpty()){
-            return;
-        }
+
         ShapeManager manageShape= ShapeManager.getInstance();
         Scanner scanner = new Scanner(command);
         int index;
         scanner.useDelimiter(" ");
-        if(!scanner.hasNext()) {
-            System.out.println("empty instructions");
-            return;
-        }
-        String s1=scanner.next();
-        if(!s1.equals("erase")){
-            System.out.println("Wrong arguments");
-            return;
-        }
-        if(!scanner.hasNextInt()){
-            System.out.println("Wrong arguments");
-            return;
-        }
+        scanner.next();
         index= scanner.nextInt();
-        if(index<0){
-            System.out.println("Wrong index");
-            return;
+        try {
+            manageShape.removeShape(index);
+        } catch (ManagerException e) {
+            System.out.println(e.getMessage());
+        }catch (NoSuchElementException e) {
+            System.out.println("No elements");
         }
-        manageShape.removeShape(index);
     }
 }

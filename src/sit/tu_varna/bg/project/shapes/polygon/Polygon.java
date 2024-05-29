@@ -42,7 +42,7 @@ public class Polygon extends AbstractShape {
 
         sb.append (" points=\"");
         if(arrayOfCoordinates.isEmpty()){
-            sb.append("\"");
+            sb.append("\" />");
             return sb.toString();
         }
         for(int i=1;i<arrayOfCoordinates.size();i+=2){

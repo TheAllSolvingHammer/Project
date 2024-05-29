@@ -1,6 +1,5 @@
 package sit.tu_varna.bg.project.readers.circle;
 
-import sit.tu_varna.bg.project.contracts.ReaderShape;
 import sit.tu_varna.bg.project.readers.ReaderAbstractShape;
 
 import java.util.Map;
@@ -10,14 +9,12 @@ import java.util.Map;
  * Клас четец на кръг, наследяващ абстрактния клас ReaderAbstractShape
  */
 public class CircleReaderShape extends ReaderAbstractShape{
-    private String shapeString;
 
     /**
      * Конструктор реализиращ класа
-     * @param shapeString низ съответстващ на фигурата
      */
-    public CircleReaderShape(String shapeString) {
-        this.shapeString = shapeString;
+    public CircleReaderShape() {
+
     }
 
     /**
@@ -25,9 +22,8 @@ public class CircleReaderShape extends ReaderAbstractShape{
      * @return низ предствляващ фигурата
      */
     @Override
-    public String convertShapeToUserReadable() {
+    public String convertShapeToUserReadable(String shapeString) {
         Map<String, String> attributes = parseAttributes(shapeString);
-
         StringBuilder sb = new StringBuilder();
         sb.append("circle ");
         sb.append(attributes.get("fill")).append(" ");

@@ -18,18 +18,13 @@ public class SaveCommand implements MenuCommand {
      */
     @Override
     public void execute(String command) {
-        if(command==null || command.isEmpty()){
-            return;
-        }
+        ShapeManager manageShape = ShapeManager.getInstance();
+        FileWorker worker = FileWorker.getInstance();
+        String path = worker.getPath();
+        Parser p1 = new SvgParseString(manageShape);
+        String content = p1.parseText();
+        FileManage saver= new SaveFile(path,content);
+        saver.execute();
 
-        if(command.equalsIgnoreCase("save")) {
-            ShapeManager manageShape = ShapeManager.getInstance();
-            FileWorker worker = FileWorker.getInstance();
-            String path = worker.getPath();
-            Parser p1 = new SvgParseString(manageShape);
-            String content = p1.parseText();
-            FileManage saver= new SaveFile(path,content);
-            saver.execute();
-        }
     }
 }

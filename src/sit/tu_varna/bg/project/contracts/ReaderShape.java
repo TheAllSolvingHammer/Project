@@ -4,8 +4,7 @@ import java.util.Map;
 
 
 public interface ReaderShape {
-    String convertShapeToUserReadable();
-    boolean isValidColor(String value);
+    String convertShapeToUserReadable(String shapeString);
     boolean isValidInteger(String value);
     Map<String, String> parseAttributes(String shapeString);
 

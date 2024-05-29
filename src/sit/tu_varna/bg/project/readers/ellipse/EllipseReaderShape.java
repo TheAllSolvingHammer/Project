@@ -9,14 +9,11 @@ import java.util.Map;
  * Клас четец на елипса, наследяващ абстрактния клас ReaderAbstractShape
  */
 public class EllipseReaderShape extends ReaderAbstractShape {
-    private String shapeString;
 
     /**
      * Конструктор реализиращ класа
-     * @param shapeString низ съответстващ на фигурата
      */
-    public EllipseReaderShape(String shapeString) {
-        this.shapeString = shapeString;
+    public EllipseReaderShape() {
     }
 
     /**
@@ -24,9 +21,8 @@ public class EllipseReaderShape extends ReaderAbstractShape {
      * @return низ предствляващ фигурата
      */
     @Override
-    public String convertShapeToUserReadable() {
+    public String convertShapeToUserReadable(String shapeString) {
         Map<String, String> attributes = parseAttributes(shapeString);
-
         StringBuilder sb = new StringBuilder();
         sb.append("ellipse ");
         sb.append(attributes.get("fill")).append(" ");

@@ -7,14 +7,10 @@ import java.util.Map;
  * Клас четец на правоъгълници, наследяващ абстрактния клас ReaderAbstractShape
  */
 public class RectangleReaderShape extends ReaderAbstractShape {
-    private String shapeString;
-
     /**
      * Конструктор реализиращ класа
-     * @param shapeString низ съответстващ на фигурата
      */
-    public RectangleReaderShape(String shapeString) {
-        this.shapeString = shapeString;
+    public RectangleReaderShape() {
     }
 
     /**
@@ -22,9 +18,8 @@ public class RectangleReaderShape extends ReaderAbstractShape {
      * @return низ предствляващ фигурата
      */
     @Override
-    public String convertShapeToUserReadable() {
+    public String convertShapeToUserReadable(String shapeString) {
         Map<String, String> attributes = parseAttributes(shapeString);
-
         StringBuilder sb = new StringBuilder();
         sb.append("rectangle ");
         sb.append(attributes.get("fill")).append(" ");

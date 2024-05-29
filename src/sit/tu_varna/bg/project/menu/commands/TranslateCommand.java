@@ -1,8 +1,11 @@
 package sit.tu_varna.bg.project.menu.commands;
 
 import sit.tu_varna.bg.project.contracts.MenuCommand;
+import sit.tu_varna.bg.project.exceptions.ManagerException;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
 
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 /**
  * Клас за командата Translate
@@ -14,31 +17,23 @@ public class TranslateCommand implements MenuCommand {
      */
     @Override
     public void execute(String command) {
-        if(command==null || command.isEmpty()){
-            return;
-        }
+        try {
         ShapeManager manageShape =ShapeManager.getInstance();
         Scanner scanner = new Scanner(command);
-        if(!scanner.hasNext()){
-            return;
-        }
-        String command1= scanner.next();
-        if(!command1.equalsIgnoreCase("translate")){
-            return;
-        }
+        scanner.next();
         int x,y;
-        if(!scanner.hasNextInt()){
-            return;
-        }
         x=scanner.nextInt();
-        if(!scanner.hasNextInt()){
-            return;
-        }
         y= scanner.nextInt();
         if(!scanner.hasNextInt()){
             manageShape.translate(x,y);
-            return;
         }
         manageShape.translate(x,y,scanner.nextInt());
+        } catch (ManagerException e) {
+            System.out.println(e.getMessage());
+        }catch (InputMismatchException e){
+            System.out.println("Value is not int");
+        }catch (NoSuchElementException e){
+            System.out.println("No elements");
+        }
     }
 }

@@ -12,14 +12,8 @@ public class PrintCommand implements MenuCommand {
      */
     @Override
     public void execute(String command) {
-        if(command==null || command.isEmpty()){
-            return;
-        }
         ShapeManager manageShape =ShapeManager.getInstance();
-        if(command.equalsIgnoreCase("print")){
-            String s1=manageShape.getItemsToUser();
-            System.out.println(s1);
-        }
-
+        String s1=manageShape.getItemsToUser();
+        System.out.println(s1);
     }
 }

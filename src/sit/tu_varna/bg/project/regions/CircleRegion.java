@@ -1,5 +1,7 @@
 package sit.tu_varna.bg.project.regions;
 
+import sit.tu_varna.bg.project.exceptions.RegionException;
+
 public class CircleRegion {
     private int x;
     private int y;
@@ -11,10 +13,10 @@ public class CircleRegion {
      * @param y Координата Y на центъра на кръга.
      * @param radius Радиусът на кръга.
      */
-    public CircleRegion(int x, int y, int radius) {
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
+    public CircleRegion(int x, int y, int radius) throws RegionException {
+        setX(x);
+        setY(y);
+        setRadius(radius);
     }
 
     /**
@@ -29,7 +31,10 @@ public class CircleRegion {
      * Задава нова стойност за координатата X на центъра на кръга.
      * @param x Новата координата X на центъра на кръга.
      */
-    public void setX(int x) {
+    public void setX(int x) throws RegionException {
+        if (x < 0) {
+            throw new RegionException("x should be greater than or equal to 0");
+        }
         this.x = x;
     }
 
@@ -45,7 +50,10 @@ public class CircleRegion {
      * Задава нова стойност за координатата Y на центъра на кръга.
      * @param y Новата координата Y на центъра на кръга.
      */
-    public void setY(int y) {
+    public void setY(int y) throws RegionException {
+        if (y < 0) {
+            throw new RegionException("y should be greater than or equal to 0");
+        }
         this.y = y;
     }
 
@@ -61,7 +69,10 @@ public class CircleRegion {
      * Задава нова стойност за радиуса на кръга.
      * @param radius Новият радиус на кръга.
      */
-    public void setRadius(int radius) {
+    public void setRadius(int radius) throws RegionException {
+        if (radius < 0) {
+            throw new RegionException("radius should be greater than or equal to 0");
+        }
         this.radius = radius;
     }
 
