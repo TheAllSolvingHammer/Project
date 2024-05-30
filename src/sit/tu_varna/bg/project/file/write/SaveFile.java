@@ -1,6 +1,7 @@
 package sit.tu_varna.bg.project.file.write;
 
 import sit.tu_varna.bg.project.contracts.FileManage;
+import sit.tu_varna.bg.project.exceptions.SaverException;
 import sit.tu_varna.bg.project.file.FileWorker;
 
 import java.io.BufferedWriter;
@@ -28,15 +29,13 @@ public class SaveFile implements FileManage {
      * Метод, който изпълнява записа на съдържанието във файла.
      */
     @Override
-    public void execute() {
+    public void execute() throws SaverException{
         FileWorker f1 = FileWorker.getInstance();
         if (!f1.isOpened()) {
-            System.out.println("No opened file");
-            return;
+            throw new SaverException("No file is opened");
         }
         if (!isSvgExtension()) {
-            System.out.println("File is not SVG");
-            return;
+            throw new SaverException("Not a Svg file");
         }
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));

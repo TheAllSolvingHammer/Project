@@ -28,6 +28,7 @@ public class OpenFileCommand implements MenuCommand {
         }
         catch (NullPointerException e) {
             System.out.println("Nothing is read!");
+
         }catch (NoSuchElementException e){
             System.out.println("Error in reading file!");
         }

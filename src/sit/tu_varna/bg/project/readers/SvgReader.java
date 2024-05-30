@@ -44,7 +44,12 @@ public class SvgReader {
     public void readAllItems(){
         int startIndex = read.indexOf("<svg");
         int endIndex = read.lastIndexOf("</svg>");
+        if(startIndex == -1 || endIndex == -1){
+            System.out.println("Error in containing tag svg!");
+            return;
+        }
         String[] arr = (read.substring(startIndex, endIndex + 6)).split("\n");
+
 
         for (int i = 1; i < arr.length-1; i++) {
             try {

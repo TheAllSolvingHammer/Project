@@ -42,7 +42,7 @@ public class ShapeManager implements ManageShape {
     @Override
     public void addShape(Shape shape) throws ManagerException {
         if(shape==null){
-            throw new ManagerException("Shape is null");
+            throw new ManagerException("Can not add shape to shape manager");
         }
         shapes.add(shape);
     }

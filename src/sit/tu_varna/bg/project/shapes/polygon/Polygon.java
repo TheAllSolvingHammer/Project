@@ -53,7 +53,7 @@ public class Polygon extends AbstractShape {
 
         }
 
-        sb.delete(sb.length()-1,sb.length());
+        //sb.delete(sb.length()-1,sb.length());
         sb.append("\" />");
         return sb.toString();
     }

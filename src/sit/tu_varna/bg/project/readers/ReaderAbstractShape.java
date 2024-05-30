@@ -1,7 +1,6 @@
 package sit.tu_varna.bg.project.readers;
 
 import sit.tu_varna.bg.project.contracts.ReaderShape;
-import sit.tu_varna.bg.project.enums.NamedColors;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,15 +30,6 @@ public abstract class ReaderAbstractShape implements ReaderShape {
      * @param value параметър за цвета
      * @return истина или лъжа спрямо проверката дали съществува
      */
-    @Override
-    public boolean isValidColor(String value) {
-        try {
-            NamedColors.valueOf(value.toUpperCase());
-            return true;
-        } catch (IllegalArgumentException e) {
-            return false;
-        }
-    }
 
     @Override
     public boolean isValidInteger(String value) {

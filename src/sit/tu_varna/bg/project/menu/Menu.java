@@ -1,12 +1,13 @@
 package sit.tu_varna.bg.project.menu;
 
-import com.sun.corba.se.impl.protocol.InfoOnlyServantCacheLocalCRDImpl;
+
 import sit.tu_varna.bg.project.contracts.MenuCommand;
 import sit.tu_varna.bg.project.enums.CommandEnum;
 import sit.tu_varna.bg.project.menu.commands.*;
 
 import java.util.EnumMap;
 import java.util.Locale;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Scanner;
  */
 public class Menu {
     private EnumMap<CommandEnum, MenuCommand> map;
-    private String command=null;
+    private String command;
 
 
     /**
@@ -40,20 +41,19 @@ public class Menu {
      * стартира команда спрямо това каквъв е бил потребителския избор, ако е грешен се изписва съобщение за грешка
      */
     public void run(){
-        if(command==null || command.isEmpty()){
-            return;
+        try {
+            String normalizedCommand = command.toLowerCase(Locale.ROOT);
+            Scanner scanner = new Scanner(normalizedCommand);
+            scanner.useDelimiter(" ");
+
+            String commandWork = scanner.next();
+            if (map.containsKey(CommandEnum.getEnum(commandWork))) {
+                map.get(CommandEnum.getEnum(commandWork)).execute(command);
+            } else System.out.println("Wrong command");
         }
-        String normalizedCommand = command.toLowerCase(Locale.ROOT);
-        Scanner scanner = new Scanner(normalizedCommand);
-        scanner.useDelimiter(" ");
-        if(!scanner.hasNext()){
-            return;
+        catch (NullPointerException | NoSuchElementException e) {
+            System.out.println("No command found");
         }
-        String commandWork=scanner.next();
-        if(map.containsKey(CommandEnum.getEnum(commandWork))) {
-            map.get(CommandEnum.getEnum(commandWork)).execute(command);
-        }
-        else System.out.println("Wrong command");
     }
 
     public String getCommand() {

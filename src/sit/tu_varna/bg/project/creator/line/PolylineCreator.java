@@ -39,6 +39,9 @@ public class PolylineCreator extends AbstractCreator {
         while(scanner.hasNextInt()){
             array.add(scanner.nextInt());
         }
+        if(array.size()%2==1) {
+            array.remove(array.size() - 1);
+        }
         return new Polyline(fill,strokeWidth,stroke,array);
     }catch (FigureException e){
         System.out.println(e.getMessage());

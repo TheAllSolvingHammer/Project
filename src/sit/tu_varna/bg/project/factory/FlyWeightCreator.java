@@ -49,7 +49,7 @@ public class FlyWeightCreator {
             Figures type;
             type = Figures.valueOf(figure.toUpperCase(Locale.ROOT));
             Map<String, Shape> productMap = products.get(type);
-            Shape c1 = productMap.get(parameters);
+            Shape c1;
             switch (type) {
                 case RECTANGLE: {
                         c1 = new RectangleCreator(parameters).createShape();

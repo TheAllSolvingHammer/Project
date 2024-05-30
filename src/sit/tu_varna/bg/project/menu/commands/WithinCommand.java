@@ -29,19 +29,10 @@ public class WithinCommand implements MenuCommand {
             scanner.next();
             String type = scanner.next();
             if (type.equalsIgnoreCase("circle")) {
-                int x, y, r;
-                x = scanner.nextInt();
-                y = scanner.nextInt();
-                r = scanner.nextInt();
-                CircleRegion region = new CircleRegion(x, y, r);
+                CircleRegion region = new CircleRegion(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
                 list = manageShape.within(region);
             } else if (type.equalsIgnoreCase("rectangle")) {
-                int x, y, w, h;
-                x = scanner.nextInt();
-                y = scanner.nextInt();
-                w = scanner.nextInt();
-                h = scanner.nextInt();
-                RectangleRegion region = new RectangleRegion(x, y, w, h);
+                RectangleRegion region = new RectangleRegion(scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
                 list = manageShape.within(region);
             }
             for (Shape shape : list) {
