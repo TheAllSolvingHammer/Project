@@ -1,6 +1,6 @@
 package sit.tu_varna.bg.project.regions;
 
-import sit.tu_varna.bg.project.exceptions.CreatorException;
+
 import sit.tu_varna.bg.project.exceptions.RegionException;
 
 /**

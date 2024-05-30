@@ -3,7 +3,7 @@ package sit.tu_varna.bg.project.creator;
 import sit.tu_varna.bg.project.contracts.Creator;
 import sit.tu_varna.bg.project.enums.NamedColors;
 import sit.tu_varna.bg.project.exceptions.CreatorException;
-import sit.tu_varna.bg.project.exceptions.FigureException;
+
 
 /**
  * Абстрактен клас за създаване на обекти, който имплементира интерфейса Creator.
