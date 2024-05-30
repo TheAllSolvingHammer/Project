@@ -18,6 +18,7 @@ public class LineCreator extends AbstractCreator {
     /**
      * Конструктор за създаване на обект от класа LineCreator с дадени параметри.
      * @param parameters Параметрите за създаване на обектите.
+     * @throws CreatorException изключение наследено от абстрактния клас
      */
     public LineCreator(String parameters) throws CreatorException {
         super(parameters);

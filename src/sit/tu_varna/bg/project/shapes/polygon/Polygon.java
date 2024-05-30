@@ -141,6 +141,8 @@ public class Polygon extends AbstractShape {
     /**
      * Задава нов списък с кординати за Многоъгълник
      * @param arrayOfCoordinates списък от нови кординати като параметър
+     * @throws FigureException изключение за неправилен вход, в случая празен масив с кординати
+     * @throws IllegalArgumentException изключение за неправилни аргументи
      */
     public void setArrayOfCoordinates(List<Integer> arrayOfCoordinates) throws FigureException,IllegalArgumentException {
         if(arrayOfCoordinates.isEmpty()){

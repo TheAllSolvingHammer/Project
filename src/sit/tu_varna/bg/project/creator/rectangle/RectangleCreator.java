@@ -17,6 +17,7 @@ public class RectangleCreator extends AbstractCreator {
     /**
      * Конструктор за създаване на обект от класа RectangleCreator с дадени параметри.
      * @param parameters Параметрите за създаване на обектите.
+     * @throws CreatorException изключение наследено от абстрактния клас
      */
     public RectangleCreator(String parameters) throws CreatorException {
         super(parameters);

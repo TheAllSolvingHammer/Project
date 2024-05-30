@@ -1,5 +1,6 @@
 package sit.tu_varna.bg.project.regions;
 
+import sit.tu_varna.bg.project.exceptions.CreatorException;
 import sit.tu_varna.bg.project.exceptions.RegionException;
 
 /**
@@ -17,6 +18,7 @@ public class RectangleRegion {
      * @param y Координата Y на горния ляв ъгъл на правоъгълника.
      * @param width Ширината на правоъгълника.
      * @param height Височината на правоъгълника.
+     * @throws RegionException изключение ако се създаде грешен клас
      */
     public RectangleRegion(int x, int y, int width, int height) throws RegionException {
         setX(x);
@@ -36,6 +38,7 @@ public class RectangleRegion {
     /**
      * Задава нова стойност за координатата X на горния ляв ъгъл на правоъгълника.
      * @param x Новата координата X на горния ляв ъгъл на правоъгълника.
+     * @throws RegionException изключение за грешен Х кординат
      */
     public void setX(int x) throws RegionException {
         if (x < 0) {
@@ -55,6 +58,7 @@ public class RectangleRegion {
     /**
      * Задава нова стойност за координатата Y на горния ляв ъгъл на правоъгълника.
      * @param y Новата координата Y на горния ляв ъгъл на правоъгълника.
+     * @throws RegionException изключение за грешен У кординат
      */
     public void setY(int y) throws RegionException {
         if (y < 0) {
@@ -74,6 +78,7 @@ public class RectangleRegion {
     /**
      * Задава нова стойност за ширината на правоъгълника.
      * @param width Новата ширина на правоъгълника.
+     * @throws RegionException изключение за грешна широчина
      */
     public void setWidth(int width) throws RegionException {
         if (width <= 0) {
@@ -93,6 +98,7 @@ public class RectangleRegion {
     /**
      * Задава нова стойност за височината на правоъгълника.
      * @param height Новата височина на правоъгълника.
+     * @throws RegionException изключение за грешна височина
      */
     public void setHeight(int height) throws RegionException{
         if (height < 0) {

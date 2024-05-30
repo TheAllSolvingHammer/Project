@@ -18,6 +18,7 @@ public class CircleCreator extends AbstractCreator {
     /**
      * Конструктор за създаване на обект от класа CircleCreator с дадени параметри.
      * @param parameters Параметрите за създаване на обектите.
+     * @throws CreatorException изключение наследено от абстрактния клас
      */
     public CircleCreator(String parameters) throws CreatorException {
         super(parameters);

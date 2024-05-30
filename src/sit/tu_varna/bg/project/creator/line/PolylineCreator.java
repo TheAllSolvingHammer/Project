@@ -17,6 +17,7 @@ public class PolylineCreator extends AbstractCreator {
     /**
      * Конструктор за създаване на обект от класа PolylineCreator с дадени параметри.
      * @param parameters Параметрите за създаване на обектите.
+     * @throws CreatorException изключение наследено от абстрактния клас
      */
     public PolylineCreator(String parameters) throws CreatorException {
         super(parameters);

@@ -18,6 +18,7 @@ public abstract class AbstractShape implements Shape {
      * @param fill - запълване на дадената фигура
      * @param strokeWidth - дебелина на линията описваща фигурата
      * @param stroke - цвят на линията
+     * @throws FigureException след изпълнение на всички сетъри за да не създаде обект с грешни данни
      */
     public AbstractShape(NamedColors fill, int strokeWidth, NamedColors stroke) throws FigureException {
         setFill(fill);
@@ -79,7 +80,10 @@ public abstract class AbstractShape implements Shape {
 
     /**
      * Метод за задаване на дебелина на линията на фигурата.
-     * @param strokeWidth - новата дебелина на линията
+     * @param strokeWidth новата дебелина на линията
+     * @throws IllegalArgumentException изключение ако има грешен вход
+     * @throws FigureException зададено изключение за грешни входни данни за фигура, които
+     * не съответсват на дадения диапазон
      */
     public void setStrokeWidth(int strokeWidth) throws IllegalArgumentException ,FigureException {
         if(strokeWidth<0){

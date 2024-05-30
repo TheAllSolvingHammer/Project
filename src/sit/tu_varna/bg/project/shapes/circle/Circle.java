@@ -1,6 +1,7 @@
 package sit.tu_varna.bg.project.shapes.circle;
 
 import sit.tu_varna.bg.project.enums.NamedColors;
+import sit.tu_varna.bg.project.exceptions.CreatorException;
 import sit.tu_varna.bg.project.exceptions.FigureException;
 import sit.tu_varna.bg.project.regions.CircleRegion;
 import sit.tu_varna.bg.project.regions.RectangleRegion;
@@ -22,6 +23,8 @@ public class Circle extends AbstractShape {
      * @param centerX - Х център на окръжността
      * @param centerY - У център на окръжността
      * @param radius - радиус на окръжността
+     * @throws FigureException изключение в случай че се въведе грешна фигура
+
      */
     public Circle(NamedColors fill, int strokeWidth, NamedColors stroke,int centerX, int centerY, int radius) throws FigureException {
         super(fill, strokeWidth, stroke);
@@ -117,6 +120,8 @@ public class Circle extends AbstractShape {
     /**
      * Задава координатата X на центъра на кръга.
      * @param centerX Новата координата X на центъра на кръга.
+     * @throws FigureException изключение за грешен Х кординат
+     * @throws IllegalArgumentException изключение за грешен вход
      */
     public void setCenterX(int centerX) throws IllegalArgumentException, FigureException {
         if (centerX < 0) {
@@ -136,6 +141,8 @@ public class Circle extends AbstractShape {
     /**
      * Задава координатата Y на центъра на кръга.
      * @param centerY Новата координата Y на центъра на кръга.
+     * @throws FigureException изключение за грешен У кординат
+     * @throws IllegalArgumentException изключение за грешен вход
      */
     public void setCenterY(int centerY) throws IllegalArgumentException, FigureException {
         if (centerX < 0) {

@@ -17,6 +17,7 @@ public class EllipseCreator extends AbstractCreator {
     /**
      * Конструктор за създаване на обект от класа EllipseCreator с дадени параметри.
      * @param parameters Параметрите за създаване на обектите.
+     * @throws CreatorException изключение наследено от абстрактния клас
      */
     public EllipseCreator(String parameters) throws CreatorException {
         super(parameters);
