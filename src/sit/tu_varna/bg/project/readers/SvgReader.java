@@ -42,6 +42,9 @@ public class SvgReader {
      * Прочита всички дъжерни тагове на SVG
      */
     public void readAllItems(){
+        if(read==null || read.isEmpty()){
+            return;
+        }
         int startIndex = read.indexOf("<svg");
         int endIndex = read.lastIndexOf("</svg>");
         if(startIndex == -1 || endIndex == -1){

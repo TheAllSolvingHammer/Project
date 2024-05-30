@@ -32,5 +32,7 @@ public class OpenFileCommand implements MenuCommand {
         }catch (NoSuchElementException e){
             System.out.println("Error in reading file!");
         }
+
+
     }
 }
