@@ -27,7 +27,8 @@ public class TranslateCommand implements MenuCommand {
         if(!scanner.hasNextInt()){
             manageShape.translate(x,y);
         }
-        manageShape.translate(x,y,scanner.nextInt());
+        else
+            manageShape.translate(x,y,scanner.nextInt());
         } catch (ManagerException e) {
             System.out.println(e.getMessage());
         }catch (InputMismatchException e){
