@@ -72,7 +72,7 @@ public class ShapeManager implements ManageShape {
     public List<Shape> within(RectangleRegion region) {
         List<Shape> withinShapes = new ArrayList<>();
         for(Shape s: shapes){
-            if(s!=null && s.isWithin(region)){
+            if( s.isWithin(region)){
                 withinShapes.add(s);
             }
         }
@@ -87,7 +87,7 @@ public class ShapeManager implements ManageShape {
     public List<Shape> within(CircleRegion region) {
         List<Shape> withinShapes = new ArrayList<>();
         for(Shape s: shapes){
-            if(s!=null &&s.isWithin(region)){
+            if(s.isWithin(region)){
                 withinShapes.add(s);
             }
         }

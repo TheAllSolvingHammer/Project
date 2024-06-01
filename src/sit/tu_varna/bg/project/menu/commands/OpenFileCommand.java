@@ -1,6 +1,8 @@
 package sit.tu_varna.bg.project.menu.commands;
 
 import sit.tu_varna.bg.project.contracts.MenuCommand;
+import sit.tu_varna.bg.project.exceptions.FileWorkerException;
+import sit.tu_varna.bg.project.exceptions.ReaderException;
 import sit.tu_varna.bg.project.file.FileWorker;
 import sit.tu_varna.bg.project.readers.SvgReader;
 
@@ -31,6 +33,8 @@ public class OpenFileCommand implements MenuCommand {
 
         }catch (NoSuchElementException e){
             System.out.println("Error in reading file!");
+        } catch (ReaderException | FileWorkerException e) {
+            System.out.println(e.getMessage());
         }
 
 

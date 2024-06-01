@@ -1,6 +1,7 @@
 package sit.tu_varna.bg.project.file;
 
 import sit.tu_varna.bg.project.contracts.FileInterface;
+import sit.tu_varna.bg.project.exceptions.FileWorkerException;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -36,10 +37,9 @@ public class FileWorker implements FileInterface {
      * Метод който отваря файл, ако разширението му е .svg. Ако не намери такъв файл, създава нов с подаденото име от потребителя
      */
     @Override
-    public void open() {
+    public void open() throws FileWorkerException {
         if(!isSvgExtension()){
-            System.out.println("File is not svg");
-            return;
+            throw new FileWorkerException("File is not svg");
         }
         try {
             File file = new File(path);
@@ -67,10 +67,10 @@ public class FileWorker implements FileInterface {
      * да бъде използван самосйтоятелно като мето.
      */
     @Override
-    public void read() {
+    public void read() throws FileWorkerException {
         if(!opened){
-            System.out.println("No file is opened!");
-            return;
+            throw new FileWorkerException("No file is opened!");
+
         }
         try  {
             BufferedReader reader = new BufferedReader(new FileReader(path));
@@ -91,13 +91,13 @@ public class FileWorker implements FileInterface {
      * Метод който затваря файла. В същото време изтрива инстанцията на този клас
      */
     @Override
-    public synchronized void close(){
-        if(opened) {
-            System.out.println("Closing file!");
-            instance=null;
-            opened = false;
+    public synchronized void close() throws FileWorkerException{
+        if(!opened) {
+            throw new FileWorkerException("No file is opened to be closed!");
         }
-        else System.out.println("No file is opened to be closed!");
+        System.out.println("Closing file!");
+        instance=null;
+        opened = false;
     }
 
     /**

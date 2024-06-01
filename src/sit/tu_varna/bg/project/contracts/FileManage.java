@@ -1,10 +1,10 @@
 package sit.tu_varna.bg.project.contracts;
 
 
-import sit.tu_varna.bg.project.exceptions.SaverException;
+import sit.tu_varna.bg.project.exceptions.FileWorkerException;
 
 public interface FileManage {
-    void execute() throws SaverException;
+    void execute() throws FileWorkerException;
     boolean isSvgExtension();
 
 }

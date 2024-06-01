@@ -4,7 +4,7 @@ import sit.tu_varna.bg.project.complete.SvgParseString;
 import sit.tu_varna.bg.project.contracts.FileManage;
 import sit.tu_varna.bg.project.contracts.MenuCommand;
 import sit.tu_varna.bg.project.contracts.Parser;
-import sit.tu_varna.bg.project.exceptions.SaverException;
+import sit.tu_varna.bg.project.exceptions.FileWorkerException;
 import sit.tu_varna.bg.project.file.FileWorker;
 import sit.tu_varna.bg.project.file.write.SaveFile;
 import sit.tu_varna.bg.project.shapes.ShapeManager;
@@ -28,7 +28,7 @@ public class SaveCommand implements MenuCommand {
             FileManage saver = new SaveFile(path, content);
             saver.execute();
         }
-        catch (SaverException e) {
+        catch (FileWorkerException e) {
             System.out.println(e.getMessage());
         }
 

@@ -4,6 +4,7 @@ import sit.tu_varna.bg.project.contracts.ManageShape;
 import sit.tu_varna.bg.project.contracts.ReaderShape;
 import sit.tu_varna.bg.project.contracts.Shape;
 import sit.tu_varna.bg.project.exceptions.ManagerException;
+import sit.tu_varna.bg.project.exceptions.ReaderException;
 import sit.tu_varna.bg.project.factory.FlyWeightCreator;
 import sit.tu_varna.bg.project.readers.circle.CircleReaderShape;
 import sit.tu_varna.bg.project.readers.ellipse.EllipseReaderShape;
@@ -41,27 +42,25 @@ public class SvgReader {
     /**
      * Прочита всички дъжерни тагове на SVG
      */
-    public void readAllItems(){
-        if(read==null || read.isEmpty()){
-            return;
-        }
+    public void readAllItems() throws ReaderException {
+
         int startIndex = read.indexOf("<svg");
         int endIndex = read.lastIndexOf("</svg>");
         if(startIndex == -1 || endIndex == -1){
-            System.out.println("Error in containing tag svg!");
-            return;
+            throw new ReaderException("Error in containing tag svg!");
         }
+
         String[] arr = (read.substring(startIndex, endIndex + 6)).split("\n");
-
-
         for (int i = 1; i < arr.length-1; i++) {
-            try {
+            try{
                 checkFigure(arr[i]);
-            }catch (StringIndexOutOfBoundsException |ManagerException e) {
+            } catch (StringIndexOutOfBoundsException | ManagerException e) {
                 System.out.println(e.getMessage());
-            }
         }
-        System.out.println("All possible figures are read!");
+
+
+    }
+
     }
     /**
      * Проверява дали тагът за сигура съответства
@@ -82,6 +81,5 @@ public class SvgReader {
             Shape shape =f1.getProduct(s2,s3);
             manageShape.addShape(shape);
         }
-
     }
 }
